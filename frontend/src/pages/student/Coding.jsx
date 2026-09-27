@@ -6,7 +6,7 @@ import LoadingSpinner from '../../components/LoadingSpinner';
 import EmptyState from '../../components/EmptyState';
 import MultiLanguageRunner from '../../components/MultiLanguageRunner';
 import {
-  Code2, Terminal, CheckCircle, Search, Filter,
+  Code2, Terminal, CheckCircle, CheckCircle2, Search, Filter,
   ArrowRight, Sparkles, Trophy, Cpu, Play, Layers,
   Flame, Zap, Laptop
 } from 'lucide-react';
@@ -23,6 +23,36 @@ const Coding = () => {
   const [selectedDifficulty, setSelectedDifficulty] = useState('');
   const [selectedStatus, setSelectedStatus] = useState('');
 
+  const [localSolvedMap, setLocalSolvedMap] = useState(() => {
+    try {
+      const saved = localStorage.getItem('placement_dsa_solved_map');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  useEffect(() => {
+    const handleSyncSolved = (e) => {
+      const pId = e.detail?.problemId;
+      if (pId) {
+        setLocalSolvedMap((prev) => ({ ...prev, [pId]: true }));
+      } else {
+        try {
+          const saved = localStorage.getItem('placement_dsa_solved_map');
+          setLocalSolvedMap(saved ? JSON.parse(saved) : {});
+        } catch {}
+      }
+    };
+
+    window.addEventListener('dsa_problem_solved', handleSyncSolved);
+    window.addEventListener('storage', handleSyncSolved);
+    return () => {
+      window.removeEventListener('dsa_problem_solved', handleSyncSolved);
+      window.removeEventListener('storage', handleSyncSolved);
+    };
+  }, []);
+
   useEffect(() => {
     fetchProblems();
   }, [selectedDifficulty, selectedStatus]);
@@ -30,13 +60,15 @@ const Coding = () => {
   const fetchProblems = async () => {
     try {
       setLoading(true);
-      const params = {};
+      const params = { page_size: 100 };
       if (selectedDifficulty) params.difficulty = selectedDifficulty;
       if (selectedStatus) params.status = selectedStatus;
       if (search) params.search = search;
 
       const res = await codingService.getProblems(params);
-      setProblems(res.data.results || res.data);
+      const raw = (res.data.results || res.data || []).slice();
+      raw.sort((a, b) => Number(a.id || 0) - Number(b.id || 0));
+      setProblems(raw);
     } catch (err) {
       console.error('Error fetching coding problems:', err);
     } finally {
@@ -49,7 +81,7 @@ const Coding = () => {
     fetchProblems();
   };
 
-  const solvedCount = problems.filter((p) => p.is_solved).length;
+  const solvedCount = problems.filter((p) => p.is_solved || Boolean(localSolvedMap[p.id])).length;
 
   const [generatingAI, setGeneratingAI] = useState(false);
 
@@ -88,6 +120,9 @@ const Coding = () => {
   ];
 
   const displayedProblems = problems.filter((p) => {
+    const isProblemSolved = p.is_solved || Boolean(localSolvedMap[p.id]);
+    if (selectedStatus === 'SOLVED' && !isProblemSolved) return false;
+    if (selectedStatus === 'UNSOLVED' && isProblemSolved) return false;
     if (selectedTopic !== 'ALL') {
       const pTags = (p.tags || []).map((t) => String(t).toUpperCase());
       const pTitle = (p.title || '').toUpperCase();
@@ -305,58 +340,76 @@ const Coding = () => {
             />
           ) : (
             <div className="space-y-3">
-              {displayedProblems.map((problem) => (
-                <div
-                  key={problem.id}
-                  onClick={() => navigate(`/coding/${problem.id}`)}
-                  className="rounded-xl border border-slate-800 bg-slate-900/90 p-5 shadow-lg flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-blue-500/40 hover:bg-slate-800/40 transition-all duration-200 cursor-pointer group"
-                >
-                  <div className="space-y-1.5 flex-1">
-                    <div className="flex items-center gap-2">
-                      <Badge variant={problem.difficulty} size="xs">
-                        {problem.difficulty}
-                      </Badge>
-                      {problem.is_solved && (
-                        <span className="flex items-center gap-1 text-[11px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                          <CheckCircle className="h-3.5 w-3.5" /> Solved
+              {displayedProblems.map((problem) => {
+                const isProblemSolved = problem.is_solved || Boolean(localSolvedMap[problem.id]);
+                return (
+                  <div
+                    key={problem.id}
+                    onClick={() => navigate(`/coding/${problem.id}`)}
+                    className={`rounded-xl border p-5 shadow-lg flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 cursor-pointer group ${
+                      isProblemSolved
+                        ? 'border-emerald-500/35 bg-slate-900/95 hover:border-emerald-500/60 shadow-emerald-950/20'
+                        : 'border-slate-800 bg-slate-900/90 hover:border-blue-500/40 hover:bg-slate-800/40'
+                    }`}
+                  >
+                    <div className="space-y-1.5 flex-1">
+                      <div className="flex items-center gap-2">
+                        <Badge variant={problem.difficulty} size="xs">
+                          {problem.difficulty}
+                        </Badge>
+                        {isProblemSolved && (
+                          <span className="flex items-center gap-1.5 text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2.5 py-0.5 rounded-full border border-emerald-500/30 shadow-sm animate-fade-in">
+                            <CheckCircle2 className="h-3.5 w-3.5 fill-emerald-500/20 text-emerald-400" /> Solved
+                          </span>
+                        )}
+                        <span className="text-xs text-slate-400">• {problem.points || 50} pts</span>
+                      </div>
+
+                      <h3 className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors flex items-center gap-2">
+                        <span className={`text-xs font-mono font-bold px-2 py-0.5 rounded border ${
+                          isProblemSolved
+                            ? 'text-emerald-300 bg-emerald-950/40 border-emerald-500/30'
+                            : 'text-slate-400 bg-slate-800 border-slate-700/60'
+                        }`}>
+                          #{problem.id}
                         </span>
+                        <span>{problem.title}</span>
+                      </h3>
+
+                      {/* Tags */}
+                      {problem.tags && (
+                        <div className="flex flex-wrap gap-1.5 pt-1">
+                          {problem.tags.map((tag, i) => (
+                            <span
+                              key={i}
+                              className="px-2 py-0.5 rounded-md bg-slate-800/80 text-[10px] font-medium text-slate-300 border border-slate-700/50"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
                       )}
-                      <span className="text-xs text-slate-400">• {problem.points || 50} pts</span>
                     </div>
 
-                    <h3 className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">
-                      {problem.title}
-                    </h3>
-
-                    {/* Tags */}
-                    {problem.tags && (
-                      <div className="flex flex-wrap gap-1.5 pt-1">
-                        {problem.tags.map((tag, i) => (
-                          <span
-                            key={i}
-                            className="px-2 py-0.5 rounded-md bg-slate-800/80 text-[10px] font-medium text-slate-300 border border-slate-700/50"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    )}
+                    <div className="flex items-center gap-3 self-end sm:self-center">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigate(`/coding/${problem.id}`);
+                        }}
+                        className={`px-4 py-2 rounded-xl text-xs font-bold shadow-md transition-all flex items-center gap-1.5 cursor-pointer active:scale-95 ${
+                          isProblemSolved
+                            ? 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-600/20'
+                            : 'bg-blue-600 hover:bg-blue-500 text-white shadow-blue-600/25'
+                        }`}
+                      >
+                        <span>{isProblemSolved ? 'Practice Again' : 'Solve Problem'}</span>
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </button>
+                    </div>
                   </div>
-
-                  <div className="flex items-center gap-3 self-end sm:self-center">
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        navigate(`/coding/${problem.id}`);
-                      }}
-                      className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold shadow-md shadow-blue-600/25 transition-all flex items-center gap-1.5 cursor-pointer active:scale-95"
-                    >
-                      <span>{problem.is_solved ? 'Practice Again' : 'Solve Problem'}</span>
-                      <ArrowRight className="h-3.5 w-3.5" />
-                    </button>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           )}
         </>

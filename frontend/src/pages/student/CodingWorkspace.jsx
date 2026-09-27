@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Editor from '@monaco-editor/react';
 import { codingService } from '../../api/services';
@@ -6,7 +6,8 @@ import Badge from '../../components/Badge';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import {
   Play, Send, ArrowLeft, CheckCircle2, XCircle,
-  Terminal, History, Settings, RefreshCw, Sparkles, Check, AlertTriangle
+  Terminal, History, Settings, RefreshCw, Sparkles, Check, AlertTriangle,
+  LogOut, AlertCircle, ShieldAlert
 } from 'lucide-react';
 
 import { SUPPORTED_LANGUAGES } from '../../components/MultiLanguageRunner';
@@ -38,9 +39,86 @@ const CodingWorkspace = () => {
   const [submissionResult, setSubmissionResult] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Quit Confirmation State
+  const [showQuitModal, setShowQuitModal] = useState(false);
+  const [pendingNavPath, setPendingNavPath] = useState(null);
+
+  // Anti-Copy Toast Warning State
+  const [copyWarning, setCopyWarning] = useState(null);
+  const copyWarningTimeoutRef = useRef(null);
+
+  const showCopyBlockedWarning = (msg = 'Problem description cannot be copied.') => {
+    if (copyWarningTimeoutRef.current) clearTimeout(copyWarningTimeoutRef.current);
+    setCopyWarning(msg);
+    copyWarningTimeoutRef.current = setTimeout(() => setCopyWarning(null), 2500);
+  };
+
   useEffect(() => {
     fetchProblemDetails();
   }, [problemId]);
+
+  // Intercept navigation, browser back button, and page reload when coding
+  useEffect(() => {
+    if (loading || !problem) return;
+
+    // 1. Prevent accidental page reload or tab close
+    const handleBeforeUnload = (e) => {
+      e.preventDefault();
+      e.returnValue = '';
+      return '';
+    };
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    // 2. Intercept browser Back button
+    window.history.pushState(null, document.title, window.location.href);
+    const handlePopState = () => {
+      window.history.pushState(null, document.title, window.location.href);
+      setPendingNavPath('/coding');
+      setShowQuitModal(true);
+    };
+    window.addEventListener('popstate', handlePopState);
+
+    // 3. Intercept sidebar & navbar link clicks during coding
+    const handleDocumentClick = (e) => {
+      const link = e.target.closest('a');
+      if (link && link.href) {
+        try {
+          const url = new URL(link.href, window.location.origin);
+          if (url.origin === window.location.origin && !url.pathname.startsWith('/coding/')) {
+            e.preventDefault();
+            e.stopPropagation();
+            setPendingNavPath(url.pathname);
+            setShowQuitModal(true);
+          }
+        } catch {
+          // ignore invalid URLs
+        }
+      }
+    };
+    document.addEventListener('click', handleDocumentClick, true);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+      window.removeEventListener('popstate', handlePopState);
+      document.removeEventListener('click', handleDocumentClick, true);
+    };
+  }, [loading, problem]);
+
+  const handleConfirmQuit = () => {
+    const dest = pendingNavPath || '/coding';
+    setShowQuitModal(false);
+    navigate(dest);
+  };
+
+  const handleCancelQuit = () => {
+    setPendingNavPath(null);
+    setShowQuitModal(false);
+  };
+
+  const handleTriggerQuit = (dest = '/coding') => {
+    setPendingNavPath(dest);
+    setShowQuitModal(true);
+  };
 
   useEffect(() => {
     if (problem && problem.starter_code) {
@@ -52,7 +130,13 @@ const CodingWorkspace = () => {
     try {
       setLoading(true);
       const res = await codingService.getProblemDetail(problemId);
-      setProblem(res.data);
+      const isLocalSolved = Boolean(
+        JSON.parse(localStorage.getItem('placement_dsa_solved_map') || '{}')[problemId]
+      );
+      setProblem({
+        ...res.data,
+        is_solved: res.data.is_solved || isLocalSolved,
+      });
       if (res.data.starter_code?.[language]) {
         setCode(res.data.starter_code[language]);
       }
@@ -113,8 +197,22 @@ const CodingWorkspace = () => {
         language,
       });
       setSubmissionResult(res.data);
-      if (res.data.status === 'ACCEPTED') {
+      const isAccepted =
+        res.data.status === 'ACCEPTED' ||
+        (res.data.passed_test_cases &&
+          res.data.total_test_cases &&
+          res.data.passed_test_cases === res.data.total_test_cases);
+
+      if (isAccepted) {
         setProblem((prev) => ({ ...prev, is_solved: true }));
+        try {
+          const saved = JSON.parse(localStorage.getItem('placement_dsa_solved_map') || '{}');
+          saved[problemId] = true;
+          localStorage.setItem('placement_dsa_solved_map', JSON.stringify(saved));
+          window.dispatchEvent(new CustomEvent('dsa_problem_solved', { detail: { problemId } }));
+        } catch (e) {
+          console.error('Failed to update placement_dsa_solved_map', e);
+        }
       }
       loadSubmissions();
     } catch (err) {
@@ -175,12 +273,27 @@ const CodingWorkspace = () => {
 
   return (
     <div className="h-[calc(100vh-6rem)] flex flex-col space-y-3 animate-fade-in">
+      {/* Floating Security Warning Toast */}
+      {copyWarning && (
+        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 px-5 py-3 rounded-2xl bg-rose-950/95 border border-rose-500/60 text-white shadow-2xl shadow-rose-950/70 backdrop-blur-xl animate-fade-in transition-all">
+          <div className="p-1.5 rounded-xl bg-rose-600/30 text-rose-400 border border-rose-500/40">
+            <ShieldAlert className="h-5 w-5 animate-pulse" />
+          </div>
+          <div>
+            <p className="text-xs font-bold text-rose-200">Security Restriction</p>
+            <p className="text-[11px] text-rose-300 font-medium">{copyWarning}</p>
+          </div>
+        </div>
+      )}
+
       {/* Top action bar */}
       <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-2xl border border-slate-800 bg-slate-900/90 shadow-md">
         <div className="flex items-center gap-3">
           <button
-            onClick={() => navigate('/coding')}
+            type="button"
+            onClick={() => handleTriggerQuit('/coding')}
             className="p-1.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-colors cursor-pointer"
+            title="Exit Problem"
           >
             <ArrowLeft className="h-4 w-4" />
           </button>
@@ -192,8 +305,8 @@ const CodingWorkspace = () => {
               {problem.difficulty}
             </Badge>
             {problem.is_solved && (
-              <span className="flex items-center gap-1 text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                <Check className="h-3 w-3" /> Solved
+              <span className="flex items-center gap-1 text-[11px] font-bold text-emerald-400 bg-emerald-500/15 px-2.5 py-0.5 rounded-full border border-emerald-500/30 shadow-sm animate-fade-in">
+                <CheckCircle2 className="h-3.5 w-3.5 fill-emerald-500/20" /> Solved
               </span>
             )}
           </div>
@@ -259,6 +372,16 @@ const CodingWorkspace = () => {
             )}
             <span>Submit Solution</span>
           </button>
+
+          <button
+            type="button"
+            onClick={() => handleTriggerQuit('/coding')}
+            className="px-3 py-1.5 rounded-xl border border-rose-500/40 bg-rose-500/10 hover:bg-rose-600 text-rose-300 hover:text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer active:scale-95 shadow-sm"
+            title="Quit Practice"
+          >
+            <LogOut className="h-3.5 w-3.5" />
+            <span>Quit</span>
+          </button>
         </div>
       </div>
 
@@ -294,7 +417,29 @@ const CodingWorkspace = () => {
           </div>
 
           {/* Tab Content */}
-          <div className="p-5 overflow-y-auto flex-1 space-y-4 text-xs">
+          <div
+            className={`p-5 overflow-y-auto flex-1 space-y-4 text-xs ${
+              activeTab === 'description' ? 'select-none test-anti-copy' : ''
+            }`}
+            style={activeTab === 'description' ? { userSelect: 'none', WebkitUserSelect: 'none' } : undefined}
+            onCopy={
+              activeTab === 'description'
+                ? (e) => {
+                    e.preventDefault();
+                    if (e.clipboardData) e.clipboardData.setData('text/plain', '');
+                    showCopyBlockedWarning('Problem statement copy karna allowed nahi hai!');
+                  }
+                : undefined
+            }
+            onContextMenu={
+              activeTab === 'description'
+                ? (e) => {
+                    e.preventDefault();
+                    showCopyBlockedWarning('Right-click problem description par disabled hai!');
+                  }
+                : undefined
+            }
+          >
             {activeTab === 'description' ? (
               <>
                 <div className="prose prose-invert max-w-none">
@@ -466,6 +611,20 @@ const CodingWorkspace = () => {
                   {/* Submission outcome */}
                   {submissionResult && (
                     <div className="p-3 rounded-xl border border-slate-800 bg-slate-900 space-y-2">
+                      {(submissionResult.status === 'ACCEPTED' ||
+                        (submissionResult.passed_test_cases &&
+                          submissionResult.passed_test_cases === submissionResult.total_test_cases)) && (
+                        <div className="p-3 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 flex items-center justify-between shadow-sm animate-fade-in">
+                          <div className="flex items-center gap-2 font-bold text-xs">
+                            <CheckCircle2 className="h-5 w-5 text-emerald-400 fill-emerald-500/20 shrink-0" />
+                            <span>Accepted! Question solved with automatic green tick.</span>
+                          </div>
+                          <span className="text-[11px] font-mono font-bold bg-emerald-500/20 px-2 py-0.5 rounded text-emerald-200">
+                            {submissionResult.passed_test_cases} / {submissionResult.total_test_cases} Passed
+                          </span>
+                        </div>
+                      )}
+
                       <div className="flex items-center justify-between">
                         <Badge variant={submissionResult.status} size="sm">
                           {submissionResult.status}
@@ -556,6 +715,48 @@ const CodingWorkspace = () => {
           </div>
         </div>
       </div>
+
+      {/* Quit Practice Confirmation Modal */}
+      {showQuitModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-fade-in">
+          <div className="relative z-10 w-full max-w-md rounded-2xl border border-rose-500/40 bg-slate-900 p-6 shadow-2xl space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-400 shrink-0">
+                <AlertCircle className="h-6 w-6" />
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-white tracking-tight">Quit Coding Practice?</h3>
+                <p className="text-xs text-slate-400">Are you sure you want to leave this problem?</p>
+              </div>
+            </div>
+
+            <div className="rounded-xl bg-slate-950/70 border border-slate-800/80 p-3.5 flex items-center justify-between text-xs text-slate-300">
+              <span className="text-slate-400">Problem:</span>
+              <span className="font-bold text-white truncate max-w-[220px]">
+                {problem?.title}
+              </span>
+            </div>
+
+            <div className="flex items-center justify-end gap-3 pt-2">
+              <button
+                type="button"
+                onClick={handleCancelQuit}
+                className="px-4 py-2 text-xs font-semibold text-slate-300 bg-slate-800 hover:bg-slate-700 rounded-xl transition-colors cursor-pointer"
+              >
+                Continue Coding
+              </button>
+              <button
+                type="button"
+                onClick={handleConfirmQuit}
+                className="px-4 py-2 text-xs font-bold text-white bg-rose-600 hover:bg-rose-500 rounded-xl transition-all flex items-center gap-1.5 shadow-lg shadow-rose-600/25 cursor-pointer active:scale-95"
+              >
+                <LogOut className="h-3.5 w-3.5" />
+                <span>Yes, Quit</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

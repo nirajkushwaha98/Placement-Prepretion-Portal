@@ -74,6 +74,15 @@ const MockInterview = () => {
     }
   };
 
+  const handleBack = () => {
+    if (studentAnswer.trim() && !evaluationResult) {
+      if (!window.confirm('Are you sure you want to leave this session? Your written answer will not be saved.')) {
+        return;
+      }
+    }
+    navigate('/interview');
+  };
+
   const formatTimer = (seconds) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
@@ -106,7 +115,7 @@ const MockInterview = () => {
       <div className="flex items-center justify-between p-4 rounded-2xl border border-slate-800 bg-slate-900/90 shadow-xl">
         <div className="flex items-center gap-3">
           <button
-            onClick={() => navigate('/interview')}
+            onClick={handleBack}
             className="p-1.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-colors cursor-pointer"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -128,7 +137,7 @@ const MockInterview = () => {
       </div>
 
       {/* Question Card */}
-      <div className="rounded-2xl border border-purple-500/30 bg-gradient-to-r from-purple-950/30 via-slate-900 to-slate-900 p-6 shadow-xl space-y-3">
+      <div className="rounded-2xl border border-purple-500/30 bg-gradient-to-r from-purple-950/30 via-slate-900 to-slate-900 p-6 shadow-xl space-y-3 select-none test-anti-copy">
         <div className="flex items-center gap-2">
           <Badge variant={question.difficulty} size="xs">
             {question.difficulty}
@@ -136,7 +145,10 @@ const MockInterview = () => {
           <span className="text-xs text-slate-400">Target Role Question</span>
         </div>
 
-        <h1 className="text-lg sm:text-xl font-bold text-white leading-relaxed">
+        <h1
+          className="text-lg sm:text-xl font-bold text-white leading-relaxed cursor-default select-none test-anti-copy"
+          style={{ userSelect: 'none', WebkitUserSelect: 'none' }}
+        >
           "{question.question}"
         </h1>
 

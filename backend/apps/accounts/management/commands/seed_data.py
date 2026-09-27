@@ -119,11 +119,11 @@ class Command(BaseCommand):
             {
                 'cat': 'quantitative-aptitude',
                 'topic': 'Profit and Loss',
-                'text': 'A trader sells an article for $480 incurring a loss of 20%. At what price should he sell it to gain 20%?',
-                'options': ['$600', '$720', '$680', '$750'],
+                'text': 'A trader sells an article for ₹480 incurring a loss of 20%. At what price should he sell it to gain 20%?',
+                'options': ['₹600', '₹720', '₹680', '₹750'],
                 'correct': 1,
                 'difficulty': 'MEDIUM',
-                'explanation': 'Cost Price (CP) = 480 / (1 - 0.20) = 480 / 0.8 = $600. To gain 20%, Selling Price (SP) = 600 * 1.20 = $720.'
+                'explanation': 'Cost Price (CP) = 480 / (1 - 0.20) = 480 / 0.8 = ₹600. To gain 20%, Selling Price (SP) = 600 * 1.20 = ₹720.'
             },
             {
                 'cat': 'quantitative-aptitude',
@@ -164,11 +164,11 @@ class Command(BaseCommand):
             {
                 'cat': 'quantitative-aptitude',
                 'topic': 'Simple and Compound Interest',
-                'text': 'What is the compound interest on $10,000 for 2 years at 10% per annum compounded annually?',
-                'options': ['$2,000', '$2,100', '$2,200', '$1,900'],
+                'text': 'What is the compound interest on ₹10,000 for 2 years at 10% per annum compounded annually?',
+                'options': ['₹2,000', '₹2,100', '₹2,200', '₹1,900'],
                 'correct': 1,
                 'difficulty': 'EASY',
-                'explanation': 'A = P(1 + r/100)^t = 10000(1 + 0.1)^2 = 10000 * 1.21 = $12,100. CI = A - P = $2,100.'
+                'explanation': 'A = P(1 + r/100)^t = 10000(1 + 0.1)^2 = 10000 * 1.21 = ₹12,100. CI = A - P = ₹2,100.'
             },
             {
                 'cat': 'quantitative-aptitude',
@@ -314,7 +314,7 @@ class Command(BaseCommand):
             {
                 'cat': 'data-interpretation',
                 'topic': 'Bar Charts',
-                'text': 'Company revenue over 4 years: 2021: $40M, 2022: $50M, 2023: $65M, 2024: $80M. What is the compound annual percentage increase from 2021 to 2024?',
+                'text': 'Company revenue over 4 years: 2021: ₹40 Cr, 2022: ₹50 Cr, 2023: ₹65 Cr, 2024: ₹80 Cr. What is the compound annual percentage increase from 2021 to 2024?',
                 'options': ['100%', '80%', '50%', '120%'],
                 'correct': 0,
                 'difficulty': 'MEDIUM',
@@ -323,20 +323,20 @@ class Command(BaseCommand):
             {
                 'cat': 'data-interpretation',
                 'topic': 'Pie Charts',
-                'text': 'A student budget pie chart shows: Tuition 40%, Housing 25%, Food 15%, Books 10%, Entertainment 10%. If total expenditure is $20,000, what is the combined amount spent on Housing and Food?',
-                'options': ['$6,000', '$8,000', '$7,500', '$9,000'],
+                'text': 'A student budget pie chart shows: Tuition 40%, Housing 25%, Food 15%, Books 10%, Entertainment 10%. If total expenditure is ₹20,000, what is the combined amount spent on Housing and Food?',
+                'options': ['₹6,000', '₹8,000', '₹7,500', '₹9,000'],
                 'correct': 1,
                 'difficulty': 'EASY',
-                'explanation': 'Housing (25%) + Food (15%) = 40% of total budget. 40% of $20,000 = 0.40 * 20000 = $8,000.'
+                'explanation': 'Housing (25%) + Food (15%) = 40% of total budget. 40% of ₹20,000 = 0.40 * 20000 = ₹8,000.'
             },
             {
                 'cat': 'data-interpretation',
                 'topic': 'Tabular Data',
-                'text': 'Table of Sales: Product A sold 120 units at $15/unit. Product B sold 80 units at $25/unit. Product C sold 50 units at $40/unit. Which product generated the highest revenue?',
+                'text': 'Table of Sales: Product A sold 120 units at ₹15/unit. Product B sold 80 units at ₹25/unit. Product C sold 50 units at ₹40/unit. Which product generated the highest revenue?',
                 'options': ['Product A', 'Product B', 'Product C', 'Products B and C tied'],
                 'correct': 3,
                 'difficulty': 'MEDIUM',
-                'explanation': 'Revenue A = 120 * 15 = $1800. Revenue B = 80 * 25 = $2000. Revenue C = 50 * 40 = $2000. Products B and C generated equal highest revenue of $2000.'
+                'explanation': 'Revenue A = 120 * 15 = ₹1,800. Revenue B = 80 * 25 = ₹2,000. Revenue C = 50 * 40 = ₹2,000. Products B and C generated equal highest revenue of ₹2,000.'
             },
             {
                 'cat': 'data-interpretation',
@@ -383,12 +383,256 @@ class Command(BaseCommand):
                 'difficulty': 'HARD',
                 'explanation': 'Initial milk = (3/4)*40 = 30L. Initial water = 10L. Let added water = x. Ratio becomes 30 / (10 + x) = 2/1 => 30 = 20 + 2x => 2x = 10 => x = 5 liters.'
             },
+            {
+                'cat': 'quantitative-aptitude',
+                'topic': 'Percentages',
+                'text': 'If the price of sugar increases by 25%, by what percentage must a household reduce its consumption so as not to increase the expenditure on sugar?',
+                'options': ['25%', '20%', '16.67%', '30%'],
+                'correct': 1,
+                'difficulty': 'MEDIUM',
+                'explanation': 'Reduction % = (r / (100 + r)) * 100 = (25 / 125) * 100 = 20%.'
+            },
+            {
+                'cat': 'quantitative-aptitude',
+                'topic': 'Time and Work',
+                'text': 'A can do a piece of work in 12 days and B in 15 days. They work together for 5 days and then B leaves. The days taken by A alone to finish the remaining work is:',
+                'options': ['5 days', '4 days', '3 days', '6 days'],
+                'correct': 2,
+                'difficulty': 'HARD',
+                'explanation': 'Combined 1-day work = 1/12 + 1/15 = 9/60 = 3/20. In 5 days, work done = 5 * 3/20 = 3/4. Remaining work = 1/4. Time for A = (1/4) / (1/12) = 3 days.'
+            },
+            {
+                'cat': 'quantitative-aptitude',
+                'topic': 'Probability',
+                'text': 'Two dice are thrown simultaneously. What is the probability of getting two numbers whose product is even?',
+                'options': ['1/2', '5/8', '3/8', '3/4'],
+                'correct': 3,
+                'difficulty': 'MEDIUM',
+                'explanation': 'Total outcomes = 36. Product is odd only if both dice are odd (3 * 3 = 9 outcomes). Probability of product odd = 9/36 = 1/4. Probability of product even = 1 - 1/4 = 3/4.'
+            },
+            {
+                'cat': 'quantitative-aptitude',
+                'topic': 'Speed, Time and Distance',
+                'text': 'A train 240 m long passes a pole in 24 seconds. How long will it take to pass a platform 650 m long?',
+                'options': ['65 seconds', '89 seconds', '100 seconds', '75 seconds'],
+                'correct': 1,
+                'difficulty': 'MEDIUM',
+                'explanation': 'Speed of train = 240 / 24 = 10 m/s. Total distance to cross platform = 240 + 650 = 890 m. Time = 890 / 10 = 89 seconds.'
+            },
+            {
+                'cat': 'quantitative-aptitude',
+                'topic': 'Profit and Loss',
+                'text': 'A shopkeeper marks an article at 40% above the cost price and allows a discount of 20% on the marked price. His gain percentage is:',
+                'options': ['15%', '18%', '12%', '20%'],
+                'correct': 2,
+                'difficulty': 'EASY',
+                'explanation': 'Let CP = 100. MP = 140. SP = 140 * 0.80 = 112. Gain % = 12%.'
+            },
+            {
+                'cat': 'quantitative-aptitude',
+                'topic': 'Simple and Compound Interest',
+                'text': 'The difference between simple interest and compound interest on a certain sum at 10% per annum for 2 years is ₹65. The sum is:',
+                'options': ['₹6,000', '₹6,500', '₹7,000', '₹7,500'],
+                'correct': 1,
+                'difficulty': 'HARD',
+                'explanation': 'Difference between CI and SI for 2 years = P * (r/100)^2 => 65 = P * (10/100)^2 = P * 0.01 => P = 65 / 0.01 = ₹6,500.'
+            },
+            {
+                'cat': 'quantitative-aptitude',
+                'topic': 'Number Systems',
+                'text': 'What is the remainder when (7^84) is divided by 342?',
+                'options': ['7', '49', '341', '1'],
+                'correct': 3,
+                'difficulty': 'HARD',
+                'explanation': '7^3 = 343 = 342 + 1. 7^84 = (7^3)^28 = (342 + 1)^28. By binomial theorem, the remainder when divided by 342 is 1^28 = 1.'
+            },
+            {
+                'cat': 'quantitative-aptitude',
+                'topic': 'Averages',
+                'text': 'The average score of a batsman in 19 innings is 48. How many runs must he score in the 20th inning to raise his average to 50?',
+                'options': ['90', '88', '86', '92'],
+                'correct': 1,
+                'difficulty': 'EASY',
+                'explanation': 'Required runs = (20 * 50) - (19 * 48) = 1000 - 912 = 88 runs.'
+            },
+            {
+                'cat': 'quantitative-aptitude',
+                'topic': 'Ratios & Proportions',
+                'text': 'If a : b = 3 : 4 and b : c = 8 : 9, then a : c is:',
+                'options': ['3 : 2', '1 : 2', '2 : 3', '4 : 5'],
+                'correct': 2,
+                'difficulty': 'EASY',
+                'explanation': '(a/c) = (a/b) * (b/c) = (3/4) * (8/9) = 24/36 = 2/3 => 2 : 3.'
+            },
+            {
+                'cat': 'quantitative-aptitude',
+                'topic': 'Pipes and Cisterns',
+                'text': 'Two pipes A and B can fill a tank in 20 minutes and 30 minutes respectively. If both pipes are opened together, the time taken to fill the tank is:',
+                'options': ['15 minutes', '10 minutes', '25 minutes', '12 minutes'],
+                'correct': 3,
+                'difficulty': 'EASY',
+                'explanation': '1-min combined rate = 1/20 + 1/30 = 5/60 = 1/12. Time = 12 minutes.'
+            },
+            {
+                'cat': 'logical-reasoning',
+                'topic': 'Analogies',
+                'text': 'Architect : Building :: Sculptor : ?',
+                'options': ['Museum', 'Statue', 'Stone', 'Chisel'],
+                'correct': 1,
+                'difficulty': 'EASY',
+                'explanation': 'An architect designs/creates a building; a sculptor creates a statue.'
+            },
+            {
+                'cat': 'logical-reasoning',
+                'topic': 'Coding-Decoding',
+                'text': 'In a certain code language, COMPUTER is written as RFUVQNPC. How is MEDICINE written in that code?',
+                'options': ['EOJDEJFM', 'MFEJDJOE', 'EOJDJEFM', 'FNAJCJEF'],
+                'correct': 2,
+                'difficulty': 'HARD',
+                'explanation': 'The first and last letters are swapped, and the inner letters are each shifted by +1 in reverse order. MEDICINE becomes EOJDJEFM.'
+            },
+            {
+                'cat': 'logical-reasoning',
+                'topic': 'Blood Relations',
+                'text': 'Introducing a boy, a girl said, "He is the son of the daughter of the father of my uncle." How is the boy related to the girl?',
+                'options': ['Nephew', 'Uncle', 'Son-in-law', 'Brother'],
+                'correct': 3,
+                'difficulty': 'MEDIUM',
+                'explanation': 'Father of uncle = grandfather. Daughter of grandfather = mother (or aunt). Son of mother = brother.'
+            },
+            {
+                'cat': 'logical-reasoning',
+                'topic': 'Syllogisms',
+                'text': 'Statements: All locks are keys. Some keys are doors. All doors are windows.\nConclusions:\nI. Some doors are locks.\nII. Some windows are keys.\nIII. Some windows are locks.',
+                'options': ['Only I follows', 'Only II follows', 'Only I and II follow', 'All follow'],
+                'correct': 1,
+                'difficulty': 'HARD',
+                'explanation': 'Keys intersect doors, and all doors are inside windows, so windows definitely intersect keys (II follows). Locks and doors have no guaranteed intersection.'
+            },
+            {
+                'cat': 'logical-reasoning',
+                'topic': 'Number Series',
+                'text': 'Find the next term in the series: 3, 7, 15, 31, 63, ?',
+                'options': ['126', '128', '127', '125'],
+                'correct': 2,
+                'difficulty': 'EASY',
+                'explanation': 'Pattern is 2x + 1: (3*2+1)=7, (7*2+1)=15, (15*2+1)=31, (31*2+1)=63, (63*2+1)=127.'
+            },
+            {
+                'cat': 'logical-reasoning',
+                'topic': 'Direction Sense',
+                'text': 'Kunal walks 10 km towards North. From there he walks 6 km towards South. Then, he walks 3 km towards East. How far and in which direction is he with reference to his starting point?',
+                'options': ['7 km East', '5 km South-West', '8 km North', '5 km North-East'],
+                'correct': 3,
+                'difficulty': 'MEDIUM',
+                'explanation': 'Net North = 10 - 6 = 4 km. Net East = 3 km. Distance = sqrt(4^2 + 3^2) = sqrt(25) = 5 km North-East.'
+            },
+            {
+                'cat': 'logical-reasoning',
+                'topic': 'Statement and Assumptions',
+                'text': 'Statement: "Please check the availability of two train tickets from Delhi to Mumbai on 15th October." - A tells his assistant.\nAssumptions:\nI. The assistant knows how to check ticket availability.\nII. A knows that trains run between Delhi and Mumbai.',
+                'options': ['Only I is implicit', 'Both I and II are implicit', 'Only II is implicit', 'Neither is implicit'],
+                'correct': 1,
+                'difficulty': 'MEDIUM',
+                'explanation': 'When A asks his assistant, he assumes the assistant is capable (I) and that the route exists (II). Both are implicit.'
+            },
+            {
+                'cat': 'logical-reasoning',
+                'topic': 'Seating Arrangement',
+                'text': 'Eight friends A, B, C, D, E, F, G, H are sitting around a circular table facing the centre. A sits second to the left of D. B sits third to the right of A. F sits second to the left of B. Who sits opposite to A?',
+                'options': ['H', 'G', 'E', 'F'],
+                'correct': 2,
+                'difficulty': 'HARD',
+                'explanation': 'Mapping all 8 positions around the circle shows E sits directly opposite to A (4 positions away in an 8-person circle).'
+            },
+            {
+                'cat': 'verbal-ability',
+                'topic': 'Synonyms',
+                'text': 'Choose the word most similar in meaning to "PRAGMATIC":',
+                'options': ['Idealistic', 'Theoretical', 'Hesitant', 'Practical'],
+                'correct': 3,
+                'difficulty': 'EASY',
+                'explanation': '"Pragmatic" means dealing with things sensibly and realistically in a way that is based on practical rather than theoretical considerations.'
+            },
+            {
+                'cat': 'verbal-ability',
+                'topic': 'Antonyms',
+                'text': 'Choose the word opposite in meaning to "EPHEMERAL":',
+                'options': ['Fleeting', 'Permanent', 'Transient', 'Delicate'],
+                'correct': 1,
+                'difficulty': 'MEDIUM',
+                'explanation': '"Ephemeral" means lasting for a very short time. Its opposite is "Permanent".'
+            },
+            {
+                'cat': 'verbal-ability',
+                'topic': 'Sentence Correction',
+                'text': 'Select the grammatically correct sentence:',
+                'options': [
+                    'Neither the manager nor the employees was informed about the policy change.',
+                    'Neither the manager or the employees were informed about the policy change.',
+                    'Neither the manager nor the employees were informed about the policy change.',
+                    'Neither the manager nor the employees has been informed about the policy change.'
+                ],
+                'correct': 2,
+                'difficulty': 'MEDIUM',
+                'explanation': 'With "neither... nor", the verb agrees with the closer subject. "employees" is plural, so "were informed" is correct.'
+            },
+            {
+                'cat': 'verbal-ability',
+                'topic': 'Idioms & Phrases',
+                'text': 'What is the meaning of the idiom "To burn the midnight oil"?',
+                'options': [
+                    'To waste valuable resources',
+                    'To start a fire intentionally',
+                    'To quarrel fiercely',
+                    'To work late into the night'
+                ],
+                'correct': 3,
+                'difficulty': 'EASY',
+                'explanation': '"To burn the midnight oil" means to read, study, or work late into the night.'
+            },
+            {
+                'cat': 'verbal-ability',
+                'topic': 'Para Jumbles',
+                'text': 'Rearrange the sentences into a coherent paragraph:\nP: This rapid digitization has transformed financial transactions.\nQ: Over the past decade, smartphones have penetrated rural areas.\nR: Today, even local vendors accept instant QR payments.\nS: Consequently, digital literacy has seen a monumental rise.',
+                'options': ['PQRS', 'QPSR', 'SQPR', 'RQPS'],
+                'correct': 1,
+                'difficulty': 'HARD',
+                'explanation': 'Q introduces the premise (smartphone penetration), P describes the outcome (digitization of transactions), S gives the consequence, and R gives the present-day example.'
+            },
+            {
+                'cat': 'data-interpretation',
+                'topic': 'Tables and Charts',
+                'text': 'A company produces 5 models of cars: A (30%), B (25%), C (20%), D (15%), E (10%). If total production is 50,000 cars and model A has 5% defects while model B has 4% defects, how many non-defective cars are produced for models A and B combined?',
+                'options': ['25,000', '27,500', '26,250', '24,800'],
+                'correct': 2,
+                'difficulty': 'HARD',
+                'explanation': 'Model A = 15,000, non-defective = 15,000 * 0.95 = 14,250. Model B = 12,500, non-defective = 12,500 * 0.96 = 12,000. Total = 14,250 + 12,000 = 26,250.'
+            },
+            {
+                'cat': 'data-interpretation',
+                'topic': 'Bar Charts',
+                'text': 'Quarterly exports (in ₹ Crore): Q1 = 120, Q2 = 150, Q3 = 180, Q4 = 210. What is the average percentage growth rate per quarter from Q1 to Q4?',
+                'options': ['25.0%', '75.0%', '18.4%', '20.6%'],
+                'correct': 3,
+                'difficulty': 'MEDIUM',
+                'explanation': 'Growth Q1-Q2 = (30/120)*100 = 25%. Q2-Q3 = (30/150)*100 = 20%. Q3-Q4 = (30/180)*100 = 16.67%. Average = (25 + 20 + 16.67) / 3 ≈ 20.56% ≈ 20.6%.'
+            },
+            {
+                'cat': 'data-interpretation',
+                'topic': 'Pie Charts',
+                'text': 'In a university, student distribution is: Engineering 45%, Medicine 20%, Arts 15%, Commerce 20%. If total students = 8,000 and 70% of Engineering students are males, how many female Engineering students are there?',
+                'options': ['1,200', '1,080', '2,520', '980'],
+                'correct': 1,
+                'difficulty': 'MEDIUM',
+                'explanation': 'Total engineering students = 45% of 8,000 = 3,600. Female engineering students = 30% of 3,600 = 1,080.'
+            },
         ]
 
         for q_data in aptitude_questions:
             cat_obj = cat_objs.get(q_data['cat'])
             if cat_obj:
-                AptitudeQuestion.objects.get_or_create(
+                q_obj, created = AptitudeQuestion.objects.get_or_create(
                     category=cat_obj,
                     question_text=q_data['text'],
                     defaults={
@@ -401,6 +645,13 @@ class Command(BaseCommand):
                         'negative_marks': 0.25
                     }
                 )
+                if not created:
+                    q_obj.options = q_data['options']
+                    q_obj.correct_option_index = q_data['correct']
+                    q_obj.explanation = q_data['explanation']
+                    q_obj.topic = q_data['topic']
+                    q_obj.difficulty = q_data['difficulty']
+                    q_obj.save()
 
         self.stdout.write(self.style.SUCCESS(f"Seeded {len(aptitude_questions)} Aptitude Questions."))
 

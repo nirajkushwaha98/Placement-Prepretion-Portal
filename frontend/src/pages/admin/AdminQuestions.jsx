@@ -9,6 +9,15 @@ import {
   CheckCircle2, BookOpen, Calculator
 } from 'lucide-react';
 
+const formatOptionText = (text) => {
+  if (text === null || text === undefined) return '';
+  const str = String(text).trim();
+  if (str.startsWith(',') && /^[,\d]+$/.test(str)) {
+    return '₹' + str.replace(/^,/, '');
+  }
+  return str;
+};
+
 const AdminQuestions = () => {
   const [questions, setQuestions] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -249,7 +258,7 @@ const AdminQuestions = () => {
                             : 'border-slate-800/80 bg-slate-900/50 text-slate-400'
                         }`}
                       >
-                        <span className="font-bold mr-1">{String.fromCharCode(65 + i)}:</span> {opt}
+                        <span className="font-bold mr-1">{String.fromCharCode(65 + i)}:</span> {formatOptionText(opt)}
                       </div>
                     ))}
                   </div>

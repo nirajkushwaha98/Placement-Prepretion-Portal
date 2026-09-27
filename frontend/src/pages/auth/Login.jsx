@@ -36,12 +36,17 @@ const Login = () => {
         navigate('/dashboard');
       }
     } catch (err) {
-      const errorMsg =
+      let errorMsg =
         err.response?.data?.detail ||
         err.response?.data?.non_field_errors?.[0] ||
         err.response?.data?.error ||
         err.message ||
         'Invalid email or password. Please check your credentials.';
+
+      if (err.response?.status === 502 || err.code === 'ERR_NETWORK') {
+        errorMsg = `Server unreachable: ${err.message}. Make sure the backend server is running on port 8000.`;
+      }
+
       setError(errorMsg);
     } finally {
       setLoading(false);

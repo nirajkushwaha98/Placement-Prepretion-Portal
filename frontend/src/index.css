@@ -49,3 +49,18 @@
   box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
   border-color: rgba(59, 130, 246, 0.3);
 }
+
+/* Anti-Copy & Anti-Selection Protection for Tests */
+.test-anti-copy,
+.test-anti-copy * {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+
+.test-anti-copy ::selection {
+  background: transparent !important;
+  color: inherit !important;
+}

@@ -7,12 +7,19 @@ from .serializers import (
     CodingProblemListSerializer, CodingProblemDetailSerializer,
     CodingProblemAdminSerializer, CodingSubmissionSerializer
 )
+from rest_framework.pagination import PageNumberPagination
 from .services.judge0 import Judge0Service
 from apps.accounts.permissions import IsAdminUserOrReadOnly, IsPortalAdmin
 
+class CodingProblemPagination(PageNumberPagination):
+    page_size = 100
+    page_size_query_param = 'page_size'
+    max_page_size = 1000
+
 class CodingProblemViewSet(viewsets.ModelViewSet):
-    queryset = CodingProblem.objects.all().order_by('difficulty', 'id')
+    queryset = CodingProblem.objects.all().order_by('id')
     permission_classes = [IsAdminUserOrReadOnly]
+    pagination_class = CodingProblemPagination
 
     def get_serializer_class(self):
         if self.request.user.is_authenticated and self.request.user.is_portal_admin:
@@ -22,7 +29,7 @@ class CodingProblemViewSet(viewsets.ModelViewSet):
         return CodingProblemListSerializer
 
     def get_queryset(self):
-        queryset = CodingProblem.objects.all().order_by('difficulty', 'id')
+        queryset = CodingProblem.objects.all().order_by('id')
         difficulty = self.request.query_params.get('difficulty')
         tag = self.request.query_params.get('tag')
         search = self.request.query_params.get('search')

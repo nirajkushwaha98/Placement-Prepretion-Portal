@@ -5,7 +5,7 @@ import {
   LayoutDashboard, Calculator, Code2, FileText,
   Briefcase, MessageSquare, LineChart, User,
   Shield, Users, HelpCircle, Terminal,
-  MessageCircle, FileSpreadsheet, LogOut, Sparkles
+  MessageCircle, FileSpreadsheet, LogOut, Sparkles, Flame
 } from 'lucide-react';
 
 const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
@@ -16,6 +16,7 @@ const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
     { name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
     { name: 'Aptitude Tests', path: '/aptitude', icon: Calculator },
     { name: 'Coding Practice', path: '/coding', icon: Code2 },
+    { name: 'Important DSA', path: '/dsa-sheet', icon: Flame, badge: 'Top 25' },
     { name: 'Resume Analyzer', path: '/resume', icon: FileText },
     { name: 'Job Matcher', path: '/job-match', icon: Briefcase },
     { name: 'Interview Prep', path: '/interview', icon: MessageSquare },
@@ -113,15 +114,22 @@ const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
                 to={link.path}
                 onClick={closeSidebar}
                 className={({ isActive }) =>
-                  `flex items-center gap-3 rounded-lg px-3 py-2.5 text-xs font-semibold transition-all duration-150 ${
+                  `flex items-center justify-between rounded-lg px-3 py-2.5 text-xs font-semibold transition-all duration-150 ${
                     isActive
                       ? 'bg-blue-600 text-white shadow-md shadow-blue-600/25'
                       : 'text-slate-400 hover:bg-slate-800/60 hover:text-slate-200'
                   }`
                 }
               >
-                <Icon className="h-4 w-4 shrink-0" />
-                <span>{link.name}</span>
+                <div className="flex items-center gap-3">
+                  <Icon className="h-4 w-4 shrink-0" />
+                  <span>{link.name}</span>
+                </div>
+                {link.badge && (
+                  <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                    {link.badge}
+                  </span>
+                )}
               </NavLink>
             );
           })}

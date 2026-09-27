@@ -15,6 +15,7 @@ import Aptitude from './pages/student/Aptitude';
 import AptitudeRunner from './pages/student/AptitudeRunner';
 import Coding from './pages/student/Coding';
 import CodingWorkspace from './pages/student/CodingWorkspace';
+import DSASheet from './pages/student/DSASheet';
 import ResumeAnalyzer from './pages/student/ResumeAnalyzer';
 import JobMatcher from './pages/student/JobMatcher';
 import InterviewPrep from './pages/student/InterviewPrep';
@@ -55,6 +56,7 @@ function App() {
                   <Route path="/aptitude/review/:attemptId" element={<AptitudeRunner isReviewMode={true} />} />
                   <Route path="/coding" element={<Coding />} />
                   <Route path="/coding/:problemId" element={<CodingWorkspace />} />
+                  <Route path="/dsa-sheet" element={<DSASheet />} />
                   <Route path="/resume" element={<ResumeAnalyzer />} />
                   <Route path="/job-match" element={<JobMatcher />} />
                   <Route path="/interview" element={<InterviewPrep />} />
