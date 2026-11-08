@@ -1,0 +1,562 @@
+[
+  {
+    "cat": "hr-interview",
+    "q": "What are your salary expectations?",
+    "ans": "I am more focused on the right opportunity and growth than on a specific number. Based on my research of market rates for freshers in this role and location, I expect a package in the standard range for the position, and I am open to discussing it once I understand the full scope, learning opportunities and benefits. I am flexible and confident that my contribution will justify fair compensation.",
+    "tips": "Research the market range beforehand, give a flexible range instead of a fixed number, and keep the focus on the role and growth.",
+    "points": [
+      "Research market rates",
+      "Give a flexible range",
+      "Show interest in growth and learning",
+      "Stay open to negotiation"
+    ],
+    "difficulty": "EASY",
+    "company": "General"
+  },
+  {
+    "cat": "hr-interview",
+    "q": "Why should we hire you?",
+    "ans": "You should hire me because I combine strong fundamentals in data structures and backend development with hands-on project experience, and I learn new technologies quickly. I take ownership of tasks, communicate clearly and work well in a team. I have built and deployed real projects, so I can start contributing quickly, and I am motivated to grow with your company.",
+    "tips": "Match your strengths to the job description and back every claim with one concrete example.",
+    "points": [
+      "Match skills to the role",
+      "Quote a concrete achievement",
+      "Show quick learning",
+      "Show team fit and motivation"
+    ],
+    "difficulty": "MEDIUM",
+    "company": "General"
+  },
+  {
+    "cat": "hr-interview",
+    "q": "How do you handle stress and pressure?",
+    "ans": "I stay calm by breaking the work into small prioritised tasks and focusing on what I can control. During exams and project deadlines I plan my day in time blocks, communicate early if something is at risk, and avoid last-minute rushes. I also take short breaks and exercise to stay productive. Pressure usually helps me focus when I have a clear plan.",
+    "tips": "Give a real example of pressure and show the method you used, not just that you stay calm.",
+    "points": [
+      "Prioritisation and planning",
+      "Early communication",
+      "Healthy coping habits",
+      "A real example"
+    ],
+    "difficulty": "MEDIUM",
+    "company": "General"
+  },
+  {
+    "cat": "hr-interview",
+    "q": "Are you willing to relocate or work in shifts?",
+    "ans": "Yes, I am flexible. As a fresher I see this as a chance to learn and be where the team needs me. I am comfortable relocating and working in shifts if the role requires it, and I would appreciate knowing the details in advance so I can plan well. My priority is contributing to the team and growing in the role.",
+    "tips": "Be honest about real constraints, but show flexibility and ask about the details.",
+    "points": [
+      "Show flexibility",
+      "Be honest about constraints",
+      "Ask for details",
+      "Focus on growth and contribution"
+    ],
+    "difficulty": "EASY",
+    "company": "General"
+  },
+  {
+    "cat": "hr-interview",
+    "q": "What motivates you at work?",
+    "ans": "I am motivated by solving real problems and seeing people use what I build. Learning new technologies, getting meaningful feedback and working with talented teammates push me to improve. I also like clear goals, because measuring progress keeps me engaged. Finishing a difficult feature or fixing a tough bug gives me a strong sense of achievement.",
+    "tips": "Choose motivators that fit the job, such as problem solving, learning and impact, and illustrate with an example.",
+    "points": [
+      "Solving real problems",
+      "Continuous learning",
+      "Impact on users",
+      "Collaboration and feedback"
+    ],
+    "difficulty": "EASY",
+    "company": "General"
+  },
+  {
+    "cat": "hr-interview",
+    "q": "How do you handle feedback and criticism?",
+    "ans": "I treat feedback as free coaching. I listen without getting defensive, ask clarifying questions, and note concrete actions. For example, after a code review pointed out unclear naming and missing tests, I fixed them the same day and started checking those points before every review. I also ask for feedback proactively so I can improve faster.",
+    "tips": "Show that you act on feedback and give one real example of a change you made because of it.",
+    "points": [
+      "Listen without defensiveness",
+      "Ask clarifying questions",
+      "Act on feedback",
+      "Request feedback proactively"
+    ],
+    "difficulty": "MEDIUM",
+    "company": "General"
+  },
+  {
+    "cat": "technical-interview",
+    "q": "What is the difference between TCP and UDP?",
+    "ans": "TCP is connection-oriented and reliable: it uses a three-way handshake, acknowledgements, retransmission, ordering and congestion control, so it suits web pages, email and file transfer. UDP is connectionless and unreliable but very fast with low overhead, so it suits video streaming, gaming, DNS and voice calls where speed matters more than perfect delivery.",
+    "tips": "Compare reliability, ordering, speed and overhead, and give one use case for each.",
+    "points": [
+      "Connection-oriented vs connectionless",
+      "Reliability and ordering",
+      "Speed and overhead",
+      "Use cases"
+    ],
+    "difficulty": "EASY",
+    "company": "Cisco / Infosys"
+  },
+  {
+    "cat": "technical-interview",
+    "q": "What is database normalization and why is it used?",
+    "ans": "Normalization organises tables to reduce redundancy and avoid update, insert and delete anomalies. 1NF removes repeating groups so each cell holds one value, 2NF removes partial dependencies on part of a composite key, and 3NF removes transitive dependencies between non-key columns. It improves data integrity, though too much normalization can require extra joins, so sometimes we denormalize for read performance.",
+    "tips": "Explain 1NF, 2NF and 3NF with a short example and mention the trade-off with joins.",
+    "points": [
+      "Reduce redundancy",
+      "1NF, 2NF, 3NF",
+      "Avoid anomalies",
+      "Denormalization trade-off"
+    ],
+    "difficulty": "MEDIUM",
+    "company": "TCS / Accenture"
+  },
+  {
+    "cat": "technical-interview",
+    "q": "What is the difference between HTTP and HTTPS?",
+    "ans": "HTTP sends data in plain text, so anyone on the network can read or modify it. HTTPS is HTTP over TLS: it encrypts the data, authenticates the server with a certificate and ensures integrity. The TLS handshake agrees on keys, after which traffic is encrypted. HTTPS uses port 443 and is required for logins, payments and modern browser features.",
+    "tips": "Mention encryption, certificates, the TLS handshake and ports.",
+    "points": [
+      "Plain text vs encrypted",
+      "TLS handshake",
+      "Certificates and authentication",
+      "Port 443"
+    ],
+    "difficulty": "EASY",
+    "company": "Wipro / Cognizant"
+  },
+  {
+    "cat": "technical-interview",
+    "q": "What is a deadlock and how can it be prevented?",
+    "ans": "A deadlock occurs when processes wait for each other's resources forever. It needs four conditions: mutual exclusion, hold and wait, no preemption and circular wait. We can prevent it by breaking one condition, for example by acquiring locks in a fixed global order, using timeouts or try-locks, requesting all resources at once, or allowing preemption. Detection and recovery or the banker's algorithm are alternatives.",
+    "tips": "List the four Coffman conditions and give one practical prevention technique such as lock ordering.",
+    "points": [
+      "Four necessary conditions",
+      "Lock ordering",
+      "Timeouts and try-lock",
+      "Detection and recovery"
+    ],
+    "difficulty": "MEDIUM",
+    "company": "Amazon / Microsoft"
+  },
+  {
+    "cat": "technical-interview",
+    "q": "What is the difference between the stack and the heap in memory?",
+    "ans": "The stack stores function call frames, local variables and return addresses. It is fast, automatically managed and limited in size, and memory is freed when the function returns. The heap stores dynamically allocated objects that live beyond a single call. It is larger but slower to allocate, needs manual freeing or garbage collection, and can suffer from fragmentation and leaks.",
+    "tips": "Compare allocation speed, lifetime, size and management, and mention stack overflow versus memory leaks.",
+    "points": [
+      "Call frames and locals",
+      "Automatic vs manual or GC",
+      "Speed and size",
+      "Stack overflow and leaks"
+    ],
+    "difficulty": "MEDIUM",
+    "company": "Qualcomm / Adobe"
+  },
+  {
+    "cat": "technical-interview",
+    "q": "Explain the CAP theorem.",
+    "ans": "The CAP theorem says a distributed data store cannot guarantee all of consistency, availability and partition tolerance at the same time. Since network partitions are unavoidable, a system must choose between consistency (every read sees the latest write, as in many relational or CP systems) and availability (every request gets a response, as in many AP systems like Cassandra). The right choice depends on the business need.",
+    "tips": "Define C, A and P in plain words and give a CP and an AP example.",
+    "points": [
+      "Consistency",
+      "Availability",
+      "Partition tolerance",
+      "CP vs AP examples"
+    ],
+    "difficulty": "HARD",
+    "company": "Amazon / Netflix"
+  },
+  {
+    "cat": "technical-interview",
+    "q": "What is Big-O notation? Compare O(n), O(log n) and O(n log n).",
+    "ans": "Big-O describes how an algorithm's running time or memory grows with input size in the worst case, ignoring constants. O(log n), like binary search, grows very slowly. O(n), like a linear scan, grows in direct proportion. O(n log n), like merge sort, is a bit worse than linear but efficient for sorting. Choosing an algorithm with a lower order matters most for large inputs.",
+    "tips": "Give a familiar example for each complexity and mention that Big-O ignores constants.",
+    "points": [
+      "Growth rate with input size",
+      "O(log n) binary search",
+      "O(n) linear scan",
+      "O(n log n) sorting"
+    ],
+    "difficulty": "EASY",
+    "company": "Google / Flipkart"
+  },
+  {
+    "cat": "technical-interview",
+    "q": "What is the difference between an array and a linked list?",
+    "ans": "An array stores elements in contiguous memory, giving O(1) random access by index but O(n) insertion or deletion in the middle and a fixed or costly resize. A linked list stores nodes connected by pointers, giving O(1) insertion or deletion when you hold the node but O(n) access by position and extra memory for pointers. Arrays are cache-friendly; linked lists suit frequent insertions.",
+    "tips": "Compare access, insertion, memory layout and cache behaviour.",
+    "points": [
+      "Contiguous vs pointers",
+      "Access time",
+      "Insertion and deletion cost",
+      "Cache locality"
+    ],
+    "difficulty": "EASY",
+    "company": "TCS / Infosys"
+  },
+  {
+    "cat": "technical-interview",
+    "q": "How does garbage collection work?",
+    "ans": "Garbage collection automatically reclaims memory of objects that are no longer reachable. Common approaches are reference counting and tracing, such as mark and sweep: the collector marks everything reachable from the roots and frees the rest. Generational collectors use the idea that most objects die young, collecting a young generation often and an old generation rarely. GC removes manual freeing but can cause pauses.",
+    "tips": "Explain reachability, mark and sweep, and generational collection, then mention the pause trade-off.",
+    "points": [
+      "Reachability from roots",
+      "Mark and sweep",
+      "Generational collection",
+      "Pause time trade-off"
+    ],
+    "difficulty": "MEDIUM",
+    "company": "Oracle / Adobe"
+  },
+  {
+    "cat": "technical-interview",
+    "q": "What is a thread pool and why is it used?",
+    "ans": "A thread pool keeps a fixed set of reusable worker threads that pick tasks from a queue. Creating a thread for every request is expensive and can exhaust memory, while a pool limits concurrency, reuses threads and gives predictable performance. The pool size should match the workload: roughly the number of cores for CPU-bound tasks and larger for I/O-bound tasks.",
+    "tips": "Explain the cost of creating threads, queueing, and how to size the pool.",
+    "points": [
+      "Reuse of threads",
+      "Bounded concurrency",
+      "Task queue",
+      "Pool sizing for CPU vs I/O"
+    ],
+    "difficulty": "MEDIUM",
+    "company": "Amazon / Uber"
+  },
+  {
+    "cat": "behavioral-interview",
+    "q": "Tell me about a time you took the lead on a project or task.",
+    "ans": "Situation: In our final-year project the team lacked direction in the first two weeks. Task: Someone had to organise the work. Action: I volunteered to lead, split the project into modules, assigned them based on strengths, set weekly check-ins and tracked tasks on a board. Result: We delivered on time, the project was rated among the best in the batch, and I learned that clear ownership and regular communication keep teams aligned.",
+    "tips": "Use the STAR format and highlight what you did personally, not only what the team did.",
+    "points": [
+      "Clear situation and task",
+      "Specific leadership actions",
+      "Measurable result",
+      "Lesson learned"
+    ],
+    "difficulty": "MEDIUM",
+    "company": "General"
+  },
+  {
+    "cat": "behavioral-interview",
+    "q": "Describe a time you received critical feedback. What did you do?",
+    "ans": "Situation: A senior reviewer said my pull request had unclear naming and no tests. Task: Improve the code quality quickly. Action: I thanked them, fixed the names, added unit tests and refactored a long function, then created a checklist for future pull requests. Result: The PR was approved, later reviews had far fewer comments, and I now treat feedback as a fast way to learn.",
+    "tips": "Show humility, concrete changes and a lasting improvement.",
+    "points": [
+      "Listened without defensiveness",
+      "Concrete corrective actions",
+      "Process improvement",
+      "Positive result"
+    ],
+    "difficulty": "MEDIUM",
+    "company": "General"
+  },
+  {
+    "cat": "behavioral-interview",
+    "q": "How do you prioritize when you have multiple tasks due at once?",
+    "ans": "I list every task with its deadline and impact, separate urgent from important work, and tackle high-impact, near-deadline items first. I estimate effort, break big tasks into smaller steps and communicate early if something cannot be done on time. For example, during exams and a project demo, I time-boxed each day, finished the demo-critical features first and revised in the remaining slots.",
+    "tips": "Mention a framework such as urgent versus important and show you communicate trade-offs.",
+    "points": [
+      "List and rank tasks",
+      "Urgent vs important",
+      "Break work down",
+      "Communicate early"
+    ],
+    "difficulty": "MEDIUM",
+    "company": "General"
+  },
+  {
+    "cat": "behavioral-interview",
+    "q": "Tell me about a time you had to adapt to a sudden change.",
+    "ans": "Situation: Two days before a hackathon demo, the main API we relied on changed its response format. Task: Keep the demo working. Action: I stayed calm, read the new docs, wrote an adapter layer so the rest of the code stayed untouched, and tested the main flows. Result: We demoed successfully and I learned to isolate external dependencies behind a thin layer so changes are cheap.",
+    "tips": "Show a calm response, a practical fix and what you learned.",
+    "points": [
+      "Stayed calm",
+      "Quick analysis",
+      "Practical solution",
+      "Reusable lesson"
+    ],
+    "difficulty": "MEDIUM",
+    "company": "General"
+  },
+  {
+    "cat": "behavioral-interview",
+    "q": "Give an example of a time you went above and beyond.",
+    "ans": "Situation: In a college club project, the website had no documentation, so new members struggled to contribute. Task: It was not my assignment, but it blocked the team. Action: I wrote a setup guide, recorded a short walkthrough and added sample data. Result: New members started contributing within a day, and the club adopted the guide for later projects.",
+    "tips": "Pick an example where you noticed a gap and acted without being asked.",
+    "points": [
+      "Initiative",
+      "Clear value to the team",
+      "Extra effort",
+      "Lasting impact"
+    ],
+    "difficulty": "EASY",
+    "company": "General"
+  },
+  {
+    "cat": "resume-interview",
+    "q": "Which project on your resume are you most proud of and why?",
+    "ans": "I am most proud of my placement preparation portal, because it solved a real problem I faced as a student. I designed the REST API, built the React interface, and integrated code execution and resume analysis. It challenged me with authentication, deployment and performance issues, and seeing other students use it was rewarding. It taught me to plan, test and ship a complete product.",
+    "tips": "Pick a project with a clear problem, your specific role, a challenge and a result.",
+    "points": [
+      "Problem solved",
+      "Your role",
+      "Technical challenge",
+      "Outcome and learning"
+    ],
+    "difficulty": "EASY",
+    "company": "General"
+  },
+  {
+    "cat": "resume-interview",
+    "q": "What was your role and contribution during your internship?",
+    "ans": "During my internship I worked on backend features in a small team. I built REST endpoints, wrote unit tests, fixed bugs and improved a slow query by adding an index, which cut the response time noticeably. I took part in code reviews and daily standups and learned the team's workflow, version control practices and how production issues are handled.",
+    "tips": "Quote tasks, tools and one measurable result, and be honest about the scope of your work.",
+    "points": [
+      "Specific tasks",
+      "Tools and technologies",
+      "A measurable result",
+      "Team practices learned"
+    ],
+    "difficulty": "MEDIUM",
+    "company": "General"
+  },
+  {
+    "cat": "resume-interview",
+    "q": "How did you test your project?",
+    "ans": "I used several layers. Unit tests covered core functions and API views, integration tests checked complete flows such as register, login and submit, and I tested edge cases like empty input and invalid tokens. I also ran manual exploratory tests on the main user journeys, used linting and checked responses with API tools. Tests caught several bugs before deployment.",
+    "tips": "Mention unit, integration and manual testing and one bug that testing caught.",
+    "points": [
+      "Unit tests",
+      "Integration tests",
+      "Edge cases",
+      "Bugs caught early"
+    ],
+    "difficulty": "MEDIUM",
+    "company": "General"
+  },
+  {
+    "cat": "resume-interview",
+    "q": "If you had more time, what would you improve in your project?",
+    "ans": "I would first improve reliability: add more automated tests, use a managed production database and add monitoring and logging. Next, I would improve performance with caching and pagination, strengthen security with rate limiting and stricter validation, and finally add new features based on user feedback. This shows how I think about taking a project from a prototype to production.",
+    "tips": "Name concrete improvements across testing, performance, security and features.",
+    "points": [
+      "Testing and monitoring",
+      "Performance and caching",
+      "Security hardening",
+      "Feedback-driven features"
+    ],
+    "difficulty": "MEDIUM",
+    "company": "General"
+  },
+  {
+    "cat": "programming-interview",
+    "q": "Explain the SOLID principles briefly.",
+    "ans": "SOLID is five design principles. Single Responsibility: a class has one reason to change. Open/Closed: open for extension, closed for modification. Liskov Substitution: subclasses must be usable wherever the base class is expected. Interface Segregation: prefer small, specific interfaces over large ones. Dependency Inversion: depend on abstractions, not concrete implementations. Together they make code easier to maintain, test and extend.",
+    "tips": "State each principle in one line with a tiny example for at least two of them.",
+    "points": [
+      "Single Responsibility",
+      "Open/Closed",
+      "Liskov Substitution",
+      "Interface Segregation and Dependency Inversion"
+    ],
+    "difficulty": "MEDIUM",
+    "company": "Microsoft / Adobe"
+  },
+  {
+    "cat": "programming-interview",
+    "q": "What is the difference between unit testing and integration testing?",
+    "ans": "Unit tests check a single function or class in isolation, usually with dependencies mocked, so they are fast and pinpoint bugs. Integration tests check that several components, such as the API, database and external services, work together, so they are slower but catch interface and configuration problems. A healthy test suite has many unit tests, fewer integration tests and a few end-to-end tests.",
+    "tips": "Mention scope, speed, mocking and the testing pyramid.",
+    "points": [
+      "Isolation vs interaction",
+      "Speed and cost",
+      "Mocking dependencies",
+      "Testing pyramid"
+    ],
+    "difficulty": "EASY",
+    "company": "Infosys / Capgemini"
+  },
+  {
+    "cat": "programming-interview",
+    "q": "Explain the difference between git merge and git rebase.",
+    "ans": "Merge combines two branches by creating a merge commit that keeps the full history of both. Rebase replays your commits on top of another branch, producing a linear history without a merge commit, but it rewrites commit hashes. Use merge for shared branches to preserve history, and rebase for cleaning up your own local branch before sharing. Never rebase commits that others have already pulled.",
+    "tips": "Describe history shape and the golden rule: do not rebase shared branches.",
+    "points": [
+      "Merge commit keeps history",
+      "Rebase makes linear history",
+      "Rewrites commits",
+      "Rule for shared branches"
+    ],
+    "difficulty": "MEDIUM",
+    "company": "Amazon / Flipkart"
+  },
+  {
+    "cat": "programming-interview",
+    "q": "How would you debug an issue in production?",
+    "ans": "First I would confirm the impact and mitigate it, for example by rolling back or disabling a feature flag. Then I would collect evidence: logs, metrics, traces and recent deployments, and try to reproduce the problem in a staging environment. I would form a hypothesis, test it, fix the root cause, add a regression test, and finally write a short post-mortem with preventive actions such as better alerts.",
+    "tips": "Show a calm order of work: mitigate, investigate, fix, prevent.",
+    "points": [
+      "Mitigate first",
+      "Logs, metrics and traces",
+      "Reproduce and find root cause",
+      "Regression test and post-mortem"
+    ],
+    "difficulty": "HARD",
+    "company": "Amazon / Uber"
+  },
+  {
+    "cat": "programming-interview",
+    "q": "What is dependency injection and why is it useful?",
+    "ans": "Dependency injection means giving an object the dependencies it needs from outside, through its constructor or setters, instead of letting it create them itself. This reduces coupling, makes code easier to test because you can inject mocks, and lets you swap implementations without changing the class. Frameworks like Spring and Angular automate it with containers.",
+    "tips": "Define it, show the testing benefit and mention loose coupling.",
+    "points": [
+      "Dependencies supplied from outside",
+      "Loose coupling",
+      "Easy mocking in tests",
+      "Swappable implementations"
+    ],
+    "difficulty": "MEDIUM",
+    "company": "Oracle / Accenture"
+  },
+  {
+    "cat": "programming-interview",
+    "q": "What is the difference between recursion and iteration?",
+    "ans": "Recursion solves a problem by having a function call itself on smaller inputs until a base case is reached, which often gives clean code for trees and divide-and-conquer problems but uses call-stack memory and risks stack overflow. Iteration repeats using loops, with constant extra memory and usually better performance. Any recursion can be converted to iteration, sometimes with an explicit stack.",
+    "tips": "Mention base case, stack usage, and when each style is preferable.",
+    "points": [
+      "Base case and recursive step",
+      "Stack memory cost",
+      "Loop-based alternative",
+      "When to use each"
+    ],
+    "difficulty": "EASY",
+    "company": "TCS / Wipro"
+  },
+  {
+    "cat": "programming-interview",
+    "q": "What is the difference between a shallow copy and a deep copy?",
+    "ans": "A shallow copy creates a new container but the nested objects inside it are still shared with the original, so changing a nested object changes both. A deep copy recursively copies all nested objects, so the copy is fully independent. Deep copies are safer but cost more time and memory. In Python these are copy.copy and copy.deepcopy.",
+    "tips": "Use a nested list example to show shared references.",
+    "points": [
+      "Shared nested references",
+      "Fully independent copy",
+      "Performance cost",
+      "copy vs deepcopy"
+    ],
+    "difficulty": "EASY",
+    "company": "Cognizant / Infosys"
+  },
+  {
+    "cat": "company-specific",
+    "q": "How would you design a URL shortener like bit.ly?",
+    "ans": "I would expose an API to create a short link and another to redirect. Each long URL gets a unique short key, generated by base62-encoding an auto-increment ID or a distributed ID generator. A key-value store maps short key to long URL, with a cache such as Redis for hot links and a CDN or load balancer in front. Reads far outnumber writes, so I would scale the read path, add expiry, analytics and rate limiting, and handle collisions and abuse.",
+    "tips": "Cover API, key generation, storage, caching and scaling the read-heavy traffic.",
+    "points": [
+      "Base62 key generation",
+      "Key-value storage",
+      "Caching hot links",
+      "Scaling reads and rate limiting"
+    ],
+    "difficulty": "HARD",
+    "company": "Amazon / Google"
+  },
+  {
+    "cat": "company-specific",
+    "q": "How would you design a notification system?",
+    "ans": "I would use an event-driven design: services publish notification events to a message queue such as Kafka or SQS. Workers consume them, apply user preferences and templates, and send through separate channels for email, SMS and push. Retries with exponential backoff and dead-letter queues handle failures, idempotency keys avoid duplicates, and rate limiting protects providers. Metrics and delivery status tracking give visibility.",
+    "tips": "Mention queues, channel workers, retries, idempotency and user preferences.",
+    "points": [
+      "Message queue decoupling",
+      "Channel-specific workers",
+      "Retries and dead-letter queue",
+      "Idempotency and preferences"
+    ],
+    "difficulty": "HARD",
+    "company": "Uber / Microsoft"
+  },
+  {
+    "cat": "company-specific",
+    "q": "What is consistent hashing and where is it used?",
+    "ans": "Consistent hashing places both servers and keys on a hash ring, and each key belongs to the next server clockwise. When a server is added or removed, only the keys in its neighbouring range move, instead of reshuffling almost everything as simple modulo hashing would. Virtual nodes spread load evenly. It is used in distributed caches, databases like Cassandra and load balancers.",
+    "tips": "Contrast with modulo hashing and mention virtual nodes.",
+    "points": [
+      "Hash ring",
+      "Minimal key movement",
+      "Virtual nodes",
+      "Use in caches and databases"
+    ],
+    "difficulty": "HARD",
+    "company": "Amazon / Netflix"
+  },
+  {
+    "cat": "company-specific",
+    "q": "What is the difference between a monolith and microservices?",
+    "ans": "A monolith is a single deployable application: simple to develop, test and deploy at first, but it becomes harder to scale and change as it grows. Microservices split the system into small independent services that communicate over APIs. They can be deployed and scaled separately and use different technologies, but add complexity in networking, data consistency, monitoring and deployment. Start simple and split when needed.",
+    "tips": "Give benefits and costs of both and say when you would choose each.",
+    "points": [
+      "Single deployable unit",
+      "Independent services",
+      "Operational complexity",
+      "Choose based on team and scale"
+    ],
+    "difficulty": "MEDIUM",
+    "company": "Flipkart / Swiggy"
+  },
+  {
+    "cat": "company-specific",
+    "q": "How does a load balancer work?",
+    "ans": "A load balancer sits in front of several servers and distributes incoming requests among them to improve availability and throughput. It uses algorithms such as round robin, least connections or hashing, and runs health checks to stop sending traffic to unhealthy servers. It can work at layer 4 (TCP) or layer 7 (HTTP), and can also terminate TLS and support sticky sessions.",
+    "tips": "Mention algorithms, health checks and layer 4 versus layer 7.",
+    "points": [
+      "Distribute requests",
+      "Balancing algorithms",
+      "Health checks",
+      "Layer 4 vs layer 7"
+    ],
+    "difficulty": "MEDIUM",
+    "company": "Amazon / Cisco"
+  },
+  {
+    "cat": "company-specific",
+    "q": "What happens when you type a URL into the browser and press Enter?",
+    "ans": "The browser checks its cache, then resolves the domain to an IP address through DNS. It opens a TCP connection to the server (and a TLS handshake for HTTPS), sends an HTTP request and the server responds, often through load balancers and application servers. The browser then parses the HTML, requests CSS, JavaScript and images, builds the DOM and render tree, and paints the page.",
+    "tips": "Walk through DNS, TCP and TLS, HTTP request and response, and rendering in order.",
+    "points": [
+      "DNS resolution",
+      "TCP and TLS handshake",
+      "HTTP request and response",
+      "Parsing and rendering"
+    ],
+    "difficulty": "MEDIUM",
+    "company": "Google / Microsoft"
+  },
+  {
+    "cat": "company-specific",
+    "q": "Explain database sharding versus replication.",
+    "ans": "Replication copies the same data to several servers to improve availability and read throughput; one primary handles writes and replicas serve reads. Sharding splits the data across servers by a shard key, so each server holds only part of it, which scales writes and storage. Sharding adds complexity for cross-shard queries and rebalancing, so large systems often use both together.",
+    "tips": "Explain what each solves: replication for availability and reads, sharding for scale of data and writes.",
+    "points": [
+      "Replication for availability",
+      "Sharding by key",
+      "Cross-shard complexity",
+      "Using both together"
+    ],
+    "difficulty": "HARD",
+    "company": "Amazon / Oracle"
+  },
+  {
+    "cat": "company-specific",
+    "q": "How would you design a parking lot system using object-oriented design?",
+    "ans": "I would identify the main classes: ParkingLot, Level, ParkingSpot (with subclasses for compact, large and handicapped spots), Vehicle (Car, Bike, Truck), Ticket and Payment. ParkingLot finds the nearest suitable spot, issues a Ticket on entry and calculates the fee on exit. I would use enums for types, interfaces for pricing strategies and keep the design extensible for new vehicle types and payment methods.",
+    "tips": "Start with requirements, list classes and relationships, and mention extensibility and design patterns.",
+    "points": [
+      "Core classes",
+      "Spot allocation",
+      "Ticket and payment flow",
+      "Extensibility with strategy pattern"
+    ],
+    "difficulty": "MEDIUM",
+    "company": "Amazon / Adobe"
+  }
+]

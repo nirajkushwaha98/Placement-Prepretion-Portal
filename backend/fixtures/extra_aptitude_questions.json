@@ -1,0 +1,618 @@
+[
+  {
+    "cat": "quantitative-aptitude",
+    "topic": "Percentages",
+    "text": "The price of an item is ₹250. It is increased by 20% and then decreased by 10%. What is the final price?",
+    "options": [
+      "₹275",
+      "₹270",
+      "₹250",
+      "₹260"
+    ],
+    "correct": 1,
+    "difficulty": "EASY",
+    "explanation": "250 x 1.20 = 300, then 300 x 0.90 = 270."
+  },
+  {
+    "cat": "quantitative-aptitude",
+    "topic": "Ratio and Proportion",
+    "text": "₹1,200 is divided among A, B and C in the ratio 3 : 5 : 4. What is the largest share?",
+    "options": [
+      "₹600",
+      "₹480",
+      "₹500",
+      "₹400"
+    ],
+    "correct": 2,
+    "difficulty": "EASY",
+    "explanation": "Total parts = 12, one part = ₹100, so the largest share = 5 x 100 = ₹500."
+  },
+  {
+    "cat": "quantitative-aptitude",
+    "topic": "Profit and Loss",
+    "text": "A shopkeeper marks an article 25% above its cost price of ₹800 and then gives a discount of 10%. What is his profit percentage?",
+    "options": [
+      "20%",
+      "15%",
+      "10%",
+      "12.5%"
+    ],
+    "correct": 3,
+    "difficulty": "MEDIUM",
+    "explanation": "Marked price = ₹1,000, selling price = ₹900, profit = ₹100 on ₹800 = 12.5%."
+  },
+  {
+    "cat": "quantitative-aptitude",
+    "topic": "Simple Interest",
+    "text": "What is the simple interest on ₹5,000 at 8% per annum for 3 years?",
+    "options": [
+      "₹1,400",
+      "₹1,500",
+      "₹1,200",
+      "₹1,000"
+    ],
+    "correct": 2,
+    "difficulty": "EASY",
+    "explanation": "SI = P x R x T / 100 = 5000 x 8 x 3 / 100 = ₹1,200."
+  },
+  {
+    "cat": "quantitative-aptitude",
+    "topic": "Compound Interest",
+    "text": "Find the compound interest on ₹8,000 at 5% per annum for 2 years (compounded annually).",
+    "options": [
+      "₹900",
+      "₹820",
+      "₹800",
+      "₹840"
+    ],
+    "correct": 1,
+    "difficulty": "MEDIUM",
+    "explanation": "Amount = 8000 x (1.05)^2 = ₹8,820, so CI = 8820 - 8000 = ₹820."
+  },
+  {
+    "cat": "quantitative-aptitude",
+    "topic": "Time, Speed and Distance",
+    "text": "A car covers 180 km in 3 hours and then 240 km in 4 hours. What is its average speed for the whole journey?",
+    "options": [
+      "55 km/h",
+      "62 km/h",
+      "70 km/h",
+      "60 km/h"
+    ],
+    "correct": 3,
+    "difficulty": "EASY",
+    "explanation": "Average speed = total distance / total time = 420 / 7 = 60 km/h."
+  },
+  {
+    "cat": "quantitative-aptitude",
+    "topic": "Time and Work",
+    "text": "A can finish a job in 10 days and B in 15 days. They work together for 4 days and then A leaves. In how many more days will B finish the remaining work?",
+    "options": [
+      "5 days",
+      "6 days",
+      "3 days",
+      "4 days"
+    ],
+    "correct": 0,
+    "difficulty": "MEDIUM",
+    "explanation": "Together they do 4 x (1/10 + 1/15) = 2/3 of the work. The remaining 1/3 takes B (1/3) / (1/15) = 5 days."
+  },
+  {
+    "cat": "quantitative-aptitude",
+    "topic": "Mixtures and Alligations",
+    "text": "A 40-litre mixture contains milk and water in the ratio 5 : 3. How much water must be added to make the ratio 5 : 4?",
+    "options": [
+      "10 litres",
+      "4 litres",
+      "8 litres",
+      "5 litres"
+    ],
+    "correct": 3,
+    "difficulty": "MEDIUM",
+    "explanation": "Milk = 25 L, water = 15 L. For 25 : x = 5 : 4, x = 20 L, so add 20 - 15 = 5 litres."
+  },
+  {
+    "cat": "quantitative-aptitude",
+    "topic": "HCF and LCM",
+    "text": "What is the smallest number that is exactly divisible by 12, 18 and 24?",
+    "options": [
+      "72",
+      "144",
+      "96",
+      "36"
+    ],
+    "correct": 0,
+    "difficulty": "EASY",
+    "explanation": "12 = 2^2 x 3, 18 = 2 x 3^2, 24 = 2^3 x 3, so LCM = 2^3 x 3^2 = 72."
+  },
+  {
+    "cat": "quantitative-aptitude",
+    "topic": "Permutations and Combinations",
+    "text": "In how many distinct ways can the letters of the word LEVEL be arranged?",
+    "options": [
+      "120",
+      "60",
+      "24",
+      "30"
+    ],
+    "correct": 3,
+    "difficulty": "MEDIUM",
+    "explanation": "LEVEL has 5 letters with L repeated twice and E repeated twice: 5! / (2! x 2!) = 30."
+  },
+  {
+    "cat": "quantitative-aptitude",
+    "topic": "Ages",
+    "text": "A father is three times as old as his son. After 12 years he will be twice as old as his son. What is the son's present age?",
+    "options": [
+      "15 years",
+      "8 years",
+      "10 years",
+      "12 years"
+    ],
+    "correct": 3,
+    "difficulty": "MEDIUM",
+    "explanation": "Let the son be x: 3x + 12 = 2(x + 12), so x = 12 years."
+  },
+  {
+    "cat": "logical-reasoning",
+    "topic": "Number Series",
+    "text": "Find the next term: 2, 6, 12, 20, 30, ?",
+    "options": [
+      "42",
+      "44",
+      "36",
+      "40"
+    ],
+    "correct": 0,
+    "difficulty": "EASY",
+    "explanation": "Differences are 4, 6, 8, 10, so the next difference is 12 and 30 + 12 = 42."
+  },
+  {
+    "cat": "logical-reasoning",
+    "topic": "Number Series",
+    "text": "Find the next term: 3, 6, 11, 18, 27, ?",
+    "options": [
+      "40",
+      "38",
+      "36",
+      "45"
+    ],
+    "correct": 1,
+    "difficulty": "MEDIUM",
+    "explanation": "Differences are 3, 5, 7, 9, so the next difference is 11 and 27 + 11 = 38."
+  },
+  {
+    "cat": "logical-reasoning",
+    "topic": "Odd One Out",
+    "text": "Find the odd one out: 8, 27, 64, 100, 125",
+    "options": [
+      "64",
+      "100",
+      "125",
+      "27"
+    ],
+    "correct": 1,
+    "difficulty": "EASY",
+    "explanation": "8, 27, 64 and 125 are perfect cubes (2^3, 3^3, 4^3, 5^3). 100 is not."
+  },
+  {
+    "cat": "logical-reasoning",
+    "topic": "Analogies",
+    "text": "Book : Reading :: Fork : ?",
+    "options": [
+      "Cooking",
+      "Kitchen",
+      "Eating",
+      "Metal"
+    ],
+    "correct": 2,
+    "difficulty": "EASY",
+    "explanation": "A book is used for reading; a fork is used for eating."
+  },
+  {
+    "cat": "logical-reasoning",
+    "topic": "Coding-Decoding",
+    "text": "In a certain code, each word is coded as the sum of the alphabet positions of its letters, so CAT = 24. What is the code for BAD?",
+    "options": [
+      "8",
+      "7",
+      "9",
+      "6"
+    ],
+    "correct": 1,
+    "difficulty": "EASY",
+    "explanation": "B = 2, A = 1, D = 4, so BAD = 2 + 1 + 4 = 7 (and CAT = 3 + 1 + 20 = 24)."
+  },
+  {
+    "cat": "logical-reasoning",
+    "topic": "Direction Sense",
+    "text": "Ravi walks 8 km south, turns right and walks 6 km, then turns right again and walks 8 km. How far is he from the starting point?",
+    "options": [
+      "10 km",
+      "8 km",
+      "14 km",
+      "6 km"
+    ],
+    "correct": 3,
+    "difficulty": "MEDIUM",
+    "explanation": "South 8, west 6, north 8 brings him back to the starting latitude, 6 km west of the start."
+  },
+  {
+    "cat": "logical-reasoning",
+    "topic": "Blood Relations",
+    "text": "A is B's sister. C is B's mother. D is C's father. E is D's mother. How is A related to D?",
+    "options": [
+      "Great-granddaughter",
+      "Niece",
+      "Daughter",
+      "Granddaughter"
+    ],
+    "correct": 3,
+    "difficulty": "MEDIUM",
+    "explanation": "C is A's mother, so D (C's father) is A's grandfather and A is his granddaughter."
+  },
+  {
+    "cat": "logical-reasoning",
+    "topic": "Syllogism",
+    "text": "Statements: All pens are books. All books are tables.\nConclusions: I. All pens are tables. II. Some tables are pens.",
+    "options": [
+      "Neither follows",
+      "Only I follows",
+      "Only II follows",
+      "Both I and II follow"
+    ],
+    "correct": 3,
+    "difficulty": "MEDIUM",
+    "explanation": "Pens are inside books, which are inside tables, so all pens are tables (I), and therefore some tables are pens (II)."
+  },
+  {
+    "cat": "logical-reasoning",
+    "topic": "Ranking",
+    "text": "In a row of 40 students, Rohit is 15th from the left. What is his position from the right?",
+    "options": [
+      "25th",
+      "26th",
+      "24th",
+      "27th"
+    ],
+    "correct": 1,
+    "difficulty": "EASY",
+    "explanation": "Position from the right = 40 - 15 + 1 = 26."
+  },
+  {
+    "cat": "logical-reasoning",
+    "topic": "Clocks",
+    "text": "What is the angle between the hour hand and the minute hand of a clock at 3:30?",
+    "options": [
+      "75°",
+      "105°",
+      "60°",
+      "90°"
+    ],
+    "correct": 0,
+    "difficulty": "MEDIUM",
+    "explanation": "Hour hand = 3 x 30 + 15 = 105°, minute hand = 180°, so the angle is 75°."
+  },
+  {
+    "cat": "logical-reasoning",
+    "topic": "Calendar",
+    "text": "Today is Wednesday. What day of the week will it be after 100 days?",
+    "options": [
+      "Friday",
+      "Saturday",
+      "Thursday",
+      "Sunday"
+    ],
+    "correct": 0,
+    "difficulty": "MEDIUM",
+    "explanation": "100 mod 7 = 2, so two days after Wednesday is Friday."
+  },
+  {
+    "cat": "verbal-ability",
+    "topic": "Synonyms",
+    "text": "Choose the word closest in meaning to BENEVOLENT:",
+    "options": [
+      "Greedy",
+      "Kind",
+      "Lazy",
+      "Cruel"
+    ],
+    "correct": 1,
+    "difficulty": "EASY",
+    "explanation": "Benevolent means well-meaning and kind."
+  },
+  {
+    "cat": "verbal-ability",
+    "topic": "Antonyms",
+    "text": "Choose the word opposite in meaning to VERBOSE:",
+    "options": [
+      "Elaborate",
+      "Wordy",
+      "Lengthy",
+      "Concise"
+    ],
+    "correct": 3,
+    "difficulty": "EASY",
+    "explanation": "Verbose means using too many words; concise is the opposite."
+  },
+  {
+    "cat": "verbal-ability",
+    "topic": "Synonyms",
+    "text": "Choose the word closest in meaning to METICULOUS:",
+    "options": [
+      "Quick",
+      "Careless",
+      "Careful",
+      "Rude"
+    ],
+    "correct": 2,
+    "difficulty": "MEDIUM",
+    "explanation": "Meticulous means showing great attention to detail, i.e. careful."
+  },
+  {
+    "cat": "verbal-ability",
+    "topic": "Antonyms",
+    "text": "Choose the word opposite in meaning to CANDID:",
+    "options": [
+      "Open",
+      "Evasive",
+      "Direct",
+      "Honest"
+    ],
+    "correct": 1,
+    "difficulty": "MEDIUM",
+    "explanation": "Candid means frank and open; evasive means avoiding a direct answer."
+  },
+  {
+    "cat": "verbal-ability",
+    "topic": "Fill in the Blanks",
+    "text": "She has been working in this company ____ 2019.",
+    "options": [
+      "during",
+      "for",
+      "since",
+      "from"
+    ],
+    "correct": 2,
+    "difficulty": "EASY",
+    "explanation": "'Since' is used with a specific starting point in time (2019) in the present perfect continuous tense."
+  },
+  {
+    "cat": "verbal-ability",
+    "topic": "Subject-Verb Agreement",
+    "text": "Each of the students ____ responsible for his or her own project.",
+    "options": [
+      "were",
+      "have been",
+      "are",
+      "is"
+    ],
+    "correct": 3,
+    "difficulty": "EASY",
+    "explanation": "'Each' is singular, so it takes the singular verb 'is'."
+  },
+  {
+    "cat": "verbal-ability",
+    "topic": "Idioms and Phrases",
+    "text": "What does the idiom 'a blessing in disguise' mean?",
+    "options": [
+      "A religious ceremony",
+      "Something good that seemed bad at first",
+      "A well-planned surprise",
+      "A hidden danger"
+    ],
+    "correct": 1,
+    "difficulty": "EASY",
+    "explanation": "It describes something that first appears unfortunate but turns out to be beneficial."
+  },
+  {
+    "cat": "verbal-ability",
+    "topic": "One Word Substitution",
+    "text": "A person who loves books is called:",
+    "options": [
+      "Bibliographer",
+      "Philanthropist",
+      "Misanthrope",
+      "Bibliophile"
+    ],
+    "correct": 3,
+    "difficulty": "MEDIUM",
+    "explanation": "A bibliophile is a lover of books."
+  },
+  {
+    "cat": "verbal-ability",
+    "topic": "Spelling",
+    "text": "Choose the correctly spelt word:",
+    "options": [
+      "Acomodation",
+      "Accomodation",
+      "Accommodation",
+      "Acommodation"
+    ],
+    "correct": 2,
+    "difficulty": "EASY",
+    "explanation": "Accommodation is spelt with double c and double m."
+  },
+  {
+    "cat": "verbal-ability",
+    "topic": "Prepositions",
+    "text": "He is very good ____ mathematics.",
+    "options": [
+      "on",
+      "in",
+      "at",
+      "with"
+    ],
+    "correct": 2,
+    "difficulty": "EASY",
+    "explanation": "The correct collocation is 'good at' a subject or skill."
+  },
+  {
+    "cat": "verbal-ability",
+    "topic": "Active and Passive Voice",
+    "text": "Change to passive voice: 'The teacher praised the student.'",
+    "options": [
+      "The student praised the teacher.",
+      "The student has been praised by the teacher.",
+      "The teacher was praised by the student.",
+      "The student was praised by the teacher."
+    ],
+    "correct": 3,
+    "difficulty": "MEDIUM",
+    "explanation": "Simple past active becomes 'was/were + past participle' in the passive voice."
+  },
+  {
+    "cat": "data-interpretation",
+    "topic": "Tables and Charts",
+    "text": "Monthly sales (in units) of a product were: January 120, February 150, March 180. What was the average monthly sales?",
+    "options": [
+      "140 units",
+      "160 units",
+      "155 units",
+      "150 units"
+    ],
+    "correct": 3,
+    "difficulty": "EASY",
+    "explanation": "(120 + 150 + 180) / 3 = 450 / 3 = 150."
+  },
+  {
+    "cat": "data-interpretation",
+    "topic": "Pie Charts",
+    "text": "A family's monthly income is ₹40,000. The pie chart shows: Rent 30%, Food 25%, Travel 15%, Savings 30%. How much do they save?",
+    "options": [
+      "₹10,000",
+      "₹10,800",
+      "₹12,000",
+      "₹15,000"
+    ],
+    "correct": 2,
+    "difficulty": "EASY",
+    "explanation": "30% of ₹40,000 = ₹12,000."
+  },
+  {
+    "cat": "data-interpretation",
+    "topic": "Bar Charts",
+    "text": "A factory produced 200 units in 2019, 250 units in 2020 and 300 units in 2021. What is the percentage increase in production from 2019 to 2021?",
+    "options": [
+      "40%",
+      "60%",
+      "25%",
+      "50%"
+    ],
+    "correct": 3,
+    "difficulty": "EASY",
+    "explanation": "(300 - 200) / 200 x 100 = 50%."
+  },
+  {
+    "cat": "data-interpretation",
+    "topic": "Ratios",
+    "text": "In a class of 40 students the ratio of boys to girls is 3 : 2. How many more boys than girls are there?",
+    "options": [
+      "6",
+      "10",
+      "8",
+      "4"
+    ],
+    "correct": 2,
+    "difficulty": "EASY",
+    "explanation": "Boys = 24 and girls = 16, so the difference is 8."
+  },
+  {
+    "cat": "data-interpretation",
+    "topic": "Tables and Charts",
+    "text": "A student scored: Maths 80, Physics 70, Chemistry 90, Biology 60. What is the average mark?",
+    "options": [
+      "75",
+      "80",
+      "70",
+      "72.5"
+    ],
+    "correct": 0,
+    "difficulty": "EASY",
+    "explanation": "(80 + 70 + 90 + 60) / 4 = 300 / 4 = 75."
+  },
+  {
+    "cat": "data-interpretation",
+    "topic": "Line Graphs",
+    "text": "Quarterly revenue (in ₹ lakh) was Q1 = 50, Q2 = 65, Q3 = 80, Q4 = 95. What is the percentage growth from Q1 to Q4?",
+    "options": [
+      "75%",
+      "90%",
+      "60%",
+      "45%"
+    ],
+    "correct": 1,
+    "difficulty": "MEDIUM",
+    "explanation": "(95 - 50) / 50 x 100 = 90%."
+  },
+  {
+    "cat": "data-interpretation",
+    "topic": "Percentage Change",
+    "text": "A company's profit was ₹40 lakh in 2018, ₹50 lakh in 2019 and ₹45 lakh in 2020. What was the percentage decrease in profit from 2019 to 2020?",
+    "options": [
+      "5%",
+      "10%",
+      "12.5%",
+      "15%"
+    ],
+    "correct": 1,
+    "difficulty": "MEDIUM",
+    "explanation": "(50 - 45) / 50 x 100 = 10%."
+  },
+  {
+    "cat": "data-interpretation",
+    "topic": "Pie Charts",
+    "text": "In a pie chart of a college budget, Education takes 25%. What central angle represents Education?",
+    "options": [
+      "60°",
+      "75°",
+      "120°",
+      "90°"
+    ],
+    "correct": 3,
+    "difficulty": "EASY",
+    "explanation": "25% of 360° = 90°."
+  },
+  {
+    "cat": "data-interpretation",
+    "topic": "Tables and Charts",
+    "text": "A shop sold 500 units at ₹20 each and 300 units at ₹30 each. What is the total revenue?",
+    "options": [
+      "₹21,000",
+      "₹17,500",
+      "₹19,000",
+      "₹15,000"
+    ],
+    "correct": 2,
+    "difficulty": "EASY",
+    "explanation": "500 x 20 + 300 x 30 = 10,000 + 9,000 = ₹19,000."
+  },
+  {
+    "cat": "data-interpretation",
+    "topic": "Bar Charts",
+    "text": "In 2020, 120 out of 150 candidates cleared an exam. What was the pass percentage?",
+    "options": [
+      "80%",
+      "75%",
+      "85%",
+      "82%"
+    ],
+    "correct": 0,
+    "difficulty": "EASY",
+    "explanation": "120 / 150 x 100 = 80%."
+  },
+  {
+    "cat": "data-interpretation",
+    "topic": "Percentages in Data",
+    "text": "In a survey of 800 people, 60% like tea, 25% like coffee and the rest like neither. How many like neither?",
+    "options": [
+      "160",
+      "100",
+      "140",
+      "120"
+    ],
+    "correct": 3,
+    "difficulty": "MEDIUM",
+    "explanation": "Neither = 100 - 60 - 25 = 15%, and 15% of 800 = 120."
+  }
+]

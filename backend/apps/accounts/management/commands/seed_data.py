@@ -23,6 +23,15 @@ def _seed_password(env_name, local_default):
 class Command(BaseCommand):
     help = 'Seeds initial realistic data for Placement Preparation Portal'
 
+    @staticmethod
+    def _load_fixture(name):
+        """Load a JSON list from backend/fixtures; returns [] if the file is missing."""
+        path = Path(settings.BASE_DIR) / 'fixtures' / name
+        if not path.exists():
+            return []
+        with open(path, encoding='utf-8') as fh:
+            return json.load(fh)
+
     def handle(self, *args, **kwargs):
         self.stdout.write(self.style.NOTICE("Seeding data..."))
 
@@ -674,7 +683,26 @@ class Command(BaseCommand):
                     q_obj.difficulty = q_data['difficulty']
                     q_obj.save()
 
-        self.stdout.write(self.style.SUCCESS(f"Seeded {len(aptitude_questions)} Aptitude Questions."))
+        extra_apt = 0
+        for q_data in self._load_fixture('extra_aptitude_questions.json'):
+            cat_obj = cat_objs.get(q_data['cat'])
+            if cat_obj:
+                AptitudeQuestion.objects.get_or_create(
+                    category=cat_obj,
+                    question_text=q_data['text'],
+                    defaults={
+                        'topic': q_data['topic'],
+                        'options': q_data['options'],
+                        'correct_option_index': q_data['correct'],
+                        'explanation': q_data['explanation'],
+                        'difficulty': q_data['difficulty'],
+                        'marks': 1,
+                        'negative_marks': 0.25,
+                    }
+                )
+                extra_apt += 1
+
+        self.stdout.write(self.style.SUCCESS(f"Seeded {len(aptitude_questions) + extra_apt} Aptitude Questions."))
 
         # Create Standard Diagnostic Tests
         tests_data = [
@@ -988,13 +1016,11 @@ class Command(BaseCommand):
             )
 
         # Extra DSA problems (linked lists, trees, graphs, sorting, ...) from a JSON fixture
-        extra_path = Path(settings.BASE_DIR) / 'fixtures' / 'extra_coding_problems.json'
         extra_count = 0
-        if extra_path.exists():
-            with open(extra_path, encoding='utf-8') as fh:
-                for p_data in json.load(fh):
-                    CodingProblem.objects.get_or_create(slug=p_data['slug'], defaults=p_data)
-                    extra_count += 1
+        for fixture_name in ('extra_coding_problems.json', 'dsa_more_problems.json'):
+            for p_data in self._load_fixture(fixture_name):
+                CodingProblem.objects.get_or_create(slug=p_data['slug'], defaults=p_data)
+                extra_count += 1
 
         self.stdout.write(self.style.SUCCESS(f"Seeded {len(coding_problems_data) + extra_count} Coding Problems."))
 
@@ -1225,5 +1251,22 @@ class Command(BaseCommand):
                     }
                 )
 
-        self.stdout.write(self.style.SUCCESS(f"Seeded {len(interview_questions_data)} Interview Questions."))
+        extra_int = 0
+        for iq in self._load_fixture('extra_interview_questions.json'):
+            cat_obj = int_cat_map.get(iq['cat'])
+            if cat_obj:
+                InterviewQuestion.objects.get_or_create(
+                    category=cat_obj,
+                    question=iq['q'],
+                    defaults={
+                        'model_answer': iq['ans'],
+                        'tips': iq['tips'],
+                        'key_talking_points': iq['points'],
+                        'difficulty': iq['difficulty'],
+                        'company_tag': iq['company'],
+                    }
+                )
+                extra_int += 1
+
+        self.stdout.write(self.style.SUCCESS(f"Seeded {len(interview_questions_data) + extra_int} Interview Questions."))
         self.stdout.write(self.style.SUCCESS("All seed data successfully populated!"))

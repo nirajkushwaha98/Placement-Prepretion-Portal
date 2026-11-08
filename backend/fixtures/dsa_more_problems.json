@@ -1,0 +1,2947 @@
+[
+  {
+    "title": "3Sum",
+    "slug": "three-sum",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Arrays",
+      "Two Pointers",
+      "Sorting"
+    ],
+    "description": "Find all unique triplets in the array that sum to zero. Print each triplet in non-decreasing order on its own line; list triplets in lexicographic order. Print `none` if there is no triplet.",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "One triplet per line, or `none`.",
+    "constraints": "3 <= N <= 3000",
+    "sample_input": "6\n-1 0 1 2 -1 -4",
+    "sample_output": "-1 -1 2\n-1 0 1",
+    "sample_explanation": "The unique triplets are (-1,-1,2) and (-1,0,1).",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "6\n-1 0 1 2 -1 -4",
+        "output": "-1 -1 2\n-1 0 1",
+        "is_hidden": false
+      },
+      {
+        "input": "3\n0 0 0",
+        "output": "0 0 0",
+        "is_hidden": false
+      },
+      {
+        "input": "3\n0 1 1",
+        "output": "none",
+        "is_hidden": true
+      },
+      {
+        "input": "8\n-2 0 1 1 2 -1 -1 0",
+        "output": "-2 0 2\n-2 1 1\n-1 -1 2\n-1 0 1",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Container With Most Water",
+    "slug": "container-with-most-water",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Arrays",
+      "Two Pointers",
+      "Greedy"
+    ],
+    "description": "Given N vertical lines with the given heights, choose two lines that together with the x-axis hold the most water. Print the maximum area.",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "A single integer.",
+    "constraints": "2 <= N <= 10^5",
+    "sample_input": "9\n1 8 6 2 5 4 8 3 7",
+    "sample_output": "49",
+    "sample_explanation": "Lines at index 1 and 8 give 7 * 7 = 49.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(h):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "9\n1 8 6 2 5 4 8 3 7",
+        "output": "49",
+        "is_hidden": false
+      },
+      {
+        "input": "2\n1 1",
+        "output": "1",
+        "is_hidden": false
+      },
+      {
+        "input": "5\n4 3 2 1 4",
+        "output": "16",
+        "is_hidden": true
+      },
+      {
+        "input": "3\n1 2 1",
+        "output": "2",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Best Time to Buy and Sell Stock",
+    "slug": "best-time-buy-sell-stock",
+    "difficulty": "EASY",
+    "tags": [
+      "Arrays",
+      "Dynamic Programming",
+      "Sliding Window"
+    ],
+    "description": "Given daily stock prices, buy once and sell once later to maximise profit. Print the maximum profit (0 if no profit is possible).",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= N <= 10^5",
+    "sample_input": "6\n7 1 5 3 6 4",
+    "sample_output": "5",
+    "sample_explanation": "Buy at 1, sell at 6: profit 5.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(p):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "6\n7 1 5 3 6 4",
+        "output": "5",
+        "is_hidden": false
+      },
+      {
+        "input": "5\n7 6 4 3 1",
+        "output": "0",
+        "is_hidden": false
+      },
+      {
+        "input": "1\n10",
+        "output": "0",
+        "is_hidden": true
+      },
+      {
+        "input": "4\n2 4 1 7",
+        "output": "6",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Contains Duplicate",
+    "slug": "contains-duplicate",
+    "difficulty": "EASY",
+    "tags": [
+      "Arrays",
+      "Hash Table"
+    ],
+    "description": "Print `true` if any value appears at least twice, otherwise `false`.",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "`true` or `false`.",
+    "constraints": "1 <= N <= 10^5",
+    "sample_input": "4\n1 2 3 1",
+    "sample_output": "true",
+    "sample_explanation": "The value 1 appears twice.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "4\n1 2 3 1",
+        "output": "true",
+        "is_hidden": false
+      },
+      {
+        "input": "4\n1 2 3 4",
+        "output": "false",
+        "is_hidden": false
+      },
+      {
+        "input": "1\n5",
+        "output": "false",
+        "is_hidden": true
+      },
+      {
+        "input": "5\n1 1 1 3 3",
+        "output": "true",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Missing Number",
+    "slug": "missing-number",
+    "difficulty": "EASY",
+    "tags": [
+      "Arrays",
+      "Math",
+      "Bit Manipulation"
+    ],
+    "description": "An array holds N distinct numbers from 0..N. Print the one number in that range that is missing.",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= N <= 10^4",
+    "sample_input": "3\n3 0 1",
+    "sample_output": "2",
+    "sample_explanation": "The range is 0..3 and 2 is missing.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3\n3 0 1",
+        "output": "2",
+        "is_hidden": false
+      },
+      {
+        "input": "2\n0 1",
+        "output": "2",
+        "is_hidden": false
+      },
+      {
+        "input": "1\n0",
+        "output": "1",
+        "is_hidden": true
+      },
+      {
+        "input": "9\n9 6 4 2 3 5 7 0 1",
+        "output": "8",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Find All Numbers Disappeared in an Array",
+    "slug": "find-disappeared-numbers",
+    "difficulty": "EASY",
+    "tags": [
+      "Arrays",
+      "Hash Table"
+    ],
+    "description": "Given N integers in the range 1..N (duplicates allowed), print every number in 1..N that does not appear, in ascending order.",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "Space-separated missing numbers (at least one is always missing).",
+    "constraints": "2 <= N <= 10^5",
+    "sample_input": "8\n4 3 2 7 8 2 3 1",
+    "sample_output": "5 6",
+    "sample_explanation": "5 and 6 never appear.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "8\n4 3 2 7 8 2 3 1",
+        "output": "5 6",
+        "is_hidden": false
+      },
+      {
+        "input": "2\n1 1",
+        "output": "2",
+        "is_hidden": false
+      },
+      {
+        "input": "5\n1 1 2 2 3",
+        "output": "4 5",
+        "is_hidden": true
+      },
+      {
+        "input": "4\n2 2 2 2",
+        "output": "1 3 4",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Intersection of Two Arrays",
+    "slug": "intersection-of-two-arrays",
+    "difficulty": "EASY",
+    "tags": [
+      "Arrays",
+      "Hash Table",
+      "Two Pointers"
+    ],
+    "description": "Print the distinct values that appear in both arrays, in ascending order (at least one common value exists).",
+    "input_format": "First line: N and M. Second line: N integers (array 1). Third line: M integers (array 2).",
+    "output_format": "Space-separated integers.",
+    "constraints": "1 <= N, M <= 1000",
+    "sample_input": "4 2\n1 2 2 1\n2 2",
+    "sample_output": "2",
+    "sample_explanation": "Only 2 is common.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(a, b):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn, m = int(data[0]), int(data[1])\na = list(map(int, data[2:n + 2]))\nb = list(map(int, data[n + 2:n + m + 2]))\nemit(solve(a, b))\n"
+    },
+    "test_cases": [
+      {
+        "input": "4 2\n1 2 2 1\n2 2",
+        "output": "2",
+        "is_hidden": false
+      },
+      {
+        "input": "3 5\n4 9 5\n9 4 9 8 4",
+        "output": "4 9",
+        "is_hidden": false
+      },
+      {
+        "input": "2 2\n1 2\n2 3",
+        "output": "2",
+        "is_hidden": true
+      },
+      {
+        "input": "5 3\n1 2 3 4 5\n5 4 3",
+        "output": "3 4 5",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Intersection of Two Arrays II",
+    "slug": "intersection-of-two-arrays-ii",
+    "difficulty": "EASY",
+    "tags": [
+      "Arrays",
+      "Hash Table",
+      "Two Pointers"
+    ],
+    "description": "Print the multiset intersection of the two arrays (each value as many times as it appears in both), in ascending order.",
+    "input_format": "First line: N and M. Second line: N integers (array 1). Third line: M integers (array 2).",
+    "output_format": "Space-separated integers.",
+    "constraints": "1 <= N, M <= 1000",
+    "sample_input": "4 2\n1 2 2 1\n2 2",
+    "sample_output": "2 2",
+    "sample_explanation": "2 appears twice in both arrays.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(a, b):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn, m = int(data[0]), int(data[1])\na = list(map(int, data[2:n + 2]))\nb = list(map(int, data[n + 2:n + m + 2]))\nemit(solve(a, b))\n"
+    },
+    "test_cases": [
+      {
+        "input": "4 2\n1 2 2 1\n2 2",
+        "output": "2 2",
+        "is_hidden": false
+      },
+      {
+        "input": "3 5\n4 9 5\n9 4 9 8 4",
+        "output": "4 9",
+        "is_hidden": false
+      },
+      {
+        "input": "3 3\n1 1 2\n1 1 1",
+        "output": "1 1",
+        "is_hidden": true
+      },
+      {
+        "input": "2 4\n3 3\n3 3 3 3",
+        "output": "3 3",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Plus One",
+    "slug": "plus-one",
+    "difficulty": "EASY",
+    "tags": [
+      "Arrays",
+      "Math"
+    ],
+    "description": "A non-negative integer is given as an array of digits (most significant first). Add one and print the resulting digits.",
+    "input_format": "First line: N. Second line: N digits.",
+    "output_format": "Space-separated digits.",
+    "constraints": "1 <= N <= 100",
+    "sample_input": "3\n1 2 3",
+    "sample_output": "1 2 4",
+    "sample_explanation": "123 + 1 = 124.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(d):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3\n1 2 3",
+        "output": "1 2 4",
+        "is_hidden": false
+      },
+      {
+        "input": "4\n4 3 2 1",
+        "output": "4 3 2 2",
+        "is_hidden": false
+      },
+      {
+        "input": "1\n9",
+        "output": "1 0",
+        "is_hidden": true
+      },
+      {
+        "input": "3\n9 9 9",
+        "output": "1 0 0 0",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Move Zeroes",
+    "slug": "move-zeroes",
+    "difficulty": "EASY",
+    "tags": [
+      "Arrays",
+      "Two Pointers"
+    ],
+    "description": "Move all zeros to the end while keeping the order of the other elements. Print the array.",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "Space-separated integers.",
+    "constraints": "1 <= N <= 10^4",
+    "sample_input": "5\n0 1 0 3 12",
+    "sample_output": "1 3 12 0 0",
+    "sample_explanation": "Non-zero values keep order: 1 3 12, then two zeros.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "5\n0 1 0 3 12",
+        "output": "1 3 12 0 0",
+        "is_hidden": false
+      },
+      {
+        "input": "1\n0",
+        "output": "0",
+        "is_hidden": false
+      },
+      {
+        "input": "3\n1 2 3",
+        "output": "1 2 3",
+        "is_hidden": true
+      },
+      {
+        "input": "6\n0 0 1 0 2 0",
+        "output": "1 2 0 0 0 0",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Find Pivot Index",
+    "slug": "find-pivot-index",
+    "difficulty": "EASY",
+    "tags": [
+      "Arrays",
+      "Prefix Sum"
+    ],
+    "description": "Print the leftmost index where the sum of elements to its left equals the sum to its right, or -1 if none exists.",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= N <= 10^4",
+    "sample_input": "6\n1 7 3 6 5 6",
+    "sample_output": "3",
+    "sample_explanation": "Left sum 11 equals right sum 11 at index 3.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "6\n1 7 3 6 5 6",
+        "output": "3",
+        "is_hidden": false
+      },
+      {
+        "input": "3\n1 2 3",
+        "output": "-1",
+        "is_hidden": false
+      },
+      {
+        "input": "3\n2 1 -1",
+        "output": "0",
+        "is_hidden": true
+      },
+      {
+        "input": "1\n5",
+        "output": "0",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Running Sum of 1D Array",
+    "slug": "running-sum-1d-array",
+    "difficulty": "EASY",
+    "tags": [
+      "Arrays",
+      "Prefix Sum"
+    ],
+    "description": "Print the running sums: element i of the output is the sum of the first i + 1 elements.",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "Space-separated integers.",
+    "constraints": "1 <= N <= 1000",
+    "sample_input": "4\n1 2 3 4",
+    "sample_output": "1 3 6 10",
+    "sample_explanation": "Prefix sums are 1, 3, 6, 10.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "4\n1 2 3 4",
+        "output": "1 3 6 10",
+        "is_hidden": false
+      },
+      {
+        "input": "5\n1 1 1 1 1",
+        "output": "1 2 3 4 5",
+        "is_hidden": false
+      },
+      {
+        "input": "1\n-3",
+        "output": "-3",
+        "is_hidden": true
+      },
+      {
+        "input": "5\n3 1 2 10 1",
+        "output": "3 4 6 16 17",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Squares of a Sorted Array",
+    "slug": "squares-of-sorted-array",
+    "difficulty": "EASY",
+    "tags": [
+      "Arrays",
+      "Two Pointers",
+      "Sorting"
+    ],
+    "description": "Given a sorted array, print the squares of each number in non-decreasing order.",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "Space-separated integers.",
+    "constraints": "1 <= N <= 10^4",
+    "sample_input": "5\n-4 -1 0 3 10",
+    "sample_output": "0 1 9 16 100",
+    "sample_explanation": "Squares sorted: 0 1 9 16 100.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "5\n-4 -1 0 3 10",
+        "output": "0 1 9 16 100",
+        "is_hidden": false
+      },
+      {
+        "input": "5\n-7 -3 2 3 11",
+        "output": "4 9 9 49 121",
+        "is_hidden": false
+      },
+      {
+        "input": "1\n-2",
+        "output": "4",
+        "is_hidden": true
+      },
+      {
+        "input": "3\n1 2 3",
+        "output": "1 4 9",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Majority Element (Boyer-Moore Voting)",
+    "slug": "majority-element",
+    "difficulty": "EASY",
+    "tags": [
+      "Arrays",
+      "Hash Table",
+      "Counting"
+    ],
+    "description": "Print the element that appears more than N/2 times (it always exists).",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= N <= 5 * 10^4",
+    "sample_input": "3\n3 2 3",
+    "sample_output": "3",
+    "sample_explanation": "3 appears twice out of three.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3\n3 2 3",
+        "output": "3",
+        "is_hidden": false
+      },
+      {
+        "input": "7\n2 2 1 1 1 2 2",
+        "output": "2",
+        "is_hidden": false
+      },
+      {
+        "input": "1\n8",
+        "output": "8",
+        "is_hidden": true
+      },
+      {
+        "input": "5\n5 5 4 4 5",
+        "output": "5",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Pascal's Triangle",
+    "slug": "pascals-triangle",
+    "difficulty": "EASY",
+    "tags": [
+      "Arrays",
+      "Dynamic Programming"
+    ],
+    "description": "Print the first N rows of Pascal's triangle, one row per line.",
+    "input_format": "A single integer N.",
+    "output_format": "N lines of space-separated integers.",
+    "constraints": "1 <= N <= 30",
+    "sample_input": "5",
+    "sample_output": "1\n1 1\n1 2 1\n1 3 3 1\n1 4 6 4 1",
+    "sample_explanation": "Each number is the sum of the two above it.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(n):\n    # Write your solution here\n    pass\n\nn = int(sys.stdin.read().split()[0])\nemit(solve(n))\n"
+    },
+    "test_cases": [
+      {
+        "input": "5",
+        "output": "1\n1 1\n1 2 1\n1 3 3 1\n1 4 6 4 1",
+        "is_hidden": false
+      },
+      {
+        "input": "1",
+        "output": "1",
+        "is_hidden": false
+      },
+      {
+        "input": "2",
+        "output": "1\n1 1",
+        "is_hidden": true
+      },
+      {
+        "input": "6",
+        "output": "1\n1 1\n1 2 1\n1 3 3 1\n1 4 6 4 1\n1 5 10 10 5 1",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Pascal's Triangle II",
+    "slug": "pascals-triangle-ii",
+    "difficulty": "EASY",
+    "tags": [
+      "Arrays",
+      "Dynamic Programming"
+    ],
+    "description": "Print row K (0-indexed) of Pascal's triangle.",
+    "input_format": "A single integer K.",
+    "output_format": "Space-separated integers.",
+    "constraints": "0 <= K <= 33",
+    "sample_input": "3",
+    "sample_output": "1 3 3 1",
+    "sample_explanation": "Row 3 is 1 3 3 1.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(k):\n    # Write your solution here\n    pass\n\nn = int(sys.stdin.read().split()[0])\nemit(solve(n))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3",
+        "output": "1 3 3 1",
+        "is_hidden": false
+      },
+      {
+        "input": "0",
+        "output": "1",
+        "is_hidden": false
+      },
+      {
+        "input": "1",
+        "output": "1 1",
+        "is_hidden": true
+      },
+      {
+        "input": "5",
+        "output": "1 5 10 10 5 1",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Product of Array Except Self",
+    "slug": "product-except-self",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Arrays",
+      "Prefix Sum"
+    ],
+    "description": "For each index print the product of all other elements, without using division.",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "Space-separated integers.",
+    "constraints": "2 <= N <= 10^5",
+    "sample_input": "4\n1 2 3 4",
+    "sample_output": "24 12 8 6",
+    "sample_explanation": "Products: 24 12 8 6.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "4\n1 2 3 4",
+        "output": "24 12 8 6",
+        "is_hidden": false
+      },
+      {
+        "input": "5\n-1 1 0 -3 3",
+        "output": "0 0 9 0 0",
+        "is_hidden": false
+      },
+      {
+        "input": "2\n5 7",
+        "output": "7 5",
+        "is_hidden": true
+      },
+      {
+        "input": "3\n2 0 4",
+        "output": "0 8 0",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Subarray Sum Equals K",
+    "slug": "subarray-sum-equals-k",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Arrays",
+      "Hash Table",
+      "Prefix Sum"
+    ],
+    "description": "Print the number of contiguous subarrays whose sum equals K.",
+    "input_format": "First line: N and K. Second line: N space-separated integers.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= N <= 2 * 10^4",
+    "sample_input": "3 2\n1 1 1",
+    "sample_output": "2",
+    "sample_explanation": "Two subarrays [1,1] sum to 2.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums, k):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn, k = int(data[0]), int(data[1])\nnums = list(map(int, data[2:n + 2]))\nemit(solve(nums, k))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3 2\n1 1 1",
+        "output": "2",
+        "is_hidden": false
+      },
+      {
+        "input": "3 3\n1 2 3",
+        "output": "2",
+        "is_hidden": false
+      },
+      {
+        "input": "5 0\n1 -1 0 1 -1",
+        "output": "7",
+        "is_hidden": true
+      },
+      {
+        "input": "4 7\n3 4 7 2",
+        "output": "2",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Maximum Product Subarray",
+    "slug": "maximum-product-subarray",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Arrays",
+      "Dynamic Programming"
+    ],
+    "description": "Print the largest product of any contiguous subarray.",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= N <= 2 * 10^4",
+    "sample_input": "4\n2 3 -2 4",
+    "sample_output": "6",
+    "sample_explanation": "[2,3] gives 6.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "4\n2 3 -2 4",
+        "output": "6",
+        "is_hidden": false
+      },
+      {
+        "input": "3\n-2 0 -1",
+        "output": "0",
+        "is_hidden": false
+      },
+      {
+        "input": "3\n-2 3 -4",
+        "output": "24",
+        "is_hidden": true
+      },
+      {
+        "input": "1\n-5",
+        "output": "-5",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Find the Duplicate Number",
+    "slug": "find-the-duplicate-number",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Arrays",
+      "Two Pointers",
+      "Binary Search"
+    ],
+    "description": "An array of N integers contains values in 1..N-1 and exactly one value repeats (possibly several times). Print the repeated value.",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "A single integer.",
+    "constraints": "2 <= N <= 10^5",
+    "sample_input": "5\n1 3 4 2 2",
+    "sample_output": "2",
+    "sample_explanation": "2 appears twice.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "5\n1 3 4 2 2",
+        "output": "2",
+        "is_hidden": false
+      },
+      {
+        "input": "5\n3 1 3 4 2",
+        "output": "3",
+        "is_hidden": false
+      },
+      {
+        "input": "2\n1 1",
+        "output": "1",
+        "is_hidden": true
+      },
+      {
+        "input": "4\n2 2 2 1",
+        "output": "2",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Next Permutation",
+    "slug": "next-permutation",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Arrays",
+      "Two Pointers"
+    ],
+    "description": "Print the next lexicographically greater permutation of the array. If none exists, print the lowest (sorted ascending) order.",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "Space-separated integers.",
+    "constraints": "1 <= N <= 100",
+    "sample_input": "3\n1 2 3",
+    "sample_output": "1 3 2",
+    "sample_explanation": "The next permutation of 1 2 3 is 1 3 2.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3\n1 2 3",
+        "output": "1 3 2",
+        "is_hidden": false
+      },
+      {
+        "input": "3\n3 2 1",
+        "output": "1 2 3",
+        "is_hidden": false
+      },
+      {
+        "input": "3\n1 1 5",
+        "output": "1 5 1",
+        "is_hidden": true
+      },
+      {
+        "input": "5\n1 3 5 4 2",
+        "output": "1 4 2 3 5",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Longest Consecutive Sequence",
+    "slug": "longest-consecutive-sequence",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Arrays",
+      "Hash Table",
+      "Union Find"
+    ],
+    "description": "Print the length of the longest run of consecutive integers that can be formed from the array elements (order in the array does not matter).",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= N <= 10^5",
+    "sample_input": "6\n100 4 200 1 3 2",
+    "sample_output": "4",
+    "sample_explanation": "The run 1 2 3 4 has length 4.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "6\n100 4 200 1 3 2",
+        "output": "4",
+        "is_hidden": false
+      },
+      {
+        "input": "10\n0 3 7 2 5 8 4 6 0 1",
+        "output": "9",
+        "is_hidden": false
+      },
+      {
+        "input": "1\n5",
+        "output": "1",
+        "is_hidden": true
+      },
+      {
+        "input": "5\n1 2 0 1 -1",
+        "output": "4",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Array Nesting",
+    "slug": "array-nesting",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Arrays",
+      "Depth-First Search"
+    ],
+    "description": "Given a permutation of 0..N-1, for each start index i follow i -> nums[i] -> nums[nums[i]] ... until a value repeats. Print the largest set size reached.",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= N <= 10^5",
+    "sample_input": "7\n5 4 0 3 1 6 2",
+    "sample_output": "4",
+    "sample_explanation": "Starting at index 0 visits {5, 6, 2, 0}, size 4.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "7\n5 4 0 3 1 6 2",
+        "output": "4",
+        "is_hidden": false
+      },
+      {
+        "input": "3\n0 1 2",
+        "output": "1",
+        "is_hidden": false
+      },
+      {
+        "input": "4\n1 2 3 0",
+        "output": "4",
+        "is_hidden": true
+      },
+      {
+        "input": "5\n1 0 3 4 2",
+        "output": "3",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Continuous Subarray Sum",
+    "slug": "continuous-subarray-sum",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Arrays",
+      "Hash Table",
+      "Math"
+    ],
+    "description": "Print `true` if some subarray of length at least 2 has a sum that is a multiple of K, otherwise `false`.",
+    "input_format": "First line: N and K. Second line: N space-separated integers.",
+    "output_format": "`true` or `false`.",
+    "constraints": "1 <= N <= 10^4, K >= 1",
+    "sample_input": "5 6\n23 2 4 6 7",
+    "sample_output": "true",
+    "sample_explanation": "[2,4] sums to 6.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums, k):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn, k = int(data[0]), int(data[1])\nnums = list(map(int, data[2:n + 2]))\nemit(solve(nums, k))\n"
+    },
+    "test_cases": [
+      {
+        "input": "5 6\n23 2 4 6 7",
+        "output": "true",
+        "is_hidden": false
+      },
+      {
+        "input": "5 6\n23 2 6 4 7",
+        "output": "true",
+        "is_hidden": false
+      },
+      {
+        "input": "5 13\n23 2 6 4 7",
+        "output": "false",
+        "is_hidden": true
+      },
+      {
+        "input": "2 5\n5 0",
+        "output": "true",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Subarray Sums Divisible by K",
+    "slug": "subarray-sums-divisible-by-k",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Arrays",
+      "Hash Table",
+      "Prefix Sum"
+    ],
+    "description": "Print the number of non-empty contiguous subarrays whose sum is divisible by K.",
+    "input_format": "First line: N and K. Second line: N space-separated integers.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= N <= 3 * 10^4, K >= 1",
+    "sample_input": "6 5\n4 5 0 -2 -3 1",
+    "sample_output": "7",
+    "sample_explanation": "Seven subarrays have a sum divisible by 5.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums, k):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn, k = int(data[0]), int(data[1])\nnums = list(map(int, data[2:n + 2]))\nemit(solve(nums, k))\n"
+    },
+    "test_cases": [
+      {
+        "input": "6 5\n4 5 0 -2 -3 1",
+        "output": "7",
+        "is_hidden": false
+      },
+      {
+        "input": "1 5\n5",
+        "output": "1",
+        "is_hidden": false
+      },
+      {
+        "input": "3 2\n1 2 3",
+        "output": "2",
+        "is_hidden": true
+      },
+      {
+        "input": "4 3\n3 3 3 3",
+        "output": "10",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "First Missing Positive",
+    "slug": "first-missing-positive",
+    "difficulty": "HARD",
+    "tags": [
+      "Arrays",
+      "Hash Table"
+    ],
+    "description": "Print the smallest positive integer that does not appear in the array.",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= N <= 10^5",
+    "sample_input": "3\n1 2 0",
+    "sample_output": "3",
+    "sample_explanation": "1 and 2 exist, so 3 is the first missing.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3\n1 2 0",
+        "output": "3",
+        "is_hidden": false
+      },
+      {
+        "input": "4\n3 4 -1 1",
+        "output": "2",
+        "is_hidden": false
+      },
+      {
+        "input": "5\n7 8 9 11 12",
+        "output": "1",
+        "is_hidden": true
+      },
+      {
+        "input": "1\n1",
+        "output": "2",
+        "is_hidden": true
+      }
+    ],
+    "points": 100
+  },
+  {
+    "title": "Candy Distribution",
+    "slug": "candy-distribution",
+    "difficulty": "HARD",
+    "tags": [
+      "Arrays",
+      "Greedy"
+    ],
+    "description": "Children stand in a line with ratings. Each child needs at least one candy, and a child with a higher rating than a neighbour must get more candies than that neighbour. Print the minimum total candies.",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= N <= 2 * 10^4",
+    "sample_input": "3\n1 0 2",
+    "sample_output": "5",
+    "sample_explanation": "Give 2, 1, 2 candies: total 5.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(r):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3\n1 0 2",
+        "output": "5",
+        "is_hidden": false
+      },
+      {
+        "input": "3\n1 2 2",
+        "output": "4",
+        "is_hidden": false
+      },
+      {
+        "input": "5\n1 3 4 5 2",
+        "output": "11",
+        "is_hidden": true
+      },
+      {
+        "input": "1\n7",
+        "output": "1",
+        "is_hidden": true
+      }
+    ],
+    "points": 100
+  },
+  {
+    "title": "Largest Rectangle in Histogram",
+    "slug": "largest-rectangle-histogram",
+    "difficulty": "HARD",
+    "tags": [
+      "Arrays",
+      "Stack",
+      "Monotonic Stack"
+    ],
+    "description": "Given bar heights (each bar has width 1), print the area of the largest rectangle in the histogram.",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= N <= 10^5",
+    "sample_input": "6\n2 1 5 6 2 3",
+    "sample_output": "10",
+    "sample_explanation": "Bars 5 and 6 form a 2 x 5 = 10 rectangle.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(h):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "6\n2 1 5 6 2 3",
+        "output": "10",
+        "is_hidden": false
+      },
+      {
+        "input": "2\n2 4",
+        "output": "4",
+        "is_hidden": false
+      },
+      {
+        "input": "1\n4",
+        "output": "4",
+        "is_hidden": true
+      },
+      {
+        "input": "5\n6 2 5 4 5",
+        "output": "12",
+        "is_hidden": true
+      }
+    ],
+    "points": 100
+  },
+  {
+    "title": "Sliding Window Maximum",
+    "slug": "sliding-window-maximum",
+    "difficulty": "HARD",
+    "tags": [
+      "Arrays",
+      "Queue",
+      "Sliding Window"
+    ],
+    "description": "For every window of size K sliding across the array, print the maximum value in the window.",
+    "input_format": "First line: N and K. Second line: N space-separated integers.",
+    "output_format": "N - K + 1 space-separated integers.",
+    "constraints": "1 <= K <= N <= 10^5",
+    "sample_input": "8 3\n1 3 -1 -3 5 3 6 7",
+    "sample_output": "3 3 5 5 6 7",
+    "sample_explanation": "Window maxima: 3 3 5 5 6 7.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums, k):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn, k = int(data[0]), int(data[1])\nnums = list(map(int, data[2:n + 2]))\nemit(solve(nums, k))\n"
+    },
+    "test_cases": [
+      {
+        "input": "8 3\n1 3 -1 -3 5 3 6 7",
+        "output": "3 3 5 5 6 7",
+        "is_hidden": false
+      },
+      {
+        "input": "1 1\n1",
+        "output": "1",
+        "is_hidden": false
+      },
+      {
+        "input": "5 2\n9 8 7 6 5",
+        "output": "9 8 7 6",
+        "is_hidden": true
+      },
+      {
+        "input": "6 6\n4 2 12 3 8 1",
+        "output": "12",
+        "is_hidden": true
+      }
+    ],
+    "points": 100
+  },
+  {
+    "title": "Valid Palindrome",
+    "slug": "valid-palindrome-string",
+    "difficulty": "EASY",
+    "tags": [
+      "Two Pointers",
+      "Strings"
+    ],
+    "description": "A phrase is a palindrome if, after lowercasing and removing every non-alphanumeric character, it reads the same forwards and backwards. Print `true` or `false`.",
+    "input_format": "A single line containing the string.",
+    "output_format": "`true` or `false`.",
+    "constraints": "1 <= length <= 2 * 10^5",
+    "sample_input": "A man, a plan, a canal: Panama",
+    "sample_output": "true",
+    "sample_explanation": "After cleaning: amanaplanacanalpanama.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(s):\n    # Write your solution here\n    pass\n\ns = sys.stdin.readline().rstrip(\"\\n\")\nemit(solve(s))\n"
+    },
+    "test_cases": [
+      {
+        "input": "A man, a plan, a canal: Panama",
+        "output": "true",
+        "is_hidden": false
+      },
+      {
+        "input": "race a car",
+        "output": "false",
+        "is_hidden": false
+      },
+      {
+        "input": " ",
+        "output": "true",
+        "is_hidden": true
+      },
+      {
+        "input": "No lemon, no melon",
+        "output": "true",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Reverse String",
+    "slug": "reverse-string",
+    "difficulty": "EASY",
+    "tags": [
+      "Two Pointers",
+      "Strings"
+    ],
+    "description": "Print the string reversed.",
+    "input_format": "A single line containing the string.",
+    "output_format": "The reversed string.",
+    "constraints": "1 <= length <= 10^5",
+    "sample_input": "hello",
+    "sample_output": "olleh",
+    "sample_explanation": "hello reversed is olleh.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(s):\n    # Write your solution here\n    pass\n\ns = sys.stdin.readline().rstrip(\"\\n\")\nemit(solve(s))\n"
+    },
+    "test_cases": [
+      {
+        "input": "hello",
+        "output": "olleh",
+        "is_hidden": false
+      },
+      {
+        "input": "Hannah",
+        "output": "hannaH",
+        "is_hidden": false
+      },
+      {
+        "input": "a",
+        "output": "a",
+        "is_hidden": true
+      },
+      {
+        "input": "Placement Portal",
+        "output": "latroP tnemecalP",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Reverse Vowels of a String",
+    "slug": "reverse-vowels",
+    "difficulty": "EASY",
+    "tags": [
+      "Two Pointers",
+      "Strings"
+    ],
+    "description": "Reverse only the vowels (a, e, i, o, u in either case) of the string and print it.",
+    "input_format": "A single line containing the string.",
+    "output_format": "The resulting string.",
+    "constraints": "1 <= length <= 3 * 10^5",
+    "sample_input": "hello",
+    "sample_output": "holle",
+    "sample_explanation": "Vowels e and o swap: holle.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(s):\n    # Write your solution here\n    pass\n\ns = sys.stdin.readline().rstrip(\"\\n\")\nemit(solve(s))\n"
+    },
+    "test_cases": [
+      {
+        "input": "hello",
+        "output": "holle",
+        "is_hidden": false
+      },
+      {
+        "input": "leetcode",
+        "output": "leotcede",
+        "is_hidden": false
+      },
+      {
+        "input": "xyz",
+        "output": "xyz",
+        "is_hidden": true
+      },
+      {
+        "input": "AaEeIiOoUu",
+        "output": "uUoOiIeEaA",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Is Subsequence",
+    "slug": "is-subsequence",
+    "difficulty": "EASY",
+    "tags": [
+      "Two Pointers",
+      "Strings",
+      "Dynamic Programming"
+    ],
+    "description": "Print `true` if the first string is a subsequence of the second (characters appear in order, not necessarily adjacent), otherwise `false`.",
+    "input_format": "Two lines: string s, then string t.",
+    "output_format": "`true` or `false`.",
+    "constraints": "1 <= length <= 10^4",
+    "sample_input": "abc\nahbgdc",
+    "sample_output": "true",
+    "sample_explanation": "a, b, c appear in order in t.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(a, b):\n    # Write your solution here\n    pass\n\nlines = sys.stdin.read().split(\"\\n\")\na, b = lines[0], lines[1]\nemit(solve(a, b))\n"
+    },
+    "test_cases": [
+      {
+        "input": "abc\nahbgdc",
+        "output": "true",
+        "is_hidden": false
+      },
+      {
+        "input": "axc\nahbgdc",
+        "output": "false",
+        "is_hidden": false
+      },
+      {
+        "input": "a\na",
+        "output": "true",
+        "is_hidden": true
+      },
+      {
+        "input": "ace\nabcde",
+        "output": "true",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Longest Mountain in Array",
+    "slug": "longest-mountain-in-array",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Two Pointers",
+      "Arrays"
+    ],
+    "description": "A mountain is a subarray of length at least 3 that strictly increases to a peak and then strictly decreases. Print the length of the longest mountain, or 0 if none exists.",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= N <= 10^4",
+    "sample_input": "7\n2 1 4 7 3 2 5",
+    "sample_output": "5",
+    "sample_explanation": "The mountain 1 4 7 3 2 has length 5.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(a):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "7\n2 1 4 7 3 2 5",
+        "output": "5",
+        "is_hidden": false
+      },
+      {
+        "input": "5\n2 2 2 2 2",
+        "output": "0",
+        "is_hidden": false
+      },
+      {
+        "input": "3\n1 3 2",
+        "output": "3",
+        "is_hidden": true
+      },
+      {
+        "input": "6\n0 1 2 3 4 5",
+        "output": "0",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Subarrays with K Different Integers",
+    "slug": "subarrays-k-different-integers",
+    "difficulty": "HARD",
+    "tags": [
+      "Sliding Window",
+      "Arrays",
+      "Hash Table"
+    ],
+    "description": "Print the number of contiguous subarrays that contain exactly K distinct integers.",
+    "input_format": "First line: N and K. Second line: N space-separated integers.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= N <= 2 * 10^4",
+    "sample_input": "5 2\n1 2 1 2 3",
+    "sample_output": "7",
+    "sample_explanation": "Seven subarrays have exactly 2 distinct values.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums, k):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn, k = int(data[0]), int(data[1])\nnums = list(map(int, data[2:n + 2]))\nemit(solve(nums, k))\n"
+    },
+    "test_cases": [
+      {
+        "input": "5 2\n1 2 1 2 3",
+        "output": "7",
+        "is_hidden": false
+      },
+      {
+        "input": "5 3\n1 2 1 3 4",
+        "output": "3",
+        "is_hidden": false
+      },
+      {
+        "input": "3 1\n1 1 1",
+        "output": "6",
+        "is_hidden": true
+      },
+      {
+        "input": "4 2\n1 2 3 4",
+        "output": "3",
+        "is_hidden": true
+      }
+    ],
+    "points": 100
+  },
+  {
+    "title": "Minimum Size Subarray Sum",
+    "slug": "minimum-size-subarray-sum",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Two Pointers",
+      "Binary Search",
+      "Sliding Window"
+    ],
+    "description": "Given positive integers and a target K, print the minimal length of a contiguous subarray whose sum is at least K, or 0 if none exists.",
+    "input_format": "First line: N and K. Second line: N space-separated integers.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= N <= 10^5",
+    "sample_input": "6 7\n2 3 1 2 4 3",
+    "sample_output": "2",
+    "sample_explanation": "The subarray [4,3] has the minimal length 2.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums, k):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn, k = int(data[0]), int(data[1])\nnums = list(map(int, data[2:n + 2]))\nemit(solve(nums, k))\n"
+    },
+    "test_cases": [
+      {
+        "input": "6 7\n2 3 1 2 4 3",
+        "output": "2",
+        "is_hidden": false
+      },
+      {
+        "input": "3 4\n1 4 4",
+        "output": "1",
+        "is_hidden": false
+      },
+      {
+        "input": "6 11\n1 1 1 1 1 1",
+        "output": "0",
+        "is_hidden": true
+      },
+      {
+        "input": "5 15\n1 2 3 4 5",
+        "output": "5",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Permutation in String",
+    "slug": "permutation-in-string",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Two Pointers",
+      "Hash Table",
+      "Strings"
+    ],
+    "description": "Given strings s1 and s2, print `true` if some permutation of s1 is a substring of s2, otherwise `false`.",
+    "input_format": "Two lines: s1, then s2.",
+    "output_format": "`true` or `false`.",
+    "constraints": "1 <= length <= 10^4",
+    "sample_input": "ab\neidbaooo",
+    "sample_output": "true",
+    "sample_explanation": "ba is a permutation of ab and appears in s2.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(a, b):\n    # Write your solution here\n    pass\n\nlines = sys.stdin.read().split(\"\\n\")\na, b = lines[0], lines[1]\nemit(solve(a, b))\n"
+    },
+    "test_cases": [
+      {
+        "input": "ab\neidbaooo",
+        "output": "true",
+        "is_hidden": false
+      },
+      {
+        "input": "ab\neidboaoo",
+        "output": "false",
+        "is_hidden": false
+      },
+      {
+        "input": "abc\nabc",
+        "output": "true",
+        "is_hidden": true
+      },
+      {
+        "input": "adc\ndcda",
+        "output": "true",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Find All Anagrams in a String",
+    "slug": "find-all-anagrams-in-string",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Two Pointers",
+      "Hash Table",
+      "Strings"
+    ],
+    "description": "Given strings s and p, print the start index of every substring of s that is an anagram of p, in ascending order (at least one exists).",
+    "input_format": "Two lines: s, then p.",
+    "output_format": "Space-separated indices.",
+    "constraints": "1 <= length <= 3 * 10^4",
+    "sample_input": "cbaebabacd\nabc",
+    "sample_output": "0 6",
+    "sample_explanation": "Indices 0 (cba) and 6 (bac).",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(s, p):\n    # Write your solution here\n    pass\n\nlines = sys.stdin.read().split(\"\\n\")\na, b = lines[0], lines[1]\nemit(solve(a, b))\n"
+    },
+    "test_cases": [
+      {
+        "input": "cbaebabacd\nabc",
+        "output": "0 6",
+        "is_hidden": false
+      },
+      {
+        "input": "abab\nab",
+        "output": "0 1 2",
+        "is_hidden": false
+      },
+      {
+        "input": "baa\naa",
+        "output": "1",
+        "is_hidden": true
+      },
+      {
+        "input": "aaaa\naa",
+        "output": "0 1 2",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Longest Repeating Character Replacement",
+    "slug": "longest-repeating-char-replacement",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Two Pointers",
+      "Hash Table",
+      "Strings"
+    ],
+    "description": "You may replace at most K characters of the string with any uppercase letter. Print the length of the longest substring of identical letters you can obtain.",
+    "input_format": "First line: string s (uppercase). Second line: integer K.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= length <= 10^5",
+    "sample_input": "ABAB\n2",
+    "sample_output": "4",
+    "sample_explanation": "Replace both A's (or B's) to get AAAA.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(s, k):\n    # Write your solution here\n    pass\n\nlines = sys.stdin.read().split(\"\\n\")\ns, k = lines[0], int(lines[1])\nemit(solve(s, k))\n"
+    },
+    "test_cases": [
+      {
+        "input": "ABAB\n2",
+        "output": "4",
+        "is_hidden": false
+      },
+      {
+        "input": "AABABBA\n1",
+        "output": "4",
+        "is_hidden": false
+      },
+      {
+        "input": "AAAA\n0",
+        "output": "4",
+        "is_hidden": true
+      },
+      {
+        "input": "ABCDE\n1",
+        "output": "2",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Minimum Window Substring",
+    "slug": "minimum-window-substring",
+    "difficulty": "HARD",
+    "tags": [
+      "Strings",
+      "Hash Table",
+      "Sliding Window"
+    ],
+    "description": "Given strings s and t, print the smallest substring of s that contains every character of t (with multiplicity). Print -1 if no such window exists.",
+    "input_format": "Two lines: s, then t.",
+    "output_format": "The window, or -1.",
+    "constraints": "1 <= length <= 10^5",
+    "sample_input": "ADOBECODEBANC\nABC",
+    "sample_output": "BANC",
+    "sample_explanation": "BANC is the shortest window containing A, B and C.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(s, t):\n    # Write your solution here\n    pass\n\nlines = sys.stdin.read().split(\"\\n\")\na, b = lines[0], lines[1]\nemit(solve(a, b))\n"
+    },
+    "test_cases": [
+      {
+        "input": "ADOBECODEBANC\nABC",
+        "output": "BANC",
+        "is_hidden": false
+      },
+      {
+        "input": "a\na",
+        "output": "a",
+        "is_hidden": false
+      },
+      {
+        "input": "a\naa",
+        "output": "-1",
+        "is_hidden": true
+      },
+      {
+        "input": "aab\nab",
+        "output": "ab",
+        "is_hidden": true
+      }
+    ],
+    "points": 100
+  },
+  {
+    "title": "Length of Last Word",
+    "slug": "length-of-last-word",
+    "difficulty": "EASY",
+    "tags": [
+      "Strings"
+    ],
+    "description": "Print the length of the last word in the string (words are separated by spaces).",
+    "input_format": "A single line containing the string.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= length <= 10^4",
+    "sample_input": "Hello World",
+    "sample_output": "5",
+    "sample_explanation": "The last word is World.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(s):\n    # Write your solution here\n    pass\n\ns = sys.stdin.readline().rstrip(\"\\n\")\nemit(solve(s))\n"
+    },
+    "test_cases": [
+      {
+        "input": "Hello World",
+        "output": "5",
+        "is_hidden": false
+      },
+      {
+        "input": "   fly me   to   the moon  ",
+        "output": "4",
+        "is_hidden": false
+      },
+      {
+        "input": "luffy is still joyboy",
+        "output": "6",
+        "is_hidden": true
+      },
+      {
+        "input": "a",
+        "output": "1",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Longest Common Prefix",
+    "slug": "longest-common-prefix",
+    "difficulty": "EASY",
+    "tags": [
+      "Strings",
+      "Trie"
+    ],
+    "description": "Print the longest common prefix of the given words, or -1 if there is none.",
+    "input_format": "One line of space-separated words.",
+    "output_format": "The prefix, or -1.",
+    "constraints": "1 <= words <= 200",
+    "sample_input": "flower flow flight",
+    "sample_output": "fl",
+    "sample_explanation": "The common prefix is fl.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(s):\n    # Write your solution here\n    pass\n\ns = sys.stdin.readline().rstrip(\"\\n\")\nemit(solve(s))\n"
+    },
+    "test_cases": [
+      {
+        "input": "flower flow flight",
+        "output": "fl",
+        "is_hidden": false
+      },
+      {
+        "input": "dog racecar car",
+        "output": "-1",
+        "is_hidden": false
+      },
+      {
+        "input": "interview internet internal",
+        "output": "inter",
+        "is_hidden": true
+      },
+      {
+        "input": "solo",
+        "output": "solo",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Transpose Matrix",
+    "slug": "transpose-matrix",
+    "difficulty": "EASY",
+    "tags": [
+      "Matrix",
+      "Arrays"
+    ],
+    "description": "Print the transpose of the matrix (rows become columns).",
+    "input_format": "First line: R and C. Next R lines: C space-separated integers.",
+    "output_format": "C lines of R integers.",
+    "constraints": "1 <= R, C <= 100",
+    "sample_input": "2 3\n1 2 3\n4 5 6",
+    "sample_output": "1 4\n2 5\n3 6",
+    "sample_explanation": "Row 1 becomes column 1.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(g):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nr, c = int(data[0]), int(data[1])\ngrid = [[int(data[2 + i * c + j]) for j in range(c)] for i in range(r)]\nemit(solve(grid))\n"
+    },
+    "test_cases": [
+      {
+        "input": "2 3\n1 2 3\n4 5 6",
+        "output": "1 4\n2 5\n3 6",
+        "is_hidden": false
+      },
+      {
+        "input": "3 3\n1 2 3\n4 5 6\n7 8 9",
+        "output": "1 4 7\n2 5 8\n3 6 9",
+        "is_hidden": false
+      },
+      {
+        "input": "1 4\n1 2 3 4",
+        "output": "1\n2\n3\n4",
+        "is_hidden": true
+      },
+      {
+        "input": "2 2\n5 6\n7 8",
+        "output": "5 7\n6 8",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Flipping an Image",
+    "slug": "flipping-an-image",
+    "difficulty": "EASY",
+    "tags": [
+      "Matrix",
+      "Arrays",
+      "Two Pointers"
+    ],
+    "description": "For a binary matrix, reverse every row and then invert every bit (0 becomes 1, 1 becomes 0). Print the result.",
+    "input_format": "First line: R and C. Next R lines: C space-separated integers.",
+    "output_format": "R lines of C integers.",
+    "constraints": "1 <= R, C <= 20",
+    "sample_input": "3 3\n1 1 0\n1 0 1\n0 0 0",
+    "sample_output": "1 0 0\n0 1 0\n1 1 1",
+    "sample_explanation": "Flip rows, then invert.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(g):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nr, c = int(data[0]), int(data[1])\ngrid = [[int(data[2 + i * c + j]) for j in range(c)] for i in range(r)]\nemit(solve(grid))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3 3\n1 1 0\n1 0 1\n0 0 0",
+        "output": "1 0 0\n0 1 0\n1 1 1",
+        "is_hidden": false
+      },
+      {
+        "input": "2 2\n1 0\n0 1",
+        "output": "1 0\n0 1",
+        "is_hidden": false
+      },
+      {
+        "input": "1 3\n0 0 0",
+        "output": "1 1 1",
+        "is_hidden": true
+      },
+      {
+        "input": "2 4\n1 1 0 0\n0 1 1 0",
+        "output": "1 1 0 0\n1 0 0 1",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Matrix Diagonal Sum",
+    "slug": "matrix-diagonal-sum",
+    "difficulty": "EASY",
+    "tags": [
+      "Matrix",
+      "Arrays"
+    ],
+    "description": "Print the sum of the primary and secondary diagonals of a square matrix (count the centre cell once).",
+    "input_format": "First line: R and C. Next R lines: C space-separated integers.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= R = C <= 100",
+    "sample_input": "3 3\n1 2 3\n4 5 6\n7 8 9",
+    "sample_output": "25",
+    "sample_explanation": "1+5+9 plus 3+7 = 25.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(g):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nr, c = int(data[0]), int(data[1])\ngrid = [[int(data[2 + i * c + j]) for j in range(c)] for i in range(r)]\nemit(solve(grid))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3 3\n1 2 3\n4 5 6\n7 8 9",
+        "output": "25",
+        "is_hidden": false
+      },
+      {
+        "input": "2 2\n1 2\n3 4",
+        "output": "10",
+        "is_hidden": false
+      },
+      {
+        "input": "1 1\n5",
+        "output": "5",
+        "is_hidden": true
+      },
+      {
+        "input": "4 4\n1 1 1 1\n1 1 1 1\n1 1 1 1\n1 1 1 1",
+        "output": "8",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Spiral Matrix",
+    "slug": "spiral-matrix",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Matrix",
+      "Arrays",
+      "Simulation"
+    ],
+    "description": "Print the elements of the matrix in clockwise spiral order.",
+    "input_format": "First line: R and C. Next R lines: C space-separated integers.",
+    "output_format": "Space-separated integers.",
+    "constraints": "1 <= R, C <= 10",
+    "sample_input": "3 3\n1 2 3\n4 5 6\n7 8 9",
+    "sample_output": "1 2 3 6 9 8 7 4 5",
+    "sample_explanation": "Right, down, left, up.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(g):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nr, c = int(data[0]), int(data[1])\ngrid = [[int(data[2 + i * c + j]) for j in range(c)] for i in range(r)]\nemit(solve(grid))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3 3\n1 2 3\n4 5 6\n7 8 9",
+        "output": "1 2 3 6 9 8 7 4 5",
+        "is_hidden": false
+      },
+      {
+        "input": "3 4\n1 2 3 4\n5 6 7 8\n9 10 11 12",
+        "output": "1 2 3 4 8 12 11 10 9 5 6 7",
+        "is_hidden": false
+      },
+      {
+        "input": "1 3\n1 2 3",
+        "output": "1 2 3",
+        "is_hidden": true
+      },
+      {
+        "input": "3 1\n1\n2\n3",
+        "output": "1 2 3",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Spiral Matrix II",
+    "slug": "spiral-matrix-ii",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Matrix",
+      "Arrays",
+      "Simulation"
+    ],
+    "description": "Print an N x N matrix filled with 1..N*N in clockwise spiral order.",
+    "input_format": "A single integer N.",
+    "output_format": "N lines of N integers.",
+    "constraints": "1 <= N <= 20",
+    "sample_input": "3",
+    "sample_output": "1 2 3\n8 9 4\n7 6 5",
+    "sample_explanation": "Fill 1..9 spiralling inwards.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(n):\n    # Write your solution here\n    pass\n\nn = int(sys.stdin.read().split()[0])\nemit(solve(n))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3",
+        "output": "1 2 3\n8 9 4\n7 6 5",
+        "is_hidden": false
+      },
+      {
+        "input": "1",
+        "output": "1",
+        "is_hidden": false
+      },
+      {
+        "input": "2",
+        "output": "1 2\n4 3",
+        "is_hidden": true
+      },
+      {
+        "input": "4",
+        "output": "1 2 3 4\n12 13 14 5\n11 16 15 6\n10 9 8 7",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Rotate Image (In-Place 90 Degrees)",
+    "slug": "rotate-image",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Matrix",
+      "Arrays",
+      "Math"
+    ],
+    "description": "Rotate a square matrix 90 degrees clockwise and print it.",
+    "input_format": "First line: R and C. Next R lines: C space-separated integers.",
+    "output_format": "N lines of N integers.",
+    "constraints": "1 <= R = C <= 20",
+    "sample_input": "3 3\n1 2 3\n4 5 6\n7 8 9",
+    "sample_output": "7 4 1\n8 5 2\n9 6 3",
+    "sample_explanation": "The first column read bottom to top becomes the first row.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(g):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nr, c = int(data[0]), int(data[1])\ngrid = [[int(data[2 + i * c + j]) for j in range(c)] for i in range(r)]\nemit(solve(grid))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3 3\n1 2 3\n4 5 6\n7 8 9",
+        "output": "7 4 1\n8 5 2\n9 6 3",
+        "is_hidden": false
+      },
+      {
+        "input": "2 2\n1 2\n3 4",
+        "output": "3 1\n4 2",
+        "is_hidden": false
+      },
+      {
+        "input": "1 1\n9",
+        "output": "9",
+        "is_hidden": true
+      },
+      {
+        "input": "4 4\n1 2 3 4\n5 6 7 8\n9 10 11 12\n13 14 15 16",
+        "output": "13 9 5 1\n14 10 6 2\n15 11 7 3\n16 12 8 4",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Set Matrix Zeroes",
+    "slug": "set-matrix-zeroes",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Matrix",
+      "Arrays",
+      "Hash Table"
+    ],
+    "description": "If a cell is 0, set its entire row and column to 0. Print the resulting matrix.",
+    "input_format": "First line: R and C. Next R lines: C space-separated integers.",
+    "output_format": "R lines of C integers.",
+    "constraints": "1 <= R, C <= 50",
+    "sample_input": "3 3\n1 1 1\n1 0 1\n1 1 1",
+    "sample_output": "1 0 1\n0 0 0\n1 0 1",
+    "sample_explanation": "The zero at (1,1) clears row 1 and column 1.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(g):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nr, c = int(data[0]), int(data[1])\ngrid = [[int(data[2 + i * c + j]) for j in range(c)] for i in range(r)]\nemit(solve(grid))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3 3\n1 1 1\n1 0 1\n1 1 1",
+        "output": "1 0 1\n0 0 0\n1 0 1",
+        "is_hidden": false
+      },
+      {
+        "input": "3 4\n0 1 2 0\n3 4 5 2\n1 3 1 5",
+        "output": "0 0 0 0\n0 4 5 0\n0 3 1 0",
+        "is_hidden": false
+      },
+      {
+        "input": "1 1\n7",
+        "output": "7",
+        "is_hidden": true
+      },
+      {
+        "input": "2 2\n1 2\n3 4",
+        "output": "1 2\n3 4",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Search a 2D Matrix",
+    "slug": "search-2d-matrix",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Matrix",
+      "Binary Search",
+      "Arrays"
+    ],
+    "description": "Each row of the matrix is sorted and the first value of each row is greater than the last value of the previous row. Print `true` if the target exists, otherwise `false`.",
+    "input_format": "First line: R and C. Next R lines: C integers. Last line: the target.",
+    "output_format": "`true` or `false`.",
+    "constraints": "1 <= R, C <= 100",
+    "sample_input": "3 4\n1 3 5 7\n10 11 16 20\n23 30 34 60\n3",
+    "sample_output": "true",
+    "sample_explanation": "3 is in the first row.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(g, t):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nr, c = int(data[0]), int(data[1])\ngrid = [[int(data[2 + i * c + j]) for j in range(c)] for i in range(r)]\ntarget = int(data[2 + r * c])\nemit(solve(grid, target))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3 4\n1 3 5 7\n10 11 16 20\n23 30 34 60\n3",
+        "output": "true",
+        "is_hidden": false
+      },
+      {
+        "input": "3 4\n1 3 5 7\n10 11 16 20\n23 30 34 60\n13",
+        "output": "false",
+        "is_hidden": false
+      },
+      {
+        "input": "1 1\n5\n5",
+        "output": "true",
+        "is_hidden": true
+      },
+      {
+        "input": "2 2\n1 2\n3 4\n0",
+        "output": "false",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Search a 2D Matrix II",
+    "slug": "search-2d-matrix-ii",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Matrix",
+      "Binary Search",
+      "Divide and Conquer"
+    ],
+    "description": "Each row is sorted left to right and each column is sorted top to bottom. Print `true` if the target exists, otherwise `false`.",
+    "input_format": "First line: R and C. Next R lines: C integers. Last line: the target.",
+    "output_format": "`true` or `false`.",
+    "constraints": "1 <= R, C <= 300",
+    "sample_input": "5 5\n1 4 7 11 15\n2 5 8 12 19\n3 6 9 16 22\n10 13 14 17 24\n18 21 23 26 30\n5",
+    "sample_output": "true",
+    "sample_explanation": "5 appears in row 1.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(g, t):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nr, c = int(data[0]), int(data[1])\ngrid = [[int(data[2 + i * c + j]) for j in range(c)] for i in range(r)]\ntarget = int(data[2 + r * c])\nemit(solve(grid, target))\n"
+    },
+    "test_cases": [
+      {
+        "input": "5 5\n1 4 7 11 15\n2 5 8 12 19\n3 6 9 16 22\n10 13 14 17 24\n18 21 23 26 30\n5",
+        "output": "true",
+        "is_hidden": false
+      },
+      {
+        "input": "5 5\n1 4 7 11 15\n2 5 8 12 19\n3 6 9 16 22\n10 13 14 17 24\n18 21 23 26 30\n20",
+        "output": "false",
+        "is_hidden": false
+      },
+      {
+        "input": "1 1\n4\n4",
+        "output": "true",
+        "is_hidden": true
+      },
+      {
+        "input": "2 3\n1 2 3\n4 5 6\n6",
+        "output": "true",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Game of Life",
+    "slug": "game-of-life",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Matrix",
+      "Arrays",
+      "Simulation"
+    ],
+    "description": "Apply one step of Conway's Game of Life to a grid of 0 (dead) and 1 (live). A live cell with 2 or 3 live neighbours stays alive; a dead cell with exactly 3 live neighbours becomes alive; all others die or stay dead. Print the next grid.",
+    "input_format": "First line: R and C. Next R lines: C space-separated integers.",
+    "output_format": "R lines of C integers.",
+    "constraints": "1 <= R, C <= 25",
+    "sample_input": "4 3\n0 1 0\n0 0 1\n1 1 1\n0 0 0",
+    "sample_output": "0 0 0\n1 0 1\n0 1 1\n0 1 0",
+    "sample_explanation": "Standard Game of Life rules.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(g):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nr, c = int(data[0]), int(data[1])\ngrid = [[int(data[2 + i * c + j]) for j in range(c)] for i in range(r)]\nemit(solve(grid))\n"
+    },
+    "test_cases": [
+      {
+        "input": "4 3\n0 1 0\n0 0 1\n1 1 1\n0 0 0",
+        "output": "0 0 0\n1 0 1\n0 1 1\n0 1 0",
+        "is_hidden": false
+      },
+      {
+        "input": "2 2\n1 1\n1 0",
+        "output": "1 1\n1 1",
+        "is_hidden": false
+      },
+      {
+        "input": "3 3\n0 0 0\n1 1 1\n0 0 0",
+        "output": "0 1 0\n0 1 0\n0 1 0",
+        "is_hidden": true
+      },
+      {
+        "input": "1 1\n1",
+        "output": "0",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Kth Smallest Element in a Sorted Matrix",
+    "slug": "kth-smallest-sorted-matrix",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Matrix",
+      "Binary Search",
+      "Heap (Priority Queue)"
+    ],
+    "description": "Rows and columns of the matrix are sorted ascending. Print the K-th smallest element (counting duplicates).",
+    "input_format": "First line: R and C. Next R lines: C integers. Last line: K.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= R, C <= 300",
+    "sample_input": "3 3\n1 5 9\n10 11 13\n12 13 15\n8",
+    "sample_output": "13",
+    "sample_explanation": "Sorted order puts 13 in the 8th position.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(g, k):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nr, c = int(data[0]), int(data[1])\ngrid = [[int(data[2 + i * c + j]) for j in range(c)] for i in range(r)]\ntarget = int(data[2 + r * c])\nemit(solve(grid, target))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3 3\n1 5 9\n10 11 13\n12 13 15\n8",
+        "output": "13",
+        "is_hidden": false
+      },
+      {
+        "input": "1 1\n-5\n1",
+        "output": "-5",
+        "is_hidden": false
+      },
+      {
+        "input": "2 2\n1 2\n1 3\n3",
+        "output": "2",
+        "is_hidden": true
+      },
+      {
+        "input": "2 3\n1 2 3\n4 5 6\n6",
+        "output": "6",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Linked List Cycle Detection",
+    "slug": "linked-list-cycle-detection",
+    "difficulty": "EASY",
+    "tags": [
+      "Linked Lists",
+      "Linked List",
+      "Two Pointers"
+    ],
+    "description": "A singly linked list may contain a cycle: the tail's next pointer can point back to the node at index POS (0-indexed). POS = -1 means there is no cycle. The list is built for you; print `true` if the list has a cycle, otherwise `false`.",
+    "input_format": "First line: N and POS. Second line: N integers (node values).",
+    "output_format": "`true` or `false`.",
+    "constraints": "1 <= N <= 10^4, -1 <= POS < N",
+    "sample_input": "4 1\n3 2 0 -4",
+    "sample_output": "true",
+    "sample_explanation": "The tail connects back to the node at index 1.",
+    "starter_code": {
+      "python": "import sys\n\nclass ListNode:\n    def __init__(self, val):\n        self.val = val\n        self.next = None\n\ndef has_cycle(head):\n    # Hint: slow and fast pointers (Floyd's algorithm)\n    pass\n\ndata = sys.stdin.read().split()\nn, pos = int(data[0]), int(data[1])\nnodes = [ListNode(int(v)) for v in data[2:n + 2]]\nfor i in range(n - 1):\n    nodes[i].next = nodes[i + 1]\nif pos != -1:\n    nodes[-1].next = nodes[pos]\nprint(\"true\" if has_cycle(nodes[0]) else \"false\")\n"
+    },
+    "test_cases": [
+      {
+        "input": "4 1\n3 2 0 -4",
+        "output": "true",
+        "is_hidden": false
+      },
+      {
+        "input": "2 0\n1 2",
+        "output": "true",
+        "is_hidden": false
+      },
+      {
+        "input": "1 -1\n1",
+        "output": "false",
+        "is_hidden": true
+      },
+      {
+        "input": "5 -1\n1 2 3 4 5",
+        "output": "false",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Min Stack",
+    "slug": "min-stack-design",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Stacks and Queues",
+      "Stack",
+      "Design"
+    ],
+    "description": "Design a stack that supports push, pop, top and retrieving the minimum element in constant time. Process the commands `push X`, `pop`, `top`, `getMin`. For `top` and `getMin` print the value.",
+    "input_format": "First line: Q. Next Q lines: a command.",
+    "output_format": "One line for every top and getMin command.",
+    "constraints": "1 <= Q <= 10^4; pop, top and getMin are only used on a non-empty stack.",
+    "sample_input": "7\npush -2\npush 0\npush -3\ngetMin\npop\ntop\ngetMin",
+    "sample_output": "-3\n0\n-2",
+    "sample_explanation": "After popping -3 the top is 0 and the minimum is -2.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(ops):\n    # Write your solution here\n    pass\n\nlines = sys.stdin.read().split(\"\\n\")\nq = int(lines[0])\nops = [lines[1 + i].split() for i in range(q)]\nemit(solve(ops))\n"
+    },
+    "test_cases": [
+      {
+        "input": "7\npush -2\npush 0\npush -3\ngetMin\npop\ntop\ngetMin",
+        "output": "-3\n0\n-2",
+        "is_hidden": false
+      },
+      {
+        "input": "4\npush 5\ngetMin\npush 3\ngetMin",
+        "output": "5\n3",
+        "is_hidden": false
+      },
+      {
+        "input": "5\npush 1\npush 1\npop\ngetMin\ntop",
+        "output": "1\n1",
+        "is_hidden": true
+      },
+      {
+        "input": "6\npush 9\npush 7\npush 8\ngetMin\npop\ngetMin",
+        "output": "7\n7",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "LRU Cache (Doubly Linked List + Hash Map)",
+    "slug": "lru-cache-design",
+    "difficulty": "HARD",
+    "tags": [
+      "Doubly Linked List",
+      "Hash Table",
+      "Design"
+    ],
+    "description": "Design an LRU (least recently used) cache. The first command is `cap C` (capacity). `put K V` inserts or updates a key (evicting the least recently used key if the cache is full). `get K` prints the value, or -1 if the key is absent; both put and get make the key most recently used.",
+    "input_format": "First line: Q. Next Q lines: `cap C` (first), then `put K V` or `get K`.",
+    "output_format": "One line for every get command.",
+    "constraints": "1 <= Q <= 10^4",
+    "sample_input": "9\ncap 2\nput 1 1\nput 2 2\nget 1\nput 3 3\nget 2\nput 4 4\nget 1\nget 3",
+    "sample_output": "1\n-1\n-1\n3",
+    "sample_explanation": "Key 2 is evicted by put 3, and key 1 by put 4.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(ops):\n    # Write your solution here\n    pass\n\nlines = sys.stdin.read().split(\"\\n\")\nq = int(lines[0])\nops = [lines[1 + i].split() for i in range(q)]\nemit(solve(ops))\n"
+    },
+    "test_cases": [
+      {
+        "input": "9\ncap 2\nput 1 1\nput 2 2\nget 1\nput 3 3\nget 2\nput 4 4\nget 1\nget 3",
+        "output": "1\n-1\n-1\n3",
+        "is_hidden": false
+      },
+      {
+        "input": "4\ncap 1\nput 5 5\nget 5\nget 6",
+        "output": "5\n-1",
+        "is_hidden": false
+      },
+      {
+        "input": "7\ncap 2\nput 1 1\nput 2 2\nput 1 10\nput 3 3\nget 1\nget 2",
+        "output": "10\n-1",
+        "is_hidden": true
+      },
+      {
+        "input": "6\ncap 3\nput 1 1\nput 2 2\nput 3 3\nget 1\nput 4 4\nget 2",
+        "output": "1",
+        "is_hidden": true
+      }
+    ],
+    "points": 100
+  },
+  {
+    "title": "Invert Binary Tree",
+    "slug": "invert-binary-tree",
+    "difficulty": "EASY",
+    "tags": [
+      "Trees",
+      "Binary Tree",
+      "Depth-First Search"
+    ],
+    "description": "Invert (mirror) the binary tree by swapping the left and right child of every node. Print the inorder traversal of the inverted tree.",
+    "input_format": "One line of space-separated level-order tokens. Use `null` for a missing child.",
+    "output_format": "Space-separated inorder values.",
+    "constraints": "1 <= nodes <= 100",
+    "sample_input": "4 2 7 1 3 6 9",
+    "sample_output": "9 7 6 4 3 2 1",
+    "sample_explanation": "After mirroring, inorder is 9 7 6 4 3 2 1.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\nfrom collections import deque\n\nclass Node:\n    def __init__(self, val):\n        self.val = val\n        self.left = None\n        self.right = None\n\ndef build_tree(tokens):\n    \"\"\"Level-order tokens, 'null' marks a missing child.\"\"\"\n    if not tokens or tokens[0] == \"null\":\n        return None\n    root = Node(int(tokens[0]))\n    q = deque([root])\n    i = 1\n    while q and i < len(tokens):\n        cur = q.popleft()\n        if i < len(tokens) and tokens[i] != \"null\":\n            cur.left = Node(int(tokens[i]))\n            q.append(cur.left)\n        i += 1\n        if i < len(tokens) and tokens[i] != \"null\":\n            cur.right = Node(int(tokens[i]))\n            q.append(cur.right)\n        i += 1\n    return root\n\ndef solve(root):\n    # Write your solution here\n    pass\n\nroot = build_tree(sys.stdin.read().split())\nemit(solve(root))\n"
+    },
+    "test_cases": [
+      {
+        "input": "4 2 7 1 3 6 9",
+        "output": "9 7 6 4 3 2 1",
+        "is_hidden": false
+      },
+      {
+        "input": "2 1 3",
+        "output": "3 2 1",
+        "is_hidden": false
+      },
+      {
+        "input": "1",
+        "output": "1",
+        "is_hidden": true
+      },
+      {
+        "input": "1 2 null 3",
+        "output": "1 2 3",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Lowest Common Ancestor of a Binary Tree",
+    "slug": "lowest-common-ancestor-binary-tree",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Trees",
+      "Binary Tree",
+      "Depth-First Search"
+    ],
+    "description": "Given a binary tree and two node values P and Q that both exist in it, print the value of their lowest common ancestor (a node can be its own descendant).",
+    "input_format": "Line 1: level-order tokens (`null` = missing child). Line 2: P and Q.",
+    "output_format": "A single integer.",
+    "constraints": "2 <= nodes <= 10^4, all values distinct",
+    "sample_input": "3 5 1 6 2 0 8 null null 7 4\n5 1",
+    "sample_output": "3",
+    "sample_explanation": "The lowest common ancestor of 5 and 1 is 3.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\nfrom collections import deque\n\nclass Node:\n    def __init__(self, val):\n        self.val = val\n        self.left = None\n        self.right = None\n\ndef build_tree(tokens):\n    \"\"\"Level-order tokens, 'null' marks a missing child.\"\"\"\n    if not tokens or tokens[0] == \"null\":\n        return None\n    root = Node(int(tokens[0]))\n    q = deque([root])\n    i = 1\n    while q and i < len(tokens):\n        cur = q.popleft()\n        if i < len(tokens) and tokens[i] != \"null\":\n            cur.left = Node(int(tokens[i]))\n            q.append(cur.left)\n        i += 1\n        if i < len(tokens) and tokens[i] != \"null\":\n            cur.right = Node(int(tokens[i]))\n            q.append(cur.right)\n        i += 1\n    return root\n\ndef solve(root, p, q):\n    # Write your solution here\n    pass\n\nlines = sys.stdin.read().split(\"\\n\")\nroot = build_tree(lines[0].split())\np, q = map(int, lines[1].split())\nemit(solve(root, p, q))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3 5 1 6 2 0 8 null null 7 4\n5 1",
+        "output": "3",
+        "is_hidden": false
+      },
+      {
+        "input": "3 5 1 6 2 0 8 null null 7 4\n5 4",
+        "output": "5",
+        "is_hidden": false
+      },
+      {
+        "input": "1 2\n1 2",
+        "output": "1",
+        "is_hidden": true
+      },
+      {
+        "input": "6 2 8 0 4 7 9\n0 4",
+        "output": "2",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Climbing Stairs",
+    "slug": "climbing-stairs",
+    "difficulty": "EASY",
+    "tags": [
+      "Dynamic Programming",
+      "Math",
+      "Memoization"
+    ],
+    "description": "You climb a staircase of N steps taking 1 or 2 steps at a time. Print the number of distinct ways to reach the top.",
+    "input_format": "A single integer N.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= N <= 45",
+    "sample_input": "3",
+    "sample_output": "3",
+    "sample_explanation": "1+1+1, 1+2 and 2+1.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(n):\n    # Write your solution here\n    pass\n\nn = int(sys.stdin.read().split()[0])\nemit(solve(n))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3",
+        "output": "3",
+        "is_hidden": false
+      },
+      {
+        "input": "2",
+        "output": "2",
+        "is_hidden": false
+      },
+      {
+        "input": "5",
+        "output": "8",
+        "is_hidden": true
+      },
+      {
+        "input": "10",
+        "output": "89",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Longest Increasing Subsequence (LIS)",
+    "slug": "longest-increasing-subsequence",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Dynamic Programming",
+      "Binary Search",
+      "Arrays"
+    ],
+    "description": "Print the length of the longest strictly increasing subsequence of the array.",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= N <= 2500",
+    "sample_input": "8\n10 9 2 5 3 7 101 18",
+    "sample_output": "4",
+    "sample_explanation": "One LIS is 2 3 7 101 (length 4).",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "8\n10 9 2 5 3 7 101 18",
+        "output": "4",
+        "is_hidden": false
+      },
+      {
+        "input": "6\n0 1 0 3 2 3",
+        "output": "4",
+        "is_hidden": false
+      },
+      {
+        "input": "4\n7 7 7 7",
+        "output": "1",
+        "is_hidden": true
+      },
+      {
+        "input": "5\n1 2 3 4 5",
+        "output": "5",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "House Robber",
+    "slug": "house-robber",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Dynamic Programming",
+      "Arrays"
+    ],
+    "description": "Houses in a row hold money. You cannot rob two adjacent houses. Print the maximum amount you can rob.",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= N <= 100",
+    "sample_input": "4\n1 2 3 1",
+    "sample_output": "4",
+    "sample_explanation": "Rob houses 1 and 3 for 1 + 3 = 4.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "4\n1 2 3 1",
+        "output": "4",
+        "is_hidden": false
+      },
+      {
+        "input": "5\n2 7 9 3 1",
+        "output": "12",
+        "is_hidden": false
+      },
+      {
+        "input": "1\n5",
+        "output": "5",
+        "is_hidden": true
+      },
+      {
+        "input": "3\n2 1 1",
+        "output": "3",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Search in Rotated Sorted Array",
+    "slug": "search-rotated-sorted-array",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Binary Search",
+      "Arrays"
+    ],
+    "description": "A sorted array of distinct integers was rotated at an unknown pivot. Print the index of the target, or -1 if it is absent.",
+    "input_format": "First line: N and the target. Second line: N integers.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= N <= 5000",
+    "sample_input": "7 0\n4 5 6 7 0 1 2",
+    "sample_output": "4",
+    "sample_explanation": "0 is at index 4.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums, t):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn, k = int(data[0]), int(data[1])\nnums = list(map(int, data[2:n + 2]))\nemit(solve(nums, k))\n"
+    },
+    "test_cases": [
+      {
+        "input": "7 0\n4 5 6 7 0 1 2",
+        "output": "4",
+        "is_hidden": false
+      },
+      {
+        "input": "7 3\n4 5 6 7 0 1 2",
+        "output": "-1",
+        "is_hidden": false
+      },
+      {
+        "input": "1 0\n1",
+        "output": "-1",
+        "is_hidden": true
+      },
+      {
+        "input": "5 8\n5 6 7 8 4",
+        "output": "3",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Kth Largest Element in an Array",
+    "slug": "kth-largest-element-in-array",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Heap (Priority Queue)",
+      "QuickSelect",
+      "Divide and Conquer"
+    ],
+    "description": "Print the K-th largest element of the array (counting duplicates; K = 1 is the maximum).",
+    "input_format": "First line: N and K. Second line: N space-separated integers.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= K <= N <= 10^5",
+    "sample_input": "6 2\n3 2 1 5 6 4",
+    "sample_output": "5",
+    "sample_explanation": "Sorted descending: 6 5 4 ..., so the 2nd largest is 5.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums, k):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn, k = int(data[0]), int(data[1])\nnums = list(map(int, data[2:n + 2]))\nemit(solve(nums, k))\n"
+    },
+    "test_cases": [
+      {
+        "input": "6 2\n3 2 1 5 6 4",
+        "output": "5",
+        "is_hidden": false
+      },
+      {
+        "input": "9 4\n3 2 3 1 2 4 5 5 6",
+        "output": "4",
+        "is_hidden": false
+      },
+      {
+        "input": "1 1\n7",
+        "output": "7",
+        "is_hidden": true
+      },
+      {
+        "input": "5 5\n9 8 7 6 5",
+        "output": "5",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Subsets (Power Set)",
+    "slug": "subsets-power-set",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Backtracking",
+      "Recursion",
+      "Bit Manipulation"
+    ],
+    "description": "Given distinct integers, print every subset. Within a subset list elements in the order given in the input. Order the subsets by size, and subsets of equal size by the positions of their elements. Print `empty` for the empty subset.",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "One subset per line.",
+    "constraints": "1 <= N <= 10",
+    "sample_input": "3\n1 2 3",
+    "sample_output": "empty\n1\n2\n3\n1 2\n1 3\n2 3\n1 2 3",
+    "sample_explanation": "There are 2^3 = 8 subsets.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3\n1 2 3",
+        "output": "empty\n1\n2\n3\n1 2\n1 3\n2 3\n1 2 3",
+        "is_hidden": false
+      },
+      {
+        "input": "1\n5",
+        "output": "empty\n5",
+        "is_hidden": false
+      },
+      {
+        "input": "2\n4 7",
+        "output": "empty\n4\n7\n4 7",
+        "is_hidden": true
+      },
+      {
+        "input": "4\n1 2 3 4",
+        "output": "empty\n1\n2\n3\n4\n1 2\n1 3\n1 4\n2 3\n2 4\n3 4\n1 2 3\n1 2 4\n1 3 4\n2 3 4\n1 2 3 4",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Quick Sort Implementation",
+    "slug": "quick-sort-implementation",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Sorting",
+      "Divide and Conquer",
+      "Recursion",
+      "Arrays"
+    ],
+    "description": "Implement quick sort and print the array in ascending order.",
+    "input_format": "First line: N. Second line: N space-separated integers.",
+    "output_format": "Space-separated integers.",
+    "constraints": "1 <= N <= 10^5",
+    "sample_input": "6\n10 7 8 9 1 5",
+    "sample_output": "1 5 7 8 9 10",
+    "sample_explanation": "Sorted: 1 5 7 8 9 10.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(nums):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nemit(solve(nums))\n"
+    },
+    "test_cases": [
+      {
+        "input": "6\n10 7 8 9 1 5",
+        "output": "1 5 7 8 9 10",
+        "is_hidden": false
+      },
+      {
+        "input": "1\n3",
+        "output": "3",
+        "is_hidden": false
+      },
+      {
+        "input": "7\n3 -1 3 0 -5 2 2",
+        "output": "-5 -1 0 2 2 3 3",
+        "is_hidden": true
+      },
+      {
+        "input": "5\n5 4 3 2 1",
+        "output": "1 2 3 4 5",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Word Ladder (Shortest Path BFS)",
+    "slug": "word-ladder-shortest-path",
+    "difficulty": "HARD",
+    "tags": [
+      "Graphs",
+      "Breadth-First Search",
+      "Hash Table"
+    ],
+    "description": "Transform the begin word into the end word, changing one letter at a time; every intermediate word must be in the word list. Print the number of words in the shortest sequence (including begin and end), or 0 if impossible.",
+    "input_format": "Line 1: beginWord and endWord. Line 2: the space-separated word list.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= words <= 5000, all words have equal length",
+    "sample_input": "hit cog\nhot dot dog lot log cog",
+    "sample_output": "5",
+    "sample_explanation": "hit -> hot -> dot -> dog -> cog has 5 words.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(a, b):\n    # Write your solution here\n    pass\n\nlines = sys.stdin.read().split(\"\\n\")\na, b = lines[0], lines[1]\nemit(solve(a, b))\n"
+    },
+    "test_cases": [
+      {
+        "input": "hit cog\nhot dot dog lot log cog",
+        "output": "5",
+        "is_hidden": false
+      },
+      {
+        "input": "hit cog\nhot dot dog lot log",
+        "output": "0",
+        "is_hidden": false
+      },
+      {
+        "input": "a c\na b c",
+        "output": "2",
+        "is_hidden": true
+      },
+      {
+        "input": "cat dog\ncot cog dot dog",
+        "output": "4",
+        "is_hidden": true
+      }
+    ],
+    "points": 100
+  },
+  {
+    "title": "Flood Fill Algorithm (Graph DFS/BFS)",
+    "slug": "flood-fill-algorithm",
+    "difficulty": "EASY",
+    "tags": [
+      "Graphs",
+      "Depth-First Search",
+      "Breadth-First Search",
+      "Matrix"
+    ],
+    "description": "Starting at cell (SR, SC), recolour that cell and every 4-directionally connected cell of the same original colour with NEWCOLOR. Print the resulting image.",
+    "input_format": "Line 1: R and C. Next R lines: C integers. Last line: SR SC NEWCOLOR.",
+    "output_format": "R lines of C integers.",
+    "constraints": "1 <= R, C <= 50",
+    "sample_input": "3 3\n1 1 1\n1 1 0\n1 0 1\n1 1 2",
+    "sample_output": "2 2 2\n2 2 0\n2 0 1",
+    "sample_explanation": "Cells connected to (1,1) with colour 1 become 2.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(g, rest):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nr, c = int(data[0]), int(data[1])\ngrid = [[int(data[2 + i * c + j]) for j in range(c)] for i in range(r)]\nrest = list(map(int, data[2 + r * c:]))\nemit(solve(grid, rest))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3 3\n1 1 1\n1 1 0\n1 0 1\n1 1 2",
+        "output": "2 2 2\n2 2 0\n2 0 1",
+        "is_hidden": false
+      },
+      {
+        "input": "2 2\n0 0\n0 0\n0 0 0",
+        "output": "0 0\n0 0",
+        "is_hidden": false
+      },
+      {
+        "input": "2 3\n0 0 0\n0 1 1\n1 1 1",
+        "output": "0 0 0\n0 1 1",
+        "is_hidden": true
+      },
+      {
+        "input": "1 1\n5\n0 0 9",
+        "output": "9",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Surrounded Regions (Matrix DFS / Boundary Capture)",
+    "slug": "surrounded-regions",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Graphs",
+      "Depth-First Search",
+      "Breadth-First Search",
+      "Matrix"
+    ],
+    "description": "A grid contains `X` and `O`. Capture every region of `O` cells that is completely surrounded by `X` (flip it to `X`). An `O` connected to the border is never captured. Print the final grid.",
+    "input_format": "First line: R and C. Next R lines: a string of C characters (`X` or `O`).",
+    "output_format": "R lines of C characters.",
+    "constraints": "1 <= R, C <= 200",
+    "sample_input": "4 4\nXXXX\nXOOX\nXXOX\nXOXX",
+    "sample_output": "XXXX\nXXXX\nXXXX\nXOXX",
+    "sample_explanation": "Only the O touching the bottom border survives.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(g):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nr, c = int(data[0]), int(data[1])\ngrid = [list(data[2 + i]) for i in range(r)]\nemit(solve(grid))\n"
+    },
+    "test_cases": [
+      {
+        "input": "4 4\nXXXX\nXOOX\nXXOX\nXOXX",
+        "output": "XXXX\nXXXX\nXXXX\nXOXX",
+        "is_hidden": false
+      },
+      {
+        "input": "1 1\nX",
+        "output": "X",
+        "is_hidden": false
+      },
+      {
+        "input": "3 3\nOOO\nOXO\nOOO",
+        "output": "OOO\nOXO\nOOO",
+        "is_hidden": true
+      },
+      {
+        "input": "3 4\nXXXX\nXOOX\nXXXX",
+        "output": "XXXX\nXXXX\nXXXX",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Number of Connected Components",
+    "slug": "number-of-connected-components",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Graphs",
+      "Union Find",
+      "Depth-First Search"
+    ],
+    "description": "An undirected graph has N nodes labelled 0..N-1 and M edges. Print the number of connected components.",
+    "input_format": "First line: N and M. Next M lines: two node labels `u v`.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= N <= 2000, 0 <= M <= 5000",
+    "sample_input": "5 3\n0 1\n1 2\n3 4",
+    "sample_output": "2",
+    "sample_explanation": "Components: {0,1,2} and {3,4}.",
+    "starter_code": {
+      "python": "import sys\n\ndef emit(r):\n    if isinstance(r, bool):\n        print(\"true\" if r else \"false\")\n    elif isinstance(r, (list, tuple)):\n        if r and isinstance(r[0], (list, tuple)):\n            for row in r:\n                print(\" \".join(map(str, row)))\n        else:\n            print(\" \".join(map(str, r)))\n    elif r is None:\n        print(\"\")\n    else:\n        print(r)\n\ndef solve(n, edges):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn, m = int(data[0]), int(data[1])\nedges = [(int(data[2 + 2 * i]), int(data[3 + 2 * i])) for i in range(m)]\nemit(solve(n, edges))\n"
+    },
+    "test_cases": [
+      {
+        "input": "5 3\n0 1\n1 2\n3 4",
+        "output": "2",
+        "is_hidden": false
+      },
+      {
+        "input": "4 0",
+        "output": "4",
+        "is_hidden": false
+      },
+      {
+        "input": "5 4\n0 1\n1 2\n2 3\n3 4",
+        "output": "1",
+        "is_hidden": true
+      },
+      {
+        "input": "6 3\n0 1\n2 3\n4 5",
+        "output": "3",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  }
+]

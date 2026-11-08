@@ -60,7 +60,7 @@ const Coding = () => {
   const fetchProblems = async () => {
     try {
       setLoading(true);
-      const params = { page_size: 100 };
+      const params = { page_size: 200 };
       if (selectedDifficulty) params.difficulty = selectedDifficulty;
       if (selectedStatus) params.status = selectedStatus;
       if (search) params.search = search;
