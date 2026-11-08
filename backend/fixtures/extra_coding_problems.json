@@ -1,0 +1,951 @@
+[
+  {
+    "title": "Reverse Linked List",
+    "slug": "reverse-linked-list",
+    "difficulty": "EASY",
+    "tags": [
+      "Linked Lists",
+      "Linked List",
+      "Recursion"
+    ],
+    "description": "Given the values of a singly linked list in order, reverse the list and print its values from the new head to the tail.",
+    "input_format": "First line: integer N (number of nodes). Second line: N space-separated integers (the list from head to tail).",
+    "output_format": "N space-separated integers: the reversed list.",
+    "constraints": "1 <= N <= 10^4\n-10^5 <= value <= 10^5",
+    "sample_input": "5\n1 2 3 4 5",
+    "sample_output": "5 4 3 2 1",
+    "sample_explanation": "The list 1 -> 2 -> 3 -> 4 -> 5 becomes 5 -> 4 -> 3 -> 2 -> 1.",
+    "starter_code": {
+      "python": "import sys\n\nclass ListNode:\n    def __init__(self, val, next=None):\n        self.val = val\n        self.next = next\n\ndef reverse_list(head):\n    # Write your solution here\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nhead = None\nfor v in reversed(data[1:n + 1]):\n    head = ListNode(int(v), head)\nhead = reverse_list(head)\nout = []\nwhile head:\n    out.append(str(head.val))\n    head = head.next\nprint(\" \".join(out))\n"
+    },
+    "test_cases": [
+      {
+        "input": "5\n1 2 3 4 5",
+        "output": "5 4 3 2 1",
+        "is_hidden": false
+      },
+      {
+        "input": "1\n7",
+        "output": "7",
+        "is_hidden": false
+      },
+      {
+        "input": "2\n-1 -2",
+        "output": "-2 -1",
+        "is_hidden": true
+      },
+      {
+        "input": "6\n10 20 30 40 50 60",
+        "output": "60 50 40 30 20 10",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Middle of the Linked List",
+    "slug": "middle-of-linked-list",
+    "difficulty": "EASY",
+    "tags": [
+      "Linked Lists",
+      "Linked List",
+      "Two Pointers"
+    ],
+    "description": "Given a singly linked list, print the values from the middle node to the tail. If there are two middle nodes, use the second one.",
+    "input_format": "First line: integer N. Second line: N space-separated integers (head to tail).",
+    "output_format": "Space-separated values starting at the middle node.",
+    "constraints": "1 <= N <= 10^4",
+    "sample_input": "5\n1 2 3 4 5",
+    "sample_output": "3 4 5",
+    "sample_explanation": "The middle node has value 3, so the output is 3 4 5.",
+    "starter_code": {
+      "python": "import sys\n\nclass ListNode:\n    def __init__(self, val, next=None):\n        self.val = val\n        self.next = next\n\ndef middle_node(head):\n    # Hint: slow and fast pointers\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nhead = None\nfor v in reversed(data[1:n + 1]):\n    head = ListNode(int(v), head)\nnode = middle_node(head)\nout = []\nwhile node:\n    out.append(str(node.val))\n    node = node.next\nprint(\" \".join(out))\n"
+    },
+    "test_cases": [
+      {
+        "input": "5\n1 2 3 4 5",
+        "output": "3 4 5",
+        "is_hidden": false
+      },
+      {
+        "input": "6\n1 2 3 4 5 6",
+        "output": "4 5 6",
+        "is_hidden": false
+      },
+      {
+        "input": "1\n9",
+        "output": "9",
+        "is_hidden": true
+      },
+      {
+        "input": "2\n1 2",
+        "output": "2",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Merge Two Sorted Linked Lists",
+    "slug": "merge-two-sorted-linked-lists",
+    "difficulty": "EASY",
+    "tags": [
+      "Linked Lists",
+      "Linked List",
+      "Two Pointers"
+    ],
+    "description": "Merge two sorted singly linked lists into one sorted list and print its values.",
+    "input_format": "First line: N and M (lengths of the two lists). Second line: N sorted integers. Third line: M sorted integers.",
+    "output_format": "N + M space-separated integers in non-decreasing order.",
+    "constraints": "1 <= N, M <= 5000",
+    "sample_input": "3 3\n1 2 4\n1 3 4",
+    "sample_output": "1 1 2 3 4 4",
+    "sample_explanation": "Merging gives 1 1 2 3 4 4.",
+    "starter_code": {
+      "python": "import sys\n\nclass ListNode:\n    def __init__(self, val, next=None):\n        self.val = val\n        self.next = next\n\ndef merge(l1, l2):\n    # Write your solution here\n    pass\n\nlines = sys.stdin.read().split(\"\\n\")\nn, m = map(int, lines[0].split())\na = list(map(int, lines[1].split()))\nb = list(map(int, lines[2].split()))\n\ndef build(arr):\n    head = None\n    for v in reversed(arr):\n        head = ListNode(v, head)\n    return head\n\nnode = merge(build(a), build(b))\nout = []\nwhile node:\n    out.append(str(node.val))\n    node = node.next\nprint(\" \".join(out))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3 3\n1 2 4\n1 3 4",
+        "output": "1 1 2 3 4 4",
+        "is_hidden": false
+      },
+      {
+        "input": "1 1\n5\n2",
+        "output": "2 5",
+        "is_hidden": false
+      },
+      {
+        "input": "4 2\n-5 -1 0 8\n-3 9",
+        "output": "-5 -3 -1 0 8 9",
+        "is_hidden": true
+      },
+      {
+        "input": "2 5\n1 1\n1 1 1 1 1",
+        "output": "1 1 1 1 1 1 1",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Remove Nth Node From End of List",
+    "slug": "remove-nth-node-from-end",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Linked Lists",
+      "Linked List",
+      "Two Pointers"
+    ],
+    "description": "Remove the K-th node from the end of a singly linked list and print the remaining list. Print `empty` if no nodes remain.",
+    "input_format": "First line: N and K. Second line: N space-separated integers (head to tail).",
+    "output_format": "The remaining values separated by spaces, or `empty`.",
+    "constraints": "1 <= K <= N <= 10^4",
+    "sample_input": "5 2\n1 2 3 4 5",
+    "sample_output": "1 2 3 5",
+    "sample_explanation": "The 2nd node from the end is 4, so the output is 1 2 3 5.",
+    "starter_code": {
+      "python": "import sys\n\nclass ListNode:\n    def __init__(self, val, next=None):\n        self.val = val\n        self.next = next\n\ndef remove_nth_from_end(head, k):\n    # Hint: use a dummy node and two pointers k apart\n    pass\n\ndata = sys.stdin.read().split()\nn, k = int(data[0]), int(data[1])\nhead = None\nfor v in reversed(data[2:n + 2]):\n    head = ListNode(int(v), head)\nhead = remove_nth_from_end(head, k)\nout = []\nwhile head:\n    out.append(str(head.val))\n    head = head.next\nprint(\" \".join(out) if out else \"empty\")\n"
+    },
+    "test_cases": [
+      {
+        "input": "5 2\n1 2 3 4 5",
+        "output": "1 2 3 5",
+        "is_hidden": false
+      },
+      {
+        "input": "1 1\n9",
+        "output": "empty",
+        "is_hidden": false
+      },
+      {
+        "input": "2 2\n1 2",
+        "output": "2",
+        "is_hidden": true
+      },
+      {
+        "input": "6 1\n4 8 15 16 23 42",
+        "output": "4 8 15 16 23",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Reverse a Doubly Linked List",
+    "slug": "reverse-doubly-linked-list",
+    "difficulty": "EASY",
+    "tags": [
+      "Doubly Linked List",
+      "Linked Lists"
+    ],
+    "description": "Reverse a doubly linked list by swapping the prev and next pointers of every node. Print the list forward from the new head, then backward from the new tail (to prove prev pointers are correct).",
+    "input_format": "First line: N. Second line: N space-separated integers (head to tail).",
+    "output_format": "Line 1: forward traversal of the reversed list. Line 2: backward traversal.",
+    "constraints": "1 <= N <= 10^4",
+    "sample_input": "4\n1 2 3 4",
+    "sample_output": "4 3 2 1\n1 2 3 4",
+    "sample_explanation": "Forward: 4 3 2 1. Backward from the tail: 1 2 3 4.",
+    "starter_code": {
+      "python": "import sys\n\nclass DNode:\n    def __init__(self, val):\n        self.val = val\n        self.prev = None\n        self.next = None\n\ndef reverse_dll(head):\n    # Swap prev and next of every node; return the new head\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nhead = tail = None\nfor v in data[1:n + 1]:\n    node = DNode(int(v))\n    if head is None:\n        head = tail = node\n    else:\n        tail.next = node\n        node.prev = tail\n        tail = node\nhead = reverse_dll(head)\nfwd, last, cur = [], None, head\nwhile cur:\n    fwd.append(str(cur.val))\n    last = cur\n    cur = cur.next\nback, cur = [], last\nwhile cur:\n    back.append(str(cur.val))\n    cur = cur.prev\nprint(\" \".join(fwd))\nprint(\" \".join(back))\n"
+    },
+    "test_cases": [
+      {
+        "input": "4\n1 2 3 4",
+        "output": "4 3 2 1\n1 2 3 4",
+        "is_hidden": false
+      },
+      {
+        "input": "1\n5",
+        "output": "5\n5",
+        "is_hidden": false
+      },
+      {
+        "input": "3\n7 -2 9",
+        "output": "9 -2 7\n7 -2 9",
+        "is_hidden": true
+      },
+      {
+        "input": "5\n10 20 30 40 50",
+        "output": "50 40 30 20 10\n10 20 30 40 50",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Delete a Node in a Doubly Linked List",
+    "slug": "delete-node-doubly-linked-list",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Doubly Linked List",
+      "Linked Lists"
+    ],
+    "description": "Delete the first node whose value equals X from a doubly linked list (if none matches, leave the list unchanged). Print the list forward, then backward. Print `empty` on both lines if the list becomes empty.",
+    "input_format": "First line: N and X. Second line: N space-separated integers (head to tail).",
+    "output_format": "Line 1: forward traversal. Line 2: backward traversal.",
+    "constraints": "1 <= N <= 10^4",
+    "sample_input": "4 3\n1 3 4 3",
+    "sample_output": "1 4 3\n3 4 1",
+    "sample_explanation": "Only the first 3 is removed: forward 1 4 3, backward 3 4 1.",
+    "starter_code": {
+      "python": "import sys\n\nclass DNode:\n    def __init__(self, val):\n        self.val = val\n        self.prev = None\n        self.next = None\n\ndef delete_first(head, x):\n    # Remove the first node with value x and fix prev/next links; return the head\n    pass\n\ndata = sys.stdin.read().split()\nn, x = int(data[0]), int(data[1])\nhead = tail = None\nfor v in data[2:n + 2]:\n    node = DNode(int(v))\n    if head is None:\n        head = tail = node\n    else:\n        tail.next = node\n        node.prev = tail\n        tail = node\nhead = delete_first(head, x)\nfwd, last, cur = [], None, head\nwhile cur:\n    fwd.append(str(cur.val))\n    last = cur\n    cur = cur.next\nback, cur = [], last\nwhile cur:\n    back.append(str(cur.val))\n    cur = cur.prev\nprint(\" \".join(fwd) if fwd else \"empty\")\nprint(\" \".join(back) if back else \"empty\")\n"
+    },
+    "test_cases": [
+      {
+        "input": "4 3\n1 3 4 3",
+        "output": "1 4 3\n3 4 1",
+        "is_hidden": false
+      },
+      {
+        "input": "1 5\n5",
+        "output": "empty\nempty",
+        "is_hidden": false
+      },
+      {
+        "input": "3 9\n1 2 3",
+        "output": "1 2 3\n3 2 1",
+        "is_hidden": true
+      },
+      {
+        "input": "5 1\n1 2 3 4 5",
+        "output": "2 3 4 5\n5 4 3 2",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Browser History (Doubly Linked List)",
+    "slug": "browser-history-doubly-linked-list",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Doubly Linked List",
+      "Design",
+      "Linked Lists"
+    ],
+    "description": "Simulate a browser with a doubly linked list of pages. `visit URL` opens a page and discards all forward history. `back K` moves back up to K pages, `forward K` moves forward up to K pages. After every `back` and `forward` command, print the current page.",
+    "input_format": "First line: homepage. Second line: Q (number of commands). Next Q lines: `visit URL`, `back K` or `forward K`.",
+    "output_format": "One line per back/forward command: the current page after executing it.",
+    "constraints": "1 <= Q <= 5000",
+    "sample_input": "home\n5\nvisit a\nvisit b\nback 1\nback 5\nforward 1",
+    "sample_output": "a\nhome\na",
+    "sample_explanation": "After back 1 you are on a, after back 5 on home, after forward 1 on a.",
+    "starter_code": {
+      "python": "import sys\n\nclass Page:\n    def __init__(self, url):\n        self.url = url\n        self.prev = None\n        self.next = None\n\nlines = sys.stdin.read().split(\"\\n\")\ncur = Page(lines[0].strip())\nq = int(lines[1])\nfor i in range(q):\n    cmd, arg = lines[2 + i].split()\n    # visit: link a new Page after cur (dropping forward history)\n    # back/forward: walk prev/next at most int(arg) steps, then print cur.url\n    pass\n"
+    },
+    "test_cases": [
+      {
+        "input": "home\n5\nvisit a\nvisit b\nback 1\nback 5\nforward 1",
+        "output": "a\nhome\na",
+        "is_hidden": false
+      },
+      {
+        "input": "start\n3\nback 2\nforward 3\nback 1",
+        "output": "start\nstart\nstart",
+        "is_hidden": false
+      },
+      {
+        "input": "x\n7\nvisit y\nvisit z\nback 1\nvisit w\nforward 2\nback 1\nback 1",
+        "output": "y\nw\ny\nx",
+        "is_hidden": true
+      },
+      {
+        "input": "p\n6\nvisit q\nvisit r\nvisit s\nback 2\nforward 1\nforward 5",
+        "output": "q\nr\ns",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Maximum Depth of Binary Tree",
+    "slug": "maximum-depth-binary-tree",
+    "difficulty": "EASY",
+    "tags": [
+      "Trees",
+      "Binary Tree",
+      "Depth-First Search"
+    ],
+    "description": "Given a binary tree, print its maximum depth (the number of nodes on the longest root-to-leaf path).",
+    "input_format": "One line of space-separated level-order tokens. Use `null` for a missing child (LeetCode style).",
+    "output_format": "A single integer: the maximum depth.",
+    "constraints": "0 <= nodes <= 10^4",
+    "sample_input": "3 9 20 null null 15 7",
+    "sample_output": "3",
+    "sample_explanation": "The longest path is 3 -> 20 -> 15, so the depth is 3.",
+    "starter_code": {
+      "python": "import sys\nfrom collections import deque\n\nclass Node:\n    def __init__(self, val):\n        self.val = val\n        self.left = None\n        self.right = None\n\ndef build_tree(tokens):\n    \"\"\"Build a binary tree from level-order tokens ('null' = missing child).\"\"\"\n    if not tokens or tokens[0] == \"null\":\n        return None\n    root = Node(int(tokens[0]))\n    q = deque([root])\n    i = 1\n    while q and i < len(tokens):\n        cur = q.popleft()\n        if i < len(tokens) and tokens[i] != \"null\":\n            cur.left = Node(int(tokens[i]))\n            q.append(cur.left)\n        i += 1\n        if i < len(tokens) and tokens[i] != \"null\":\n            cur.right = Node(int(tokens[i]))\n            q.append(cur.right)\n        i += 1\n    return root\n\ndef max_depth(root):\n    # Write your solution here\n    pass\n\nroot = build_tree(sys.stdin.read().split())\nprint(max_depth(root))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3 9 20 null null 15 7",
+        "output": "3",
+        "is_hidden": false
+      },
+      {
+        "input": "1 null 2",
+        "output": "2",
+        "is_hidden": false
+      },
+      {
+        "input": "1",
+        "output": "1",
+        "is_hidden": true
+      },
+      {
+        "input": "1 2 3 4 5 null null 6",
+        "output": "4",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Binary Tree Inorder Traversal",
+    "slug": "binary-tree-inorder-traversal",
+    "difficulty": "EASY",
+    "tags": [
+      "Trees",
+      "Binary Tree",
+      "Stack"
+    ],
+    "description": "Print the inorder traversal (left, node, right) of a binary tree.",
+    "input_format": "One line of space-separated level-order tokens. Use `null` for a missing child (LeetCode style).",
+    "output_format": "Space-separated node values in inorder.",
+    "constraints": "1 <= nodes <= 10^4",
+    "sample_input": "1 null 2 3",
+    "sample_output": "1 3 2",
+    "sample_explanation": "Inorder visits 1, then 3, then 2.",
+    "starter_code": {
+      "python": "import sys\nfrom collections import deque\n\nclass Node:\n    def __init__(self, val):\n        self.val = val\n        self.left = None\n        self.right = None\n\ndef build_tree(tokens):\n    \"\"\"Build a binary tree from level-order tokens ('null' = missing child).\"\"\"\n    if not tokens or tokens[0] == \"null\":\n        return None\n    root = Node(int(tokens[0]))\n    q = deque([root])\n    i = 1\n    while q and i < len(tokens):\n        cur = q.popleft()\n        if i < len(tokens) and tokens[i] != \"null\":\n            cur.left = Node(int(tokens[i]))\n            q.append(cur.left)\n        i += 1\n        if i < len(tokens) and tokens[i] != \"null\":\n            cur.right = Node(int(tokens[i]))\n            q.append(cur.right)\n        i += 1\n    return root\n\ndef inorder(root):\n    # Write your solution here; return a list of values\n    pass\n\nroot = build_tree(sys.stdin.read().split())\nprint(\" \".join(map(str, inorder(root))))\n"
+    },
+    "test_cases": [
+      {
+        "input": "1 null 2 3",
+        "output": "1 3 2",
+        "is_hidden": false
+      },
+      {
+        "input": "4 2 6 1 3 5 7",
+        "output": "1 2 3 4 5 6 7",
+        "is_hidden": false
+      },
+      {
+        "input": "5",
+        "output": "5",
+        "is_hidden": true
+      },
+      {
+        "input": "10 5 null 3 8",
+        "output": "3 5 8 10",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Validate Binary Search Tree",
+    "slug": "validate-binary-search-tree",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Trees",
+      "Binary Search Tree",
+      "Recursion"
+    ],
+    "description": "Print `true` if the binary tree is a valid binary search tree (every left subtree value is strictly smaller and every right subtree value strictly larger than the node), otherwise `false`.",
+    "input_format": "One line of space-separated level-order tokens. Use `null` for a missing child (LeetCode style).",
+    "output_format": "`true` or `false`.",
+    "constraints": "1 <= nodes <= 10^4",
+    "sample_input": "2 1 3",
+    "sample_output": "true",
+    "sample_explanation": "1 < 2 < 3, so it is a valid BST.",
+    "starter_code": {
+      "python": "import sys\nfrom collections import deque\n\nclass Node:\n    def __init__(self, val):\n        self.val = val\n        self.left = None\n        self.right = None\n\ndef build_tree(tokens):\n    \"\"\"Build a binary tree from level-order tokens ('null' = missing child).\"\"\"\n    if not tokens or tokens[0] == \"null\":\n        return None\n    root = Node(int(tokens[0]))\n    q = deque([root])\n    i = 1\n    while q and i < len(tokens):\n        cur = q.popleft()\n        if i < len(tokens) and tokens[i] != \"null\":\n            cur.left = Node(int(tokens[i]))\n            q.append(cur.left)\n        i += 1\n        if i < len(tokens) and tokens[i] != \"null\":\n            cur.right = Node(int(tokens[i]))\n            q.append(cur.right)\n        i += 1\n    return root\n\ndef is_valid_bst(root):\n    # Hint: pass down (low, high) bounds\n    pass\n\nroot = build_tree(sys.stdin.read().split())\nprint(\"true\" if is_valid_bst(root) else \"false\")\n"
+    },
+    "test_cases": [
+      {
+        "input": "2 1 3",
+        "output": "true",
+        "is_hidden": false
+      },
+      {
+        "input": "5 1 4 null null 3 6",
+        "output": "false",
+        "is_hidden": false
+      },
+      {
+        "input": "5 4 6 null null 3 7",
+        "output": "false",
+        "is_hidden": true
+      },
+      {
+        "input": "1",
+        "output": "true",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Binary Tree Level Order Traversal",
+    "slug": "binary-tree-level-order-traversal",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Trees",
+      "Binary Tree",
+      "Breadth-First Search",
+      "Queue"
+    ],
+    "description": "Print the level order traversal of a binary tree, one level per line, left to right.",
+    "input_format": "One line of space-separated level-order tokens. Use `null` for a missing child (LeetCode style).",
+    "output_format": "One line per level: space-separated node values.",
+    "constraints": "1 <= nodes <= 10^4",
+    "sample_input": "3 9 20 null null 15 7",
+    "sample_output": "3\n9 20\n15 7",
+    "sample_explanation": "Levels: [3], [9 20], [15 7].",
+    "starter_code": {
+      "python": "import sys\nfrom collections import deque\n\nclass Node:\n    def __init__(self, val):\n        self.val = val\n        self.left = None\n        self.right = None\n\ndef build_tree(tokens):\n    \"\"\"Build a binary tree from level-order tokens ('null' = missing child).\"\"\"\n    if not tokens or tokens[0] == \"null\":\n        return None\n    root = Node(int(tokens[0]))\n    q = deque([root])\n    i = 1\n    while q and i < len(tokens):\n        cur = q.popleft()\n        if i < len(tokens) and tokens[i] != \"null\":\n            cur.left = Node(int(tokens[i]))\n            q.append(cur.left)\n        i += 1\n        if i < len(tokens) and tokens[i] != \"null\":\n            cur.right = Node(int(tokens[i]))\n            q.append(cur.right)\n        i += 1\n    return root\n\ndef level_order(root):\n    # Return a list of lists, one per level\n    pass\n\nroot = build_tree(sys.stdin.read().split())\nfor level in level_order(root):\n    print(\" \".join(map(str, level)))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3 9 20 null null 15 7",
+        "output": "3\n9 20\n15 7",
+        "is_hidden": false
+      },
+      {
+        "input": "1",
+        "output": "1",
+        "is_hidden": false
+      },
+      {
+        "input": "1 2 3 4 5 6 7",
+        "output": "1\n2 3\n4 5 6 7",
+        "is_hidden": true
+      },
+      {
+        "input": "1 null 2 null 3",
+        "output": "1\n2\n3",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Diameter of Binary Tree",
+    "slug": "diameter-of-binary-tree",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Trees",
+      "Binary Tree",
+      "Depth-First Search"
+    ],
+    "description": "The diameter of a binary tree is the number of edges on the longest path between any two nodes (the path may or may not pass through the root). Print the diameter.",
+    "input_format": "One line of space-separated level-order tokens. Use `null` for a missing child (LeetCode style).",
+    "output_format": "A single integer.",
+    "constraints": "1 <= nodes <= 10^4",
+    "sample_input": "1 2 3 4 5",
+    "sample_output": "3",
+    "sample_explanation": "The path 4 -> 2 -> 1 -> 3 has 3 edges.",
+    "starter_code": {
+      "python": "import sys\nfrom collections import deque\n\nclass Node:\n    def __init__(self, val):\n        self.val = val\n        self.left = None\n        self.right = None\n\ndef build_tree(tokens):\n    \"\"\"Build a binary tree from level-order tokens ('null' = missing child).\"\"\"\n    if not tokens or tokens[0] == \"null\":\n        return None\n    root = Node(int(tokens[0]))\n    q = deque([root])\n    i = 1\n    while q and i < len(tokens):\n        cur = q.popleft()\n        if i < len(tokens) and tokens[i] != \"null\":\n            cur.left = Node(int(tokens[i]))\n            q.append(cur.left)\n        i += 1\n        if i < len(tokens) and tokens[i] != \"null\":\n            cur.right = Node(int(tokens[i]))\n            q.append(cur.right)\n        i += 1\n    return root\n\ndef diameter(root):\n    # Hint: height(left) + height(right) at every node\n    pass\n\nroot = build_tree(sys.stdin.read().split())\nprint(diameter(root))\n"
+    },
+    "test_cases": [
+      {
+        "input": "1 2 3 4 5",
+        "output": "3",
+        "is_hidden": false
+      },
+      {
+        "input": "1",
+        "output": "0",
+        "is_hidden": false
+      },
+      {
+        "input": "1 2",
+        "output": "1",
+        "is_hidden": true
+      },
+      {
+        "input": "1 2 3 4 null null 5 6 null null 7",
+        "output": "6",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Number of Islands",
+    "slug": "number-of-islands-grid",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Graphs",
+      "Matrix",
+      "Depth-First Search",
+      "Breadth-First Search"
+    ],
+    "description": "Given a grid of 1 (land) and 0 (water), count the islands. An island is a group of land cells connected horizontally or vertically.",
+    "input_format": "First line: R and C. Next R lines: a string of C characters (0 or 1) with no spaces.",
+    "output_format": "A single integer: the number of islands.",
+    "constraints": "1 <= R, C <= 300",
+    "sample_input": "3 3\n110\n110\n001",
+    "sample_output": "2",
+    "sample_explanation": "There are two islands: the 2x2 block and the single cell.",
+    "starter_code": {
+      "python": "import sys\n\nlines = sys.stdin.read().split()\nr, c = int(lines[0]), int(lines[1])\ngrid = [list(lines[2 + i]) for i in range(r)]\n\ndef count_islands(grid):\n    # Write your solution here (DFS or BFS)\n    pass\n\nprint(count_islands(grid))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3 3\n110\n110\n001",
+        "output": "2",
+        "is_hidden": false
+      },
+      {
+        "input": "1 1\n0",
+        "output": "0",
+        "is_hidden": false
+      },
+      {
+        "input": "4 5\n11000\n11000\n00100\n00011",
+        "output": "3",
+        "is_hidden": true
+      },
+      {
+        "input": "3 4\n1010\n0101\n1010",
+        "output": "6",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Course Schedule (Cycle Detection)",
+    "slug": "course-schedule-cycle-detection",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Graphs",
+      "Topological Sort",
+      "Depth-First Search"
+    ],
+    "description": "There are N courses numbered 0..N-1. Each prerequisite pair `a b` means you must take course b before course a. Print `true` if you can finish all courses, otherwise `false`.",
+    "input_format": "First line: N and M. Next M lines: two integers `a b`.",
+    "output_format": "`true` or `false`.",
+    "constraints": "1 <= N <= 2000, 0 <= M <= 5000",
+    "sample_input": "2 1\n1 0",
+    "sample_output": "true",
+    "sample_explanation": "Take course 0, then course 1.",
+    "starter_code": {
+      "python": "import sys\n\ndata = sys.stdin.read().split()\nn, m = int(data[0]), int(data[1])\nedges = [(int(data[2 + 2 * i]), int(data[3 + 2 * i])) for i in range(m)]\n\ndef can_finish(n, edges):\n    # Hint: Kahn's algorithm (topological sort) or DFS colouring\n    pass\n\nprint(\"true\" if can_finish(n, edges) else \"false\")\n"
+    },
+    "test_cases": [
+      {
+        "input": "2 1\n1 0",
+        "output": "true",
+        "is_hidden": false
+      },
+      {
+        "input": "2 2\n1 0\n0 1",
+        "output": "false",
+        "is_hidden": false
+      },
+      {
+        "input": "4 3\n1 0\n2 1\n3 2",
+        "output": "true",
+        "is_hidden": true
+      },
+      {
+        "input": "3 3\n0 1\n1 2\n2 0",
+        "output": "false",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Rotting Oranges",
+    "slug": "rotting-oranges-bfs",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Graphs",
+      "Breadth-First Search",
+      "Matrix"
+    ],
+    "description": "In a grid, 0 is empty, 1 is a fresh orange and 2 is a rotten orange. Every minute, fresh oranges adjacent (4 directions) to a rotten one become rotten. Print the minutes needed until no fresh orange remains, or -1 if that is impossible.",
+    "input_format": "First line: R and C. Next R lines: C space-separated integers (0, 1 or 2).",
+    "output_format": "A single integer.",
+    "constraints": "1 <= R, C <= 10",
+    "sample_input": "3 3\n2 1 1\n1 1 0\n0 1 1",
+    "sample_output": "4",
+    "sample_explanation": "All oranges are rotten after 4 minutes.",
+    "starter_code": {
+      "python": "import sys\nfrom collections import deque\n\ndata = sys.stdin.read().split()\nr, c = int(data[0]), int(data[1])\ngrid = [[int(data[2 + i * c + j]) for j in range(c)] for i in range(r)]\n\ndef minutes_to_rot(grid):\n    # Hint: multi-source BFS from all rotten oranges\n    pass\n\nprint(minutes_to_rot(grid))\n"
+    },
+    "test_cases": [
+      {
+        "input": "3 3\n2 1 1\n1 1 0\n0 1 1",
+        "output": "4",
+        "is_hidden": false
+      },
+      {
+        "input": "3 3\n2 1 1\n0 1 1\n1 0 1",
+        "output": "-1",
+        "is_hidden": false
+      },
+      {
+        "input": "1 1\n0",
+        "output": "0",
+        "is_hidden": true
+      },
+      {
+        "input": "2 3\n2 1 1\n1 1 2",
+        "output": "1",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Sort Colors (Dutch National Flag)",
+    "slug": "sort-colors-dutch-flag",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Sorting",
+      "Arrays",
+      "Two Pointers"
+    ],
+    "description": "An array contains only 0, 1 and 2. Sort it in place so equal values are adjacent (0s, then 1s, then 2s) in a single pass, and print the result.",
+    "input_format": "First line: N. Second line: N integers, each 0, 1 or 2.",
+    "output_format": "The sorted array as space-separated integers.",
+    "constraints": "1 <= N <= 10^5",
+    "sample_input": "6\n2 0 2 1 1 0",
+    "sample_output": "0 0 1 1 2 2",
+    "sample_explanation": "Sorted: 0 0 1 1 2 2.",
+    "starter_code": {
+      "python": "import sys\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\n\ndef sort_colors(nums):\n    # Hint: three pointers low, mid, high (do not use sort())\n    pass\n\nsort_colors(nums)\nprint(\" \".join(map(str, nums)))\n"
+    },
+    "test_cases": [
+      {
+        "input": "6\n2 0 2 1 1 0",
+        "output": "0 0 1 1 2 2",
+        "is_hidden": false
+      },
+      {
+        "input": "1\n1",
+        "output": "1",
+        "is_hidden": false
+      },
+      {
+        "input": "5\n2 2 2 0 1",
+        "output": "0 1 2 2 2",
+        "is_hidden": true
+      },
+      {
+        "input": "4\n0 0 0 0",
+        "output": "0 0 0 0",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Merge Sort Implementation",
+    "slug": "merge-sort-implementation",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Sorting",
+      "Divide and Conquer",
+      "Recursion",
+      "Arrays"
+    ],
+    "description": "Implement merge sort and print the array sorted in ascending order.",
+    "input_format": "First line: N. Second line: N integers.",
+    "output_format": "The sorted array as space-separated integers.",
+    "constraints": "1 <= N <= 10^5\n-10^9 <= value <= 10^9",
+    "sample_input": "4\n5 2 3 1",
+    "sample_output": "1 2 3 5",
+    "sample_explanation": "Sorted: 1 2 3 5.",
+    "starter_code": {
+      "python": "import sys\n\ndef merge_sort(a):\n    # Split in half, sort each half recursively, then merge\n    pass\n\ndata = sys.stdin.read().split()\nn = int(data[0])\nnums = list(map(int, data[1:n + 1]))\nprint(\" \".join(map(str, merge_sort(nums))))\n"
+    },
+    "test_cases": [
+      {
+        "input": "4\n5 2 3 1",
+        "output": "1 2 3 5",
+        "is_hidden": false
+      },
+      {
+        "input": "1\n42",
+        "output": "42",
+        "is_hidden": false
+      },
+      {
+        "input": "7\n-3 9 0 -3 8 1 1",
+        "output": "-3 -3 0 1 1 8 9",
+        "is_hidden": true
+      },
+      {
+        "input": "6\n6 5 4 3 2 1",
+        "output": "1 2 3 4 5 6",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Daily Temperatures (Monotonic Stack)",
+    "slug": "daily-temperatures-monotonic-stack",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Stacks and Queues",
+      "Stack",
+      "Monotonic Stack",
+      "Arrays"
+    ],
+    "description": "For each day, print how many days you must wait for a warmer temperature. Print 0 if there is none.",
+    "input_format": "First line: N. Second line: N integers (daily temperatures).",
+    "output_format": "N space-separated integers.",
+    "constraints": "1 <= N <= 10^5",
+    "sample_input": "8\n73 74 75 71 69 72 76 73",
+    "sample_output": "1 1 4 2 1 1 0 0",
+    "sample_explanation": "Day 0 waits 1 day for 74, day 2 waits 4 days for 76, and so on.",
+    "starter_code": {
+      "python": "import sys\n\ndata = sys.stdin.read().split()\nn = int(data[0])\ntemps = list(map(int, data[1:n + 1]))\n\ndef daily_temperatures(temps):\n    # Hint: keep a stack of indices with decreasing temperatures\n    pass\n\nprint(\" \".join(map(str, daily_temperatures(temps))))\n"
+    },
+    "test_cases": [
+      {
+        "input": "8\n73 74 75 71 69 72 76 73",
+        "output": "1 1 4 2 1 1 0 0",
+        "is_hidden": false
+      },
+      {
+        "input": "1\n50",
+        "output": "0",
+        "is_hidden": false
+      },
+      {
+        "input": "4\n30 40 50 60",
+        "output": "1 1 1 0",
+        "is_hidden": true
+      },
+      {
+        "input": "4\n60 50 40 30",
+        "output": "0 0 0 0",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Evaluate Reverse Polish Notation",
+    "slug": "evaluate-reverse-polish-notation",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Stacks and Queues",
+      "Stack",
+      "Math"
+    ],
+    "description": "Evaluate an arithmetic expression in Reverse Polish Notation. Valid operators are + - * /. Division truncates toward zero. Print the result.",
+    "input_format": "One line of space-separated tokens.",
+    "output_format": "A single integer.",
+    "constraints": "1 <= tokens <= 10^4; the expression is always valid.",
+    "sample_input": "2 1 + 3 *",
+    "sample_output": "9",
+    "sample_explanation": "(2 + 1) * 3 = 9.",
+    "starter_code": {
+      "python": "import sys\n\ntokens = sys.stdin.read().split()\n\ndef eval_rpn(tokens):\n    # Push numbers on a stack; on an operator pop two operands\n    pass\n\nprint(eval_rpn(tokens))\n"
+    },
+    "test_cases": [
+      {
+        "input": "2 1 + 3 *",
+        "output": "9",
+        "is_hidden": false
+      },
+      {
+        "input": "4 13 5 / +",
+        "output": "6",
+        "is_hidden": false
+      },
+      {
+        "input": "10 6 9 3 + -11 * / * 17 + 5 +",
+        "output": "22",
+        "is_hidden": true
+      },
+      {
+        "input": "7 -2 /",
+        "output": "-3",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Implement Queue using Stacks",
+    "slug": "implement-queue-using-stacks",
+    "difficulty": "EASY",
+    "tags": [
+      "Stacks and Queues",
+      "Queue",
+      "Stack",
+      "Design"
+    ],
+    "description": "Implement a FIFO queue using only stacks. Process the commands `push X`, `pop`, `peek` and `empty`. For `pop` and `peek` print the value, for `empty` print `true` or `false`.",
+    "input_format": "First line: Q. Next Q lines: a command.",
+    "output_format": "One line for every pop, peek and empty command.",
+    "constraints": "1 <= Q <= 10^4; pop and peek are only used on a non-empty queue.",
+    "sample_input": "6\npush 1\npush 2\npeek\npop\nempty\npop",
+    "sample_output": "1\n1\nfalse\n2",
+    "sample_explanation": "peek -> 1, pop -> 1, empty -> false, pop -> 2.",
+    "starter_code": {
+      "python": "import sys\n\nlines = sys.stdin.read().split(\"\\n\")\nq = int(lines[0])\ninbox, outbox = [], []\nfor i in range(q):\n    parts = lines[1 + i].split()\n    cmd = parts[0]\n    # push: inbox.append(x); pop/peek: move inbox -> outbox when outbox is empty\n    pass\n"
+    },
+    "test_cases": [
+      {
+        "input": "6\npush 1\npush 2\npeek\npop\nempty\npop",
+        "output": "1\n1\nfalse\n2",
+        "is_hidden": false
+      },
+      {
+        "input": "3\nempty\npush 5\nempty",
+        "output": "true\nfalse",
+        "is_hidden": false
+      },
+      {
+        "input": "7\npush 3\npush 4\npop\npush 5\npop\npop\nempty",
+        "output": "3\n4\n5\ntrue",
+        "is_hidden": true
+      },
+      {
+        "input": "4\npush 9\npush 8\npeek\npeek",
+        "output": "9\n9",
+        "is_hidden": true
+      }
+    ],
+    "points": 20
+  },
+  {
+    "title": "Generate Parentheses",
+    "slug": "generate-parentheses-backtracking",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Recursion",
+      "Backtracking",
+      "Strings"
+    ],
+    "description": "Given N pairs of parentheses, print every well-formed combination, one per line, in lexicographic (alphabetical) order where `(` comes before `)`.",
+    "input_format": "A single integer N.",
+    "output_format": "One combination per line.",
+    "constraints": "1 <= N <= 8",
+    "sample_input": "3",
+    "sample_output": "((()))\n(()())\n(())()\n()(())\n()()()",
+    "sample_explanation": "Five valid combinations exist for N = 3.",
+    "starter_code": {
+      "python": "import sys\n\nn = int(sys.stdin.read().split()[0])\n\ndef generate(n):\n    # Hint: backtrack while open < n and close < open\n    pass\n\nfor s in sorted(generate(n)):\n    print(s)\n"
+    },
+    "test_cases": [
+      {
+        "input": "3",
+        "output": "((()))\n(()())\n(())()\n()(())\n()()()",
+        "is_hidden": false
+      },
+      {
+        "input": "1",
+        "output": "()",
+        "is_hidden": false
+      },
+      {
+        "input": "2",
+        "output": "(())\n()()",
+        "is_hidden": true
+      },
+      {
+        "input": "4",
+        "output": "(((())))\n((()()))\n((())())\n((()))()\n(()(()))\n(()()())\n(()())()\n(())(())\n(())()()\n()((()))\n()(()())\n()(())()\n()()(())\n()()()()",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  },
+  {
+    "title": "Subsets with Target Sum",
+    "slug": "subsets-with-target-sum",
+    "difficulty": "MEDIUM",
+    "tags": [
+      "Backtracking",
+      "Recursion",
+      "Arrays"
+    ],
+    "description": "Given N distinct positive integers and a target T, count how many subsets (including choosing none) have a sum exactly equal to T. Use recursion / backtracking.",
+    "input_format": "First line: N and T. Second line: N integers.",
+    "output_format": "A single integer: the number of subsets.",
+    "constraints": "1 <= N <= 20",
+    "sample_input": "4 5\n1 2 3 4",
+    "sample_output": "2",
+    "sample_explanation": "Subsets {1,4} and {2,3} sum to 5.",
+    "starter_code": {
+      "python": "import sys\n\ndata = sys.stdin.read().split()\nn, t = int(data[0]), int(data[1])\nnums = list(map(int, data[2:n + 2]))\n\ndef count_subsets(nums, t):\n    # Hint: for each element either include or skip it\n    pass\n\nprint(count_subsets(nums, t))\n"
+    },
+    "test_cases": [
+      {
+        "input": "4 5\n1 2 3 4",
+        "output": "2",
+        "is_hidden": false
+      },
+      {
+        "input": "1 7\n7",
+        "output": "1",
+        "is_hidden": false
+      },
+      {
+        "input": "5 10\n1 2 3 4 5",
+        "output": "3",
+        "is_hidden": true
+      },
+      {
+        "input": "3 100\n1 2 3",
+        "output": "0",
+        "is_hidden": true
+      }
+    ],
+    "points": 50
+  }
+]

@@ -1,5 +1,8 @@
+import json
 import os
+from pathlib import Path
 
+from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
 from apps.accounts.models import StudentProfile, AdminProfile
@@ -984,7 +987,16 @@ class Command(BaseCommand):
                 defaults=p_data
             )
 
-        self.stdout.write(self.style.SUCCESS(f"Seeded {len(coding_problems_data)} Coding Problems."))
+        # Extra DSA problems (linked lists, trees, graphs, sorting, ...) from a JSON fixture
+        extra_path = Path(settings.BASE_DIR) / 'fixtures' / 'extra_coding_problems.json'
+        extra_count = 0
+        if extra_path.exists():
+            with open(extra_path, encoding='utf-8') as fh:
+                for p_data in json.load(fh):
+                    CodingProblem.objects.get_or_create(slug=p_data['slug'], defaults=p_data)
+                    extra_count += 1
+
+        self.stdout.write(self.style.SUCCESS(f"Seeded {len(coding_problems_data) + extra_count} Coding Problems."))
 
         # 4. Seed Interview Categories & 20 Questions
         interview_cats = [
