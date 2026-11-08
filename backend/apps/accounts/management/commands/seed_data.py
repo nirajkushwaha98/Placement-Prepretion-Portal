@@ -747,6 +747,72 @@ class Command(BaseCommand):
                 qs = AptitudeQuestion.objects.all()[:td['total_questions']]
             test_obj.questions.set(qs)
 
+        # Company-specific tests (25 questions each) built from the question bank
+        Q_, L_, V_, D_ = 'quantitative-aptitude', 'logical-reasoning', 'verbal-ability', 'data-interpretation'
+        company_tests = [
+            {'title': 'TCS NQT Quantitative & Logical Mock Test', 'difficulty': 'MEDIUM', 'duration_minutes': 40,
+             'description': 'Full-length mock modelled on the TCS NQT aptitude round: arithmetic, reasoning and verbal.',
+             'mix': {Q_: 10, L_: 8, V_: 7}, 'passing_percentage': 60.0},
+            {'title': 'Infosys Logical Reasoning & Verbal Sprint', 'difficulty': 'HARD', 'duration_minutes': 40,
+             'description': 'Infosys-style sprint with heavy logical reasoning and verbal ability sections.',
+             'mix': {L_: 10, V_: 10, Q_: 5}, 'passing_percentage': 65.0},
+            {'title': 'Wipro Elite NLTH Aptitude & Logic Mock', 'difficulty': 'MEDIUM', 'duration_minutes': 40,
+             'description': 'Wipro Elite NLTH online round pattern covering quantitative, logical and verbal questions.',
+             'mix': {Q_: 8, L_: 8, V_: 9}, 'passing_percentage': 60.0},
+            {'title': 'Accenture Cognitive & Verbal Assessment', 'difficulty': 'EASY', 'duration_minutes': 35,
+             'description': 'Accenture cognitive and communication assessment with grammar, vocabulary and reasoning.',
+             'mix': {V_: 10, L_: 8, Q_: 7}, 'passing_percentage': 55.0},
+            {'title': 'Cognizant GenC Numerical & Analytical Test', 'difficulty': 'MEDIUM', 'duration_minutes': 40,
+             'description': 'Cognizant GenC analytical test: ratios, profit and loss, probability and data interpretation.',
+             'mix': {Q_: 12, D_: 8, L_: 5}, 'passing_percentage': 60.0},
+            {'title': 'Amazon OA Analytical & Data Interpretation Test', 'difficulty': 'HARD', 'duration_minutes': 45,
+             'description': 'Amazon online assessment style reasoning with data interpretation and quantitative problems.',
+             'mix': {L_: 9, D_: 9, Q_: 7}, 'passing_percentage': 70.0},
+            {'title': 'Capgemini Aptitude & Logical Game-Based Test', 'difficulty': 'MEDIUM', 'duration_minutes': 40,
+             'description': 'Capgemini aptitude round with logical puzzles, numerical ability and verbal questions.',
+             'mix': {L_: 10, Q_: 8, V_: 7}, 'passing_percentage': 60.0},
+            {'title': 'Deloitte Business Aptitude & Data Interpretation Test', 'difficulty': 'MEDIUM', 'duration_minutes': 40,
+             'description': 'Deloitte style business aptitude test with tables, charts, percentages and verbal reasoning.',
+             'mix': {D_: 10, Q_: 8, V_: 7}, 'passing_percentage': 60.0},
+            {'title': 'Google Analytical Reasoning Assessment', 'difficulty': 'HARD', 'duration_minutes': 45,
+             'description': 'Challenging analytical reasoning set in the style of Google aptitude screening.',
+             'mix': {L_: 10, Q_: 8, D_: 7}, 'passing_percentage': 75.0},
+            {'title': 'Microsoft Problem Solving & Logic Test', 'difficulty': 'HARD', 'duration_minutes': 45,
+             'description': 'Microsoft style problem solving, logic and quantitative reasoning assessment.',
+             'mix': {L_: 9, Q_: 9, D_: 7}, 'passing_percentage': 70.0},
+            {'title': 'Campus Placement Grand Mock Test (50 Questions)', 'difficulty': 'MIXED', 'duration_minutes': 60,
+             'description': 'Grand mock for TCS, Infosys, Wipro and Accenture style drives: 50 questions across all sections.',
+             'mix': {Q_: 13, L_: 13, V_: 12, D_: 12}, 'passing_percentage': 60.0},
+        ]
+        question_pool = {
+            slug: list(AptitudeQuestion.objects.filter(category=cat).order_by('id'))
+            for slug, cat in cat_objs.items()
+        }
+        for idx, ct in enumerate(company_tests):
+            chosen = []
+            for slug, count in ct['mix'].items():
+                pool = question_pool.get(slug, [])
+                if not pool:
+                    continue
+                start = (idx * 7) % len(pool)  # rotate so tests do not all share the same questions
+                chosen.extend((pool[start:] + pool[:start])[:count])
+            if not chosen:
+                continue
+            test_obj, _ = AptitudeTest.objects.get_or_create(
+                title=ct['title'],
+                defaults={
+                    'description': ct['description'],
+                    'difficulty': ct['difficulty'],
+                    'duration_minutes': ct['duration_minutes'],
+                    'total_questions': len(chosen),
+                    'passing_percentage': ct['passing_percentage'],
+                }
+            )
+            test_obj.total_questions = len(chosen)
+            test_obj.save(update_fields=['total_questions'])
+            test_obj.questions.set(chosen)
+        self.stdout.write(self.style.SUCCESS(f"Seeded {len(company_tests)} company aptitude tests."))
+
         # 3. Seed 10 Coding Problems
         coding_problems_data = [
             {
