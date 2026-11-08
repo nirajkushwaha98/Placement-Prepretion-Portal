@@ -1,3 +1,5 @@
+import os
+
 from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
 from apps.accounts.models import StudentProfile, AdminProfile
@@ -6,6 +8,14 @@ from apps.coding.models import CodingProblem
 from apps.interview.models import InterviewCategory, InterviewQuestion
 
 User = get_user_model()
+
+
+def _seed_password(env_name, local_default):
+    """Password from env; the hardcoded demo default is used only off Render."""
+    value = os.environ.get(env_name)
+    if value:
+        return value
+    return None if os.environ.get('RENDER') else local_default
 
 class Command(BaseCommand):
     help = 'Seeds initial realistic data for Placement Preparation Portal'
@@ -28,7 +38,11 @@ class Command(BaseCommand):
             }
         )
         if created:
-            admin_user.set_password('Admin@123456')
+            admin_pw = _seed_password('SEED_ADMIN_PASSWORD', 'Admin@123456')
+            if admin_pw:
+                admin_user.set_password(admin_pw)
+            else:
+                admin_user.set_unusable_password()
             admin_user.save()
             AdminProfile.objects.create(
                 user=admin_user,
@@ -49,7 +63,11 @@ class Command(BaseCommand):
             }
         )
         if created:
-            student_user.set_password('Student@123456')
+            student_pw = _seed_password('SEED_STUDENT_PASSWORD', 'Student@123456')
+            if student_pw:
+                student_user.set_password(student_pw)
+            else:
+                student_user.set_unusable_password()
             student_user.save()
             StudentProfile.objects.create(
                 user=student_user,
