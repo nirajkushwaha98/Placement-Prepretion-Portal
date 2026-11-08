@@ -1,7 +1,10 @@
 import axios from 'axios';
 
+// In production set VITE_API_URL to the backend origin, e.g. https://xxx.onrender.com
+const API_BASE = `${(import.meta.env.VITE_API_URL || '').replace(/\/$/, '')}/api`;
+
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: API_BASE,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -31,7 +34,7 @@ api.interceptors.response.use(
 
       if (refreshToken) {
         try {
-          const res = await axios.post('/api/auth/refresh/', { refresh: refreshToken });
+          const res = await axios.post(`${API_BASE}/auth/refresh/`, { refresh: refreshToken });
           const newAccessToken = res.data.access;
           localStorage.setItem('access_token', newAccessToken);
           api.defaults.headers.common.Authorization = `Bearer ${newAccessToken}`;
