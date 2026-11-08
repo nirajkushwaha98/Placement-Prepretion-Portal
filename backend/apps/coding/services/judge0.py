@@ -116,7 +116,9 @@ class Judge0Service:
 
                 time_taken = float(res_data.get('time') or 0.0) * 1000  # to ms
                 memory_used = float(res_data.get('memory') or 0.0)
-                is_accepted = (status_id == 3) or (bool(stdout) and not clean_stderr and not clean_compile_output)
+                # Only Judge0's own verdict counts. Any output without an error used to be
+                # treated as accepted, which marked wrong answers as correct.
+                is_accepted = status_id == 3
 
                 return {
                     'success': is_accepted,

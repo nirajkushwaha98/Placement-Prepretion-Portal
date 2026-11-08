@@ -38,7 +38,12 @@ class CodingProblemViewSet(viewsets.ModelViewSet):
         if difficulty:
             queryset = queryset.filter(difficulty=difficulty)
         if tag:
-            queryset = queryset.filter(tags__contains=[tag])
+            # JSONField "contains" is unsupported on SQLite, so match in Python (DB-agnostic).
+            tagged_ids = [
+                pid for pid, tags in CodingProblem.objects.values_list('id', 'tags')
+                if tag in (tags or [])
+            ]
+            queryset = queryset.filter(id__in=tagged_ids)
         if search:
             queryset = queryset.filter(title__icontains=search) | queryset.filter(description__icontains=search)
 
