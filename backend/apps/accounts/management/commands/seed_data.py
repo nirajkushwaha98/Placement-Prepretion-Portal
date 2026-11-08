@@ -781,7 +781,7 @@ class Command(BaseCommand):
              'description': 'Microsoft style problem solving, logic and quantitative reasoning assessment.',
              'mix': {L_: 9, Q_: 9, D_: 7}, 'passing_percentage': 70.0},
             {'title': 'Campus Placement Grand Mock Test (50 Questions)', 'difficulty': 'MIXED', 'duration_minutes': 60,
-             'description': 'Grand mock for TCS, Infosys, Wipro and Accenture style drives: 50 questions across all sections.',
+             'description': 'Grand mock for campus placement drives of leading IT services companies: 50 questions across all sections.',
              'mix': {Q_: 13, L_: 13, V_: 12, D_: 12}, 'passing_percentage': 60.0},
         ]
         question_pool = {
@@ -811,7 +811,65 @@ class Command(BaseCommand):
             test_obj.total_questions = len(chosen)
             test_obj.save(update_fields=['total_questions'])
             test_obj.questions.set(chosen)
-        self.stdout.write(self.style.SUCCESS(f"Seeded {len(company_tests)} company aptitude tests."))
+        # Per-company section practice sets and a second full mock, so every company has several tests
+        company_levels = {
+            'TCS NQT': 'MEDIUM', 'Infosys': 'HARD', 'Wipro Elite NLTH': 'MEDIUM', 'Accenture': 'EASY',
+            'Cognizant GenC': 'MEDIUM', 'Amazon OA': 'HARD', 'Capgemini': 'MEDIUM', 'Deloitte': 'MEDIUM',
+            'Google': 'HARD', 'Microsoft': 'HARD',
+        }
+        section_sets = [
+            (Q_, 'Quantitative Aptitude', 15, 20),
+            (L_, 'Logical Reasoning', 15, 20),
+            (V_, 'Verbal Ability', 15, 15),
+            (D_, 'Data Interpretation', 15, 20),
+        ]
+        extra_tests = 0
+        for ci, (company, level) in enumerate(company_levels.items()):
+            for si, (slug, label, count, minutes) in enumerate(section_sets):
+                pool = question_pool.get(slug, [])
+                if not pool:
+                    continue
+                start = (ci * 5 + si * 3 + 4) % len(pool)
+                chosen = (pool[start:] + pool[:start])[:count]
+                test_obj, _ = AptitudeTest.objects.get_or_create(
+                    title=f'{company} {label} Practice Set',
+                    defaults={
+                        'description': f'{company} style {label.lower()} practice set with {len(chosen)} timed questions.',
+                        'category': cat_objs.get(slug),
+                        'difficulty': level,
+                        'duration_minutes': minutes,
+                        'total_questions': len(chosen),
+                        'passing_percentage': 60.0,
+                    }
+                )
+                test_obj.total_questions = len(chosen)
+                test_obj.save(update_fields=['total_questions'])
+                test_obj.questions.set(chosen)
+                extra_tests += 1
+
+            mock_questions = []
+            for si, (slug, count) in enumerate(((Q_, 8), (L_, 8), (V_, 7), (D_, 7))):
+                pool = question_pool.get(slug, [])
+                if pool:
+                    start = (ci * 3 + si * 5 + 11) % len(pool)
+                    mock_questions.extend((pool[start:] + pool[:start])[:count])
+            if mock_questions:
+                test_obj, _ = AptitudeTest.objects.get_or_create(
+                    title=f'{company} Full Length Mock Test 2',
+                    defaults={
+                        'description': f'Second full-length {company} style mock covering all four aptitude sections.',
+                        'difficulty': level,
+                        'duration_minutes': 45,
+                        'total_questions': len(mock_questions),
+                        'passing_percentage': 60.0,
+                    }
+                )
+                test_obj.total_questions = len(mock_questions)
+                test_obj.save(update_fields=['total_questions'])
+                test_obj.questions.set(mock_questions)
+                extra_tests += 1
+
+        self.stdout.write(self.style.SUCCESS(f"Seeded {len(company_tests) + extra_tests} company aptitude tests."))
 
         # 3. Seed 10 Coding Problems
         coding_problems_data = [
