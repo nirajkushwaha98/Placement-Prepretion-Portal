@@ -6,7 +6,8 @@ from urllib.parse import urlparse, unquote
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-placement-prep-portal-super-secret-key-2026')
-DEBUG = os.environ.get('DJANGO_DEBUG', 'True') == 'True'
+# Debug is on for local dev, but off by default on Render (RENDER is set there).
+DEBUG = os.environ.get('DJANGO_DEBUG', 'False' if os.environ.get('RENDER') else 'True') == 'True'
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '*').split(',')
 
 # Render sets RENDER_EXTERNAL_HOSTNAME automatically
