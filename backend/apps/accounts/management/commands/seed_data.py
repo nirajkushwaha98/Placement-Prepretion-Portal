@@ -818,7 +818,7 @@ class Command(BaseCommand):
                     {'input': 'abcabcbb', 'output': '3', 'is_hidden': False},
                     {'input': 'bbbbb', 'output': '1', 'is_hidden': False},
                     {'input': 'pwwkew', 'output': '3', 'is_hidden': True},
-                    {'input': 'placementready', 'output': '10', 'is_hidden': True},
+                    {'input': 'placementready', 'output': '7', 'is_hidden': True},
                 ],
                 'points': 50
             },
@@ -896,7 +896,7 @@ class Command(BaseCommand):
                     {'input': '12\n0 1 0 2 1 0 1 3 2 1 2 1', 'output': '6', 'is_hidden': False},
                     {'input': '6\n4 2 0 3 2 5', 'output': '9', 'is_hidden': False},
                     {'input': '3\n2 0 2', 'output': '2', 'is_hidden': True},
-                    {'input': '5\n3 0 0 2 0 4', 'output': '10', 'is_hidden': True},
+                    {'input': '6\n3 0 0 2 0 4', 'output': '10', 'is_hidden': True},
                 ],
                 'points': 100
             },
