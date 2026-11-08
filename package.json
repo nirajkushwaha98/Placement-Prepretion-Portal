@@ -1,0 +1,14 @@
+{
+  "name": "placement-preparation-portal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Placement Preparation Portal - AI Powered Career Readiness Platform",
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "start": "./start_background.sh",
+    "stop": "./stop.sh",
+    "status": "./status.sh",
+    "backend": "cd backend && ../.venv/bin/python manage.py runserver 127.0.0.1:8000",
+    "frontend": "npm --prefix frontend run dev"
+  }
+}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { resumeService } from '../../api/services';
 import Badge from '../../components/Badge';
 import LoadingSpinner from '../../components/LoadingSpinner';
@@ -10,6 +11,7 @@ import {
 } from 'lucide-react';
 
 const ResumeAnalyzer = () => {
+  const navigate = useNavigate();
   const [file, setFile] = useState(null);
   const [rawText, setRawText] = useState('');
   const [uploadMode, setUploadMode] = useState('file'); // 'file' or 'text'
@@ -276,6 +278,18 @@ const ResumeAnalyzer = () => {
                     Evaluation based on technical keyword coverage, structural clarity, contact integrity, quantifiable impact metrics, and ATS parsing standards.
                   </p>
                 </div>
+              </div>
+
+              <div className="flex items-center gap-3 shrink-0">
+                <button
+                  type="button"
+                  onClick={() => navigate('/job-match')}
+                  className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white text-xs font-bold shadow-lg shadow-indigo-600/25 transition-all flex items-center gap-2 cursor-pointer active:scale-95"
+                >
+                  <Sparkles className="h-4 w-4 text-amber-300" />
+                  <span>Match Against Target Job Description</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </button>
               </div>
             </div>
 

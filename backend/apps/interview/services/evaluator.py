@@ -1,7 +1,5 @@
 import re
 from typing import Dict, Any, List
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
 
 class InterviewAnswerEvaluator:
     @classmethod
@@ -34,6 +32,8 @@ class InterviewAnswerEvaluator:
         # 1. Relevance Score (Based on Semantic similarity + Key point overlap)
         relevance_raw = 5.0
         try:
+            from sklearn.feature_extraction.text import TfidfVectorizer
+            from sklearn.metrics.pairwise import cosine_similarity
             vectorizer = TfidfVectorizer(stop_words='english')
             tfidf = vectorizer.fit_transform([answer, model_answer])
             sim = float(cosine_similarity(tfidf[0:1], tfidf[1:2])[0][0])

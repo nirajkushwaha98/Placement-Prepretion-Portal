@@ -59,6 +59,10 @@ function App() {
                   <Route path="/dsa-sheet" element={<DSASheet />} />
                   <Route path="/resume" element={<ResumeAnalyzer />} />
                   <Route path="/job-match" element={<JobMatcher />} />
+                  <Route path="/job-matcher" element={<Navigate to="/job-match" replace />} />
+                  <Route path="/resume-analyzer" element={<Navigate to="/resume" replace />} />
+                  <Route path="/dsa" element={<Navigate to="/dsa-sheet" replace />} />
+                  <Route path="/interviews" element={<Navigate to="/interview" replace />} />
                   <Route path="/interview" element={<InterviewPrep />} />
                   <Route path="/interview/practice/:questionId" element={<MockInterview />} />
                   <Route path="/progress" element={<Progress />} />

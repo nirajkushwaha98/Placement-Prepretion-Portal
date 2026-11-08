@@ -19,7 +19,11 @@ export const AuthProvider = ({ children }) => {
       const token = localStorage.getItem('access_token');
       if (token) {
         try {
-          const res = await authService.getProfile();
+          const profilePromise = authService.getProfile();
+          const timeoutPromise = new Promise((_, reject) =>
+            setTimeout(() => reject(new Error('Auth request timeout')), 4000)
+          );
+          const res = await Promise.race([profilePromise, timeoutPromise]);
           setUser(res.data);
           localStorage.setItem('user', JSON.stringify(res.data));
         } catch (err) {

@@ -1,12 +1,18 @@
 import os
 from pathlib import Path
 from datetime import timedelta
+from urllib.parse import urlparse, unquote
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-placement-prep-portal-super-secret-key-2026')
 DEBUG = os.environ.get('DJANGO_DEBUG', 'True') == 'True'
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '*').split(',')
+
+# Render sets RENDER_EXTERNAL_HOSTNAME automatically
+_render_host = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if _render_host and '*' not in ALLOWED_HOSTS and _render_host not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append(_render_host)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -34,6 +40,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -69,7 +76,21 @@ DB_PASSWORD = os.environ.get('DB_PASSWORD', os.environ.get('POSTGRES_PASSWORD', 
 DB_HOST = os.environ.get('DB_HOST', os.environ.get('POSTGRES_HOST', 'localhost'))
 DB_PORT = os.environ.get('DB_PORT', os.environ.get('POSTGRES_PORT', '5432'))
 
-if DB_ENGINE == 'django.db.backends.postgresql' or (DB_NAME and DB_USER):
+DATABASE_URL = os.environ.get('DATABASE_URL', '')
+
+if DATABASE_URL:
+    _u = urlparse(DATABASE_URL)
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': _u.path.lstrip('/'),
+            'USER': unquote(_u.username or ''),
+            'PASSWORD': unquote(_u.password or ''),
+            'HOST': _u.hostname,
+            'PORT': str(_u.port or 5432),
+        }
+    }
+elif DB_ENGINE == 'django.db.backends.postgresql' or (DB_NAME and DB_USER):
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
@@ -104,6 +125,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STORAGES = {
+    'default': {'BACKEND': 'django.core.files.storage.FileSystemStorage'},
+    'staticfiles': {'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage'},
+}
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -134,7 +159,12 @@ SIMPLE_JWT = {
 }
 
 # CORS Settings
-CORS_ALLOW_ALL_ORIGINS = True
+_cors = [o.strip() for o in os.environ.get('CORS_ALLOWED_ORIGINS', '').split(',') if o.strip()]
+if _cors:
+    CORS_ALLOWED_ORIGINS = _cors
+    CSRF_TRUSTED_ORIGINS = _cors
+else:
+    CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = [
     'authorization',
@@ -158,3 +188,6 @@ PLACEMENT_WEIGHTS = {
 JUDGE0_API_URL = os.environ.get('JUDGE0_API_URL', 'https://ce.judge0.com')
 JUDGE0_API_KEY = os.environ.get('JUDGE0_API_KEY', '')
 JUDGE0_API_HOST = os.environ.get('JUDGE0_API_HOST', '')
+
+if not DEBUG:
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
