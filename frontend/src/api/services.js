@@ -574,7 +574,6 @@ export const codingService = {
 
 import {
   analyzeResumeWithGemini,
-  matchJobWithGemini,
 } from './geminiService';
 
 export const resumeService = {
@@ -643,50 +642,6 @@ export const resumeService = {
       const filtered = history.filter((r) => r.id !== id);
       localStorage.setItem('resume_history', JSON.stringify(filtered));
       return { data: { success: true } };
-    }
-  },
-
-  matchJobDescription: async (data) => {
-    try {
-      const res = await api.post('/resume/job-match/', data);
-      return res;
-    } catch {
-      const history = JSON.parse(localStorage.getItem('resume_history') || '[]');
-      const targetResume = history.find((r) => r.id === data.resume_id) || history[0] || {};
-      const resumeText = targetResume.raw_text || 'Candidate profile with technical skills in Python, React, JavaScript, SQL, Git.';
-
-      // Call Gemini 2.5 Flash API to compute Resume vs JD match score & skill gaps!
-      const matchResult = await matchJobWithGemini({
-        resumeText,
-        jobTitle: data.job_title || 'Software Engineer',
-        companyName: data.company_name || 'Tech Corp',
-        jdText: data.jd_text || '',
-      });
-
-      const record = {
-        id: `match-${Date.now()}`,
-        ...matchResult,
-        created_at: new Date().toISOString(),
-      };
-
-      try {
-        const prevMatches = JSON.parse(localStorage.getItem('job_matches') || '[]');
-        localStorage.setItem('job_matches', JSON.stringify([record, ...prevMatches]));
-      } catch (err) {
-        console.error('Job match save error:', err);
-      }
-
-      return { data: record };
-    }
-  },
-
-  getJobMatchHistory: async () => {
-    try {
-      const res = await api.get('/resume/job-match/history/');
-      return res;
-    } catch {
-      const matches = JSON.parse(localStorage.getItem('job_matches') || '[]');
-      return { data: matches };
     }
   },
 };
@@ -850,7 +805,6 @@ export const dashboardService = {
       };
     }
   },
-  getProgress: () => api.get('/dashboard/progress/'),
   getRecommendations: () => api.get('/recommendations/'),
 };
 
