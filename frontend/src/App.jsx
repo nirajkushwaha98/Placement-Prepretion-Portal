@@ -18,7 +18,6 @@ import CodingWorkspace from './pages/student/CodingWorkspace';
 import ResumeAnalyzer from './pages/student/ResumeAnalyzer';
 import InterviewPrep from './pages/student/InterviewPrep';
 import MockInterview from './pages/student/MockInterview';
-import Progress from './pages/student/Progress';
 import Profile from './pages/student/Profile';
 
 // Admin Pages
@@ -59,7 +58,6 @@ function App() {
                   <Route path="/interviews" element={<Navigate to="/interview" replace />} />
                   <Route path="/interview" element={<InterviewPrep />} />
                   <Route path="/interview/practice/:questionId" element={<MockInterview />} />
-                  <Route path="/progress" element={<Progress />} />
                   <Route path="/profile" element={<Profile />} />
                 </Route>
 

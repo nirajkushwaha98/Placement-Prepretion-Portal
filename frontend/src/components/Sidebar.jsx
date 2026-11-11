@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import BrandMark from './BrandMark';
 import {
   LayoutDashboard, Calculator, Code2, FileText,
-  MessageSquare, LineChart, User,
+  MessageSquare, User,
   Shield, Users, HelpCircle, Terminal,
   MessageCircle, FileSpreadsheet, LogOut
 } from 'lucide-react';
@@ -18,7 +18,6 @@ const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
     { name: 'Coding Practice', path: '/coding', icon: Code2 },
     { name: 'Resume Analyzer', path: '/resume', icon: FileText },
     { name: 'Interview Prep', path: '/interview', icon: MessageSquare },
-    { name: 'Progress & Analytics', path: '/progress', icon: LineChart },
     { name: 'My Profile', path: '/profile', icon: User },
   ];
 
