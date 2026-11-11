@@ -405,14 +405,14 @@ const Aptitude = () => {
         {/* Dynamic Practice Test Generator */}
         <div
           id="practice-generator"
-          className="rounded-2xl border border-blue-500/30 bg-gradient-to-b from-blue-950/40 via-slate-900 to-slate-900 p-6 shadow-xl space-y-4 h-fit"
+          className="practice-card rounded-2xl border border-blue-500/30 bg-gradient-to-b from-blue-950/40 via-slate-900 to-slate-900 p-6 shadow-xl space-y-4 h-fit"
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Sparkles className="h-5 w-5 text-amber-400" />
               <h3 className="text-sm font-bold text-white">Custom Practice Drill</h3>
             </div>
-            <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30">
+            <span className="text-xs font-bold px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30">
               Interactive Drill
             </span>
           </div>
@@ -454,7 +454,7 @@ const Aptitude = () => {
                         : 'border-slate-800 bg-slate-950 text-slate-400 hover:text-slate-200'
                       }`}
                   >
-                    {diff}
+                    <span className="capitalize">{diff.toLowerCase()}</span>
                   </button>
                 ))}
               </div>

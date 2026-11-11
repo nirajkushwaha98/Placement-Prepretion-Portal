@@ -42,7 +42,7 @@
 }
 
 .glass-card-hover {
-  transition: all 0.2s ease-in-out;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
 }
 .glass-card-hover:hover {
   transform: translateY(-2px);
@@ -52,36 +52,40 @@
 
 /* ==========================================================
    DAY THEME (corporate EdTech). Night theme = the rules above.
-   Palette: navy #172B36, bg #F4F5F2, white #FFFFFF, green #267A67,
-   amber #D5A45B, text #25313A, muted #667580.
+   Palette: navy #172B3A, bg #F3F5F4, white #FFFFFF, green #267A60,
+   amber #A66B16, text #202B36, muted #647180.
    Implemented by remapping Tailwind colour variables so no
    component markup needs to change.
    ========================================================== */
 html[data-theme="day"] {
   color-scheme: light;
 
-  --color-slate-50: #25313A;
-  --color-slate-100: #25313A;
-  --color-slate-200: #25313A;
-  --color-slate-300: #4A5862;
-  --color-slate-400: #667580;
-  --color-slate-500: #7A8892;
+  --color-slate-50: #202B36;
+  --color-slate-100: #202B36;
+  --color-slate-200: #202B36;
+  --color-slate-300: #526170;
+  --color-slate-400: #526170;
+  --color-slate-500: #647180;
   --color-slate-600: #A4AEB5;
   --color-slate-700: #CBD2CE;
-  --color-slate-800: #E3E7E3;
+  --color-slate-800: #DCE3E0;
   --color-slate-900: #FFFFFF;
-  --color-slate-950: #F4F5F2;
+  --color-slate-950: #F3F5F4;
 
-  --g-50: #EEF5F2; --g-100: #DCEBE5; --g-200: #BCD8CE; --g-300: #2F8470;
-  --g-400: #267A67; --g-500: #267A67; --g-600: #267A67; --g-700: #1E6252;
-  --g-800: #174B3F; --g-900: #123B32; --g-950: #0E2D26;
+  --g-50: #EEF5F2; --g-100: #DCEBE5; --g-200: #B9D8CD; --g-300: #1E6A58;
+  --g-400: #1E6A58; --g-500: #267A60; --g-600: #267A60; --g-700: #1E6A58;
+  --g-800: #174F42; --g-900: #123B32; --g-950: #0E2D26;
 
-  --a-50: #FBF5EA; --a-100: #F6EAD2; --a-200: #EDD6A8; --a-300: #A9772B;
-  --a-400: #A9772B; --a-500: #D5A45B; --a-600: #C08F45; --a-700: #9A722F;
+  --e-50: #ECFDF5; --e-100: #D1FAE5; --e-200: #A7F3D0; --e-300: #046346;
+  --e-400: #046346; --e-500: #046346; --e-600: #046346; --e-700: #065F46;
+  --e-800: #064E3B; --e-900: #064E3B; --e-950: #022C22;
+
+  --a-50: #FBF5EA; --a-100: #F6EAD2; --a-200: #EDD6A8; --a-300: #8A5A12;
+  --a-400: #8A5A12; --a-500: #A66B16; --a-600: #C08F45; --a-700: #9A722F;
   --a-800: #7A5A26; --a-900: #5E451E; --a-950: #43310F;
 
-  --r-50: #FAEEEC; --r-100: #F3DAD6; --r-200: #E6BDB6; --r-300: #B4493A;
-  --r-400: #B4493A; --r-500: #B4493A; --r-600: #A33F31; --r-700: #8A352A;
+  --r-50: #FAEEEC; --r-100: #F3DAD6; --r-200: #E6BDB6; --r-300: #B42335;
+  --r-400: #B42335; --r-500: #B42335; --r-600: #A33F31; --r-700: #8A352A;
   --r-800: #70302A; --r-900: #5A2A25; --r-950: #44201C;
 
   --radius-md: 4px;
@@ -111,8 +115,8 @@ html[data-theme="day"] {
   --color-cyan-50: var(--g-50); --color-cyan-100: var(--g-100); --color-cyan-200: var(--g-200); --color-cyan-300: var(--g-300); --color-cyan-400: var(--g-400); --color-cyan-500: var(--g-500); --color-cyan-600: var(--g-600); --color-cyan-700: var(--g-700); --color-cyan-800: var(--g-800); --color-cyan-900: var(--g-900); --color-cyan-950: var(--g-950);
   --color-sky-50: var(--g-50); --color-sky-100: var(--g-100); --color-sky-200: var(--g-200); --color-sky-300: var(--g-300); --color-sky-400: var(--g-400); --color-sky-500: var(--g-500); --color-sky-600: var(--g-600); --color-sky-700: var(--g-700); --color-sky-800: var(--g-800); --color-sky-900: var(--g-900); --color-sky-950: var(--g-950);
   --color-teal-300: var(--g-300); --color-teal-400: var(--g-400); --color-teal-500: var(--g-500); --color-teal-600: var(--g-600);
-  --color-emerald-50: var(--g-50); --color-emerald-100: var(--g-100); --color-emerald-200: var(--g-200); --color-emerald-300: var(--g-300); --color-emerald-400: var(--g-400); --color-emerald-500: var(--g-500); --color-emerald-600: var(--g-600); --color-emerald-700: var(--g-700); --color-emerald-800: var(--g-800); --color-emerald-900: var(--g-900); --color-emerald-950: var(--g-950);
-  --color-green-300: var(--g-300); --color-green-400: var(--g-400); --color-green-500: var(--g-500); --color-green-600: var(--g-600);
+  --color-emerald-50: var(--e-50); --color-emerald-100: var(--e-100); --color-emerald-200: var(--e-200); --color-emerald-300: var(--e-300); --color-emerald-400: var(--e-400); --color-emerald-500: var(--e-500); --color-emerald-600: var(--e-600); --color-emerald-700: var(--e-700); --color-emerald-800: var(--e-800); --color-emerald-900: var(--e-900); --color-emerald-950: var(--e-950);
+  --color-green-300: var(--e-300); --color-green-400: var(--e-400); --color-green-500: var(--e-500); --color-green-600: var(--e-600);
 
   --color-amber-50: var(--a-50); --color-amber-100: var(--a-100); --color-amber-200: var(--a-200); --color-amber-300: var(--a-300); --color-amber-400: var(--a-400); --color-amber-500: var(--a-500); --color-amber-600: var(--a-600); --color-amber-700: var(--a-700); --color-amber-800: var(--a-800); --color-amber-900: var(--a-900); --color-amber-950: var(--a-950);
   --color-yellow-300: var(--a-300); --color-yellow-400: var(--a-400); --color-yellow-500: var(--a-500);
@@ -123,11 +127,12 @@ html[data-theme="day"] {
 }
 
 html[data-theme="day"] body {
-  background-color: #F4F5F2;
-  color: #25313A;
+  background-color: #F3F5F4;
+  background-image: none;
+  color: #202B36;
 }
 
-html[data-theme="day"] ::-webkit-scrollbar-track { background: #F4F5F2; }
+html[data-theme="day"] ::-webkit-scrollbar-track { background: #F3F5F4; }
 html[data-theme="day"] ::-webkit-scrollbar-thumb { background: #CBD2CE; }
 html[data-theme="day"] ::-webkit-scrollbar-thumb:hover { background: #A4AEB5; }
 
@@ -144,17 +149,17 @@ html[data-theme="day"] .glass-panel,
 html[data-theme="day"] .glass-card {
   background: #FFFFFF;
   backdrop-filter: none;
-  border: 1px solid #E3E7E3;
-  box-shadow: 0 1px 2px rgba(23, 43, 54, 0.05);
+  border: 1px solid #DCE3E0;
+  box-shadow: 0 1px 2px rgba(23, 43, 54, 0.06);
 }
 html[data-theme="day"] .glass-card-hover:hover {
   transform: none;
-  box-shadow: 0 2px 8px rgba(23, 43, 54, 0.08);
-  border-color: #CBD2CE;
+  box-shadow: 0 1px 2px rgba(23, 43, 54, 0.06);
+  border-color: #267A60;
 }
 
 /* Text on dark surfaces becomes navy; stays white on solid accent fills */
-html[data-theme="day"] .text-white { color: #172B36; }
+html[data-theme="day"] .text-white { color: #172B3A; }
 html[data-theme="day"] :is(
   [class~="bg-blue-500"], [class~="bg-blue-600"], [class~="bg-blue-700"],
   [class~="bg-indigo-500"], [class~="bg-indigo-600"], [class~="bg-indigo-700"],
@@ -174,26 +179,38 @@ html[data-theme="day"] :is(
 
 /* Dark-mode white overlays turn into navy-tinted overlays */
 html[data-theme="day"] :is([class^="bg-white/"], [class*=" bg-white/"]) { background-color: rgb(23 43 54 / 0.04); }
-html[data-theme="day"] :is([class^="border-white/"], [class*=" border-white/"]) { border-color: #E3E7E3; }
+html[data-theme="day"] :is([class^="border-white/"], [class*=" border-white/"]) { border-color: #DCE3E0; }
 
 /* Sidebar stays navy in both themes */
 html[data-theme="day"] .app-sidebar {
   --color-slate-50: #EEF2F4; --color-slate-100: #EEF2F4; --color-slate-200: #DCE3E7;
   --color-slate-300: #C5D0D6; --color-slate-400: #A3B2BA; --color-slate-500: #7B8E99;
   --color-slate-600: #3F5E6E; --color-slate-700: #2E4A59; --color-slate-800: #223B48;
-  --color-slate-900: #172B36; --color-slate-950: #10202A;
-  --color-emerald-300: #8ACFBB; --color-emerald-400: #5FB89F; --color-emerald-500: #5FB89F; --color-emerald-600: #267A67;
-  --color-amber-300: #E3BC7E; --color-amber-400: #E3BC7E; --color-amber-500: #D5A45B;
+  --color-slate-900: #172B3A; --color-slate-950: #10202A;
+  --color-emerald-300: #8ACFBB; --color-emerald-400: #5FB89F; --color-emerald-500: #5FB89F; --color-emerald-600: #267A60;
+  --color-amber-300: #E3BC7E; --color-amber-400: #E3BC7E; --color-amber-500: #A66B16;
   --color-rose-300: #E8A395; --color-rose-400: #E08A7A; --color-rose-500: #E08A7A;
-  --color-indigo-300: #5FB89F; --color-indigo-400: #5FB89F; --color-indigo-500: #267A67; --color-indigo-600: #267A67;
-  --color-purple-300: #5FB89F; --color-purple-400: #5FB89F; --color-purple-500: #267A67; --color-purple-600: #267A67;
-  --color-blue-300: #5FB89F; --color-blue-400: #5FB89F; --color-blue-500: #267A67; --color-blue-600: #267A67;
+  --color-indigo-300: #5FB89F; --color-indigo-400: #5FB89F; --color-indigo-500: #267A60; --color-indigo-600: #267A60;
+  --color-purple-300: #5FB89F; --color-purple-400: #5FB89F; --color-purple-500: #267A60; --color-purple-600: #267A60;
+  --color-blue-300: #5FB89F; --color-blue-400: #5FB89F; --color-blue-500: #267A60; --color-blue-600: #267A60;
   --color-blue-900: #123B32; --color-blue-950: #0E2D26;
   color: #DCE3E7;
 }
 html[data-theme="day"] .app-sidebar .text-white { color: #FFFFFF; }
 html[data-theme="day"] .app-sidebar :is([class^="bg-white/"], [class*=" bg-white/"]) { background-color: rgb(255 255 255 / 0.06); }
 html[data-theme="day"] .app-sidebar :is([class^="border-white/"], [class*=" border-white/"]) { border-color: #223B48; }
+
+/* Day theme: welcome banner uses a clean light surface with readable accents */
+html[data-theme="day"] .welcome-banner {
+  background-color: #FFFFFF !important;
+  background-image: none !important;
+  border-color: #DCE3E0;
+}
+html[data-theme="day"] .welcome-banner :is(.text-emerald-400, .text-emerald-300, .text-emerald-400\/80, .text-blue-400, .text-blue-300) { color: #1E6A58; }
+html[data-theme="day"] .welcome-banner :is(.text-amber-300, .text-amber-400, .text-amber-400\/80) { color: #8A5A12; }
+html[data-theme="day"] .welcome-banner .text-slate-400 { color: #55666F; }
+html[data-theme="day"] .welcome-banner .border-slate-800\/80 { border-color: #DCE3E0; }
+html[data-theme="day"] .welcome-banner .bg-slate-950\/80 { background-color: #E8F3EE; border-color: #DDE3DF; }
 
 /* Anti-Copy & Anti-Selection Protection for Tests */
 .test-anti-copy,
@@ -209,3 +226,77 @@ html[data-theme="day"] .app-sidebar :is([class^="border-white/"], [class*=" bord
   background: transparent !important;
   color: inherit !important;
 }
+
+/* Day theme: readable result cards and practice card */
+html[data-theme="day"] .resume-body { color: #172B3A; }
+html[data-theme="day"] .resume-card-ok { background-color: #F0F7F4 !important; }
+html[data-theme="day"] .resume-card-bad { background-color: #FBF1EF !important; }
+html[data-theme="day"] .resume-card-warn { background-color: #FBF5E8 !important; }
+/* Day: body text in result cards must be dark; accents stay on headings, icons, bullets */
+html[data-theme="day"] :is(.resume-card-ok, .resume-card-bad, .resume-card-warn) .space-y-2 > div,
+html[data-theme="day"] :is(.resume-card-ok, .resume-card-bad, .resume-card-warn) .space-y-2 > div > span:last-child { color: #202B36 !important; }
+html[data-theme="day"] .resume-card-ok h4, html[data-theme="day"] .resume-card-ok h4 svg, html[data-theme="day"] .resume-card-ok .space-y-2 > div > span:first-child { color: #1B5E48 !important; }
+html[data-theme="day"] .resume-card-bad h4, html[data-theme="day"] .resume-card-bad h4 svg, html[data-theme="day"] .resume-card-bad .space-y-2 > div > span:first-child { color: #9B1C2E !important; }
+html[data-theme="day"] .resume-card-warn h4, html[data-theme="day"] .resume-card-warn h4 svg, html[data-theme="day"] .resume-card-warn .space-y-2 > div > span:first-child { color: #7A4E0F !important; }
+html[data-theme="day"] .resume-card-ok { border-color: #A9CDBF !important; }
+html[data-theme="day"] .resume-card-bad { border-color: #E3B4B0 !important; }
+html[data-theme="day"] .resume-card-warn { border-color: #E2C894 !important; }
+html[data-theme="day"] .practice-card { background-color: #FFFFFF !important; border-color: #DCE3E0; }
+
+/* ==========================================================
+   Accessibility and interaction polish (both themes)
+   ========================================================== */
+:where(a, button, [role="button"], select, summary, label[for], input[type="checkbox"], input[type="radio"]) {
+  cursor: pointer;
+}
+:where(button, a, [role="button"]) { touch-action: manipulation; }
+:where(button, a, input, select, textarea, [role="button"], [tabindex]):focus-visible {
+  outline: 2px solid #34D399;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+html[data-theme="day"] :where(button, a, input, select, textarea, [role="button"], [tabindex]):focus-visible {
+  outline-color: #1E6A58;
+}
+html[data-theme="day"] .glass-card,
+html[data-theme="day"] .glass-panel {
+  border-color: #DCE3E0;
+  box-shadow: 0 1px 2px rgba(23, 43, 54, 0.06), 0 4px 12px -4px rgba(23, 43, 54, 0.08);
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .glass-card-hover:hover { transform: none; }
+}
+
+html[data-theme="day"] .role-chip { color: #6EE7B7 !important; }
+
+/* Day premium EdTech finish: type, controls, tables (visual only) */
+html[data-theme="day"] :where(h1, h2, h3, h4) {
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.005em;
+}
+html[data-theme="day"] :where(button, a, .glass-card) {
+  transition: background-color .18s ease, border-color .18s ease, box-shadow .18s ease, transform .18s ease, color .18s ease;
+}
+html[data-theme="day"] button:not(:disabled):hover { box-shadow: none; }
+html[data-theme="day"] button:not(:disabled):active { transform: translateY(1px); }
+html[data-theme="day"] :where(input, select, textarea) { border-radius: 6px; border-color: #DCE3E0; }
+html[data-theme="day"] :where(input, select, textarea):focus { border-color: #267A60; box-shadow: 0 0 0 3px rgba(38,122,96,.15); }
+html[data-theme="day"] table thead th { background-color: #E8F3EE; color: #202B36; }
+html[data-theme="day"] table tbody tr:hover { background-color: #F3F5F4; }
+
+/* Day: neutralise inline indigo/purple gradients in the code runner (visual only) */
+html[data-theme="day"] [style*="linear-gradient"] { background-image: none !important; }
+
+/* Day: Weak & Strong Areas, dark readable text on light tinted chips */
+html[data-theme="day"] .area-title-strong { color: #1F5E45; }
+html[data-theme="day"] .area-title-weak { color: #9B2C2C; }
+html[data-theme="day"] .area-count-strong { background-color: #E3F2EB; color: #1F5E45; border-color: #B7DCC9; }
+html[data-theme="day"] .area-count-weak { background-color: #FBE9E7; color: #9B2C2C; border-color: #F0C4BF; }
+html[data-theme="day"] .area-chip-strong { background-color: #E8F3EE; color: #1F5E45; border-color: #B7DCC9; }
+html[data-theme="day"] .area-chip-weak { background-color: #FBEDEB; color: #9B2C2C; border-color: #F0C4BF; }

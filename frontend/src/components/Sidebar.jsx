@@ -63,12 +63,12 @@ const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
             P
           </div>
           <div>
-            <h1 className="text-sm font-bold tracking-tight text-white flex items-center gap-1.5">
+            <p className="text-sm font-bold tracking-tight text-white flex items-center gap-1.5">
               PlacementPortal
-              <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
-            </h1>
-            <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400">
-              {isAdmin ? 'Admin Console' : 'Preparation Suite'}
+              <span aria-hidden="true" className="flex h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
+            </p>
+            <p className="text-xs font-medium text-slate-400">
+              {isAdmin ? 'Admin console' : 'Preparation suite'}
             </p>
           </div>
         </div>
@@ -79,28 +79,30 @@ const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
             onClick={handleProfileClick}
             className="flex items-center gap-2.5 rounded-xl border border-slate-800/80 bg-slate-800/40 p-2.5 hover:bg-slate-800/80 hover:border-slate-700 transition-all cursor-pointer group"
           >
-            <div className={`flex h-8 w-8 items-center justify-center rounded-lg font-bold text-xs group-hover:scale-105 transition-transform ${
+            <div className={`role-chip flex h-8 w-8 items-center justify-center rounded-lg font-bold text-xs group-hover:scale-105 transition-transform ${
               isAdmin ? 'bg-purple-500/20 text-purple-400' : 'bg-blue-500/20 text-blue-400'
             }`}>
               {(user?.first_name?.[0] || user?.username?.[0] || 'U').toUpperCase()}
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-xs font-semibold text-white group-hover:text-purple-300 transition-colors truncate">
+              <p
+                title={user?.first_name ? `${user.first_name} ${user.last_name || ''}`.trim() : user?.name || user?.username || 'Student'}
+                className="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors truncate"
+              >
                 {user?.first_name ? `${user.first_name} ${user.last_name || ''}`.trim() : user?.name || user?.username || 'Student'}
               </p>
-              <p className="text-[10px] text-slate-400 truncate">{user?.email}</p>
+              <span className={`role-chip mt-1 inline-block text-xs px-1.5 py-0.5 rounded font-semibold capitalize ${
+                isAdmin ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30' : 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
+              }`}>
+                {user?.role?.toLowerCase()}
+              </span>
             </div>
-            <span className={`text-[10px] px-1.5 py-0.5 rounded font-bold uppercase tracking-wider ${
-              isAdmin ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30' : 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
-            }`}>
-              {user?.role}
-            </span>
           </div>
         </div>
 
         {/* Navigation links */}
         <div className="flex-1 overflow-y-auto px-3 py-2 space-y-1">
-          <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+          <p className="px-3 pb-2 text-xs font-bold uppercase tracking-wider text-slate-400">
             Navigation
           </p>
           {navLinks.map((link) => {
@@ -114,7 +116,7 @@ const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
                   `flex items-center justify-between rounded-lg px-3 py-2.5 text-xs font-semibold transition-all duration-150 ${
                     isActive
                       ? 'bg-blue-600 text-white shadow-md shadow-blue-600/25'
-                      : 'text-slate-400 hover:bg-slate-800/60 hover:text-slate-200'
+                      : 'text-slate-400 hover:bg-slate-800/60 hover:text-white'
                   }`
                 }
               >
@@ -123,7 +125,7 @@ const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
                   <span>{link.name}</span>
                 </div>
                 {link.badge && (
-                  <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                  <span className="text-xs font-bold px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30">
                     {link.badge}
                   </span>
                 )}
@@ -136,7 +138,7 @@ const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
         <div className="p-3 border-t border-slate-800">
           <button
             onClick={logout}
-            className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-xs font-semibold text-rose-400 hover:bg-rose-500/10 hover:text-rose-300 transition-colors cursor-pointer"
+            className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-xs font-semibold text-rose-400 hover:bg-rose-500/10 hover:text-rose-400 transition-colors cursor-pointer"
           >
             <LogOut className="h-4 w-4" />
             <span>Sign Out</span>

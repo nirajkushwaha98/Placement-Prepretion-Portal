@@ -16,7 +16,7 @@ const StatCard = ({
       gradient: 'from-blue-500/10 via-transparent to-transparent',
     },
     indigo: {
-      bg: 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20',
+      bg: 'bg-indigo-500/10 text-blue-400 border-indigo-500/20',
       gradient: 'from-indigo-500/10 via-transparent to-transparent',
     },
     emerald: {
@@ -24,7 +24,7 @@ const StatCard = ({
       gradient: 'from-emerald-500/10 via-transparent to-transparent',
     },
     purple: {
-      bg: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
+      bg: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
       gradient: 'from-purple-500/10 via-transparent to-transparent',
     },
     amber: {
@@ -42,7 +42,7 @@ const StatCard = ({
   return (
     <div
       onClick={onClick}
-      className={`relative overflow-hidden rounded-xl border border-slate-800 bg-slate-900/80 p-5 shadow-lg backdrop-blur-sm transition-all duration-200 hover:border-slate-700 hover:shadow-slate-900/50 ${
+      className={`relative overflow-hidden rounded-xl border border-slate-800 bg-slate-900/80 p-7 min-h-[160px] shadow-lg backdrop-blur-sm transition-all duration-200 hover:border-slate-700 hover:shadow-slate-900/50 ${
         onClick ? 'cursor-pointer hover:-translate-y-0.5' : ''
       } ${className}`}
     >
@@ -51,7 +51,7 @@ const StatCard = ({
       />
       <div className="relative z-10 flex items-start justify-between">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+          <p className="text-xs font-semibold text-slate-400">
             {title}
           </p>
           <div className="mt-2 flex items-baseline gap-2">

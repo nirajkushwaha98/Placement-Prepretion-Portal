@@ -11,7 +11,7 @@ const ReadinessGauge = ({ score = 0, tier = 'Beginner', moduleScores = {}, size 
   const getTierColor = () => {
     if (clampedScore >= 91) return { stroke: cc.gauge[0], text: 'text-emerald-400', badge: 'success' };
     if (clampedScore >= 76) return { stroke: cc.gauge[1], text: 'text-blue-400', badge: 'primary' };
-    if (clampedScore >= 61) return { stroke: cc.gauge[2], text: 'text-purple-400', badge: 'purple' };
+    if (clampedScore >= 61) return { stroke: cc.gauge[2], text: 'text-blue-400', badge: 'purple' };
     if (clampedScore >= 41) return { stroke: cc.gauge[3], text: 'text-amber-400', badge: 'warning' };
     return { stroke: cc.gauge[4], text: 'text-rose-400', badge: 'danger' };
   };
@@ -75,19 +75,19 @@ const ReadinessGauge = ({ score = 0, tier = 'Beginner', moduleScores = {}, size 
         <div className="mt-4 grid grid-cols-2 gap-2 w-full pt-3 border-t border-slate-800/80">
           <div className="flex items-center justify-between text-xs px-2.5 py-1.5 rounded-lg bg-slate-800/50">
             <span className="text-slate-400">Aptitude</span>
-            <span className="font-semibold text-slate-200">{moduleScores.aptitude ?? 0}%</span>
+            <span className="font-semibold text-white">{moduleScores.aptitude ?? 0}%</span>
           </div>
           <div className="flex items-center justify-between text-xs px-2.5 py-1.5 rounded-lg bg-slate-800/50">
             <span className="text-slate-400">Coding</span>
-            <span className="font-semibold text-slate-200">{moduleScores.coding ?? 0}%</span>
+            <span className="font-semibold text-white">{moduleScores.coding ?? 0}%</span>
           </div>
           <div className="flex items-center justify-between text-xs px-2.5 py-1.5 rounded-lg bg-slate-800/50">
             <span className="text-slate-400">Resume</span>
-            <span className="font-semibold text-slate-200">{moduleScores.resume ?? 0}/100</span>
+            <span className="font-semibold text-white">{moduleScores.resume ?? 0}/100</span>
           </div>
           <div className="flex items-center justify-between text-xs px-2.5 py-1.5 rounded-lg bg-slate-800/50">
             <span className="text-slate-400">Interview</span>
-            <span className="font-semibold text-slate-200">{moduleScores.interview ?? 0}/100</span>
+            <span className="font-semibold text-white">{moduleScores.interview ?? 0}/100</span>
           </div>
         </div>
       )}

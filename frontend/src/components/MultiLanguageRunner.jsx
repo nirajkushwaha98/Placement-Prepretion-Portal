@@ -617,9 +617,7 @@ SELECT * FROM Students WHERE package_lpa >= 28.0 ORDER BY package_lpa DESC;
     h1 {
       margin: 0 0 10px;
       font-size: 24px;
-      background: linear-gradient(90deg, #60a5fa, #a78bfa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #E8F3EE;
     }
     p {
       color: #94a3b8;
@@ -627,7 +625,7 @@ SELECT * FROM Students WHERE package_lpa >= 28.0 ORDER BY package_lpa DESC;
       line-height: 1.5;
     }
     button {
-      background: linear-gradient(90deg, #3b82f6, #6366f1);
+      background: #267A60;
       color: white;
       border: none;
       padding: 12px 24px;
@@ -639,7 +637,7 @@ SELECT * FROM Students WHERE package_lpa >= 28.0 ORDER BY package_lpa DESC;
     }
     button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+      box-shadow: 0 8px 20px rgba(38, 122, 96, 0.35);
     }
     .counter {
       margin-top: 15px;
@@ -923,7 +921,9 @@ const MultiLanguageRunner = () => {
         {/* Left: Language Selector & Badges */}
         <div className="flex flex-wrap items-center gap-3">
           <div className="flex items-center gap-2">
-            <span className="text-xl">{currentLangConfig.icon}</span>
+            <span className="inline-flex h-8 min-w-8 items-center justify-center rounded-md border border-slate-700 bg-slate-800 px-1.5 text-[11px] font-bold uppercase text-slate-200">
+              {String(currentLangConfig.label || '').slice(0, 2)}
+            </span>
             <div className="relative">
               <select
                 value={selectedLang}
@@ -932,7 +932,7 @@ const MultiLanguageRunner = () => {
               >
                 {Object.values(SUPPORTED_LANGUAGES).map((lang) => (
                   <option key={lang.id} value={lang.id} className="bg-slate-900 text-white">
-                    {lang.icon} {lang.label} ({lang.version})
+                    {lang.label} ({lang.version})
                   </option>
                 ))}
               </select>

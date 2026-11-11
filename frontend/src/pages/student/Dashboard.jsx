@@ -9,7 +9,7 @@ import LoadingSpinner from '../../components/LoadingSpinner';
 import {
   Calculator, Code2, FileText, MessageSquare, Flame,
   TrendingUp, CheckCircle, AlertTriangle, ArrowRight,
-  Sparkles, ShieldCheck, Activity, Target
+  ShieldCheck, Activity, Target
 } from 'lucide-react';
 import {
   ResponsiveContainer, LineChart, Line, XAxis, YAxis,
@@ -52,7 +52,6 @@ const Dashboard = () => {
     module_scores = {},
     stats = {},
     streak_days = 0,
-    recommendations = [],
     weak_areas = [],
     strong_areas = [],
     recent_activity = [],
@@ -62,7 +61,7 @@ const Dashboard = () => {
   return (
     <div className="space-y-6 pb-12 animate-fade-in">
       {/* Welcome Banner */}
-      <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-r from-blue-950/60 via-slate-900 to-indigo-950/60 p-6 shadow-xl backdrop-blur-md">
+      <div className="welcome-banner relative overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-r from-blue-950/60 via-slate-900 to-indigo-950/60 p-6 shadow-xl backdrop-blur-md">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
           <div>
             <div className="flex items-center gap-2 mb-1">
@@ -81,7 +80,7 @@ const Dashboard = () => {
             {/* Overall Placement Completion Progress Bar */}
             <div className="mt-4 pt-4 border-t border-slate-800/80 max-w-xl">
               <div className="flex items-center justify-between text-xs font-bold mb-1.5">
-                <span className="text-blue-300 flex items-center gap-1.5">
+                <span className="text-blue-400 flex items-center gap-1.5">
                   <TrendingUp className="h-4 w-4 text-emerald-400" />
                   Overall Placement Preparation Completed:
                 </span>
@@ -98,18 +97,18 @@ const Dashboard = () => {
 
           <div className="flex items-center gap-3 shrink-0">
             {/* Completion Percentage Badge */}
-            <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 shadow-lg">
+            <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 shadow-lg">
               <CheckCircle className="h-6 w-6 text-emerald-400" />
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-400/80">Completed</p>
-                <p className="text-base font-extrabold text-emerald-300">{readiness_score}%</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-emerald-400/80">Completed</p>
+                <p className="text-base font-extrabold text-emerald-400">{readiness_score}%</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-amber-500/30 bg-amber-500/10 text-amber-300 shadow-lg">
+            <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-amber-500/30 bg-amber-500/10 text-amber-400 shadow-lg">
               <Flame className="h-6 w-6 fill-amber-400 text-amber-400 animate-bounce" />
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-wider text-amber-400/80">Streak</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-amber-400/80">Streak</p>
                 <p className="text-base font-extrabold">{streak_days} {streak_days === 1 ? 'Day' : 'Days'}</p>
               </div>
             </div>
@@ -122,11 +121,11 @@ const Dashboard = () => {
         {/* Placement Readiness Index Card */}
         <div className="rounded-2xl border border-slate-800 bg-slate-900/90 p-6 shadow-xl flex flex-col justify-between backdrop-blur-sm">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
+            <h2 className="text-sm font-bold text-white flex items-center gap-2">
               <Target className="h-4 w-4 text-blue-400" />
               Placement Readiness
-            </h3>
-            <span className="text-[10px] text-slate-400 font-semibold bg-slate-800 px-2 py-0.5 rounded">
+            </h2>
+            <span className="text-xs text-slate-400 font-semibold bg-slate-800 px-2 py-0.5 rounded">
               Weighted Formula
             </span>
           </div>
@@ -137,13 +136,13 @@ const Dashboard = () => {
             moduleScores={module_scores}
           />
 
-          <div className="pt-3 border-t border-slate-800/80 text-[11px] text-slate-400 text-center">
+          <div className="pt-3 border-t border-slate-800/80 text-xs text-slate-400 text-center">
             Formula: Aptitude (25%) + Coding (30%) + Resume (20%) + Interview (25%)
           </div>
         </div>
 
         {/* 4 Core Module Summary Cards */}
-        <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4 content-start items-start auto-rows-min">
           <StatCard
             title="Aptitude Practice"
             value={`${module_scores.aptitude || 0}%`}
@@ -179,85 +178,74 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Dynamic Personalized Recommendations */}
-      {recommendations.length > 0 && (
-        <div className="rounded-2xl border border-slate-800 bg-slate-900/90 p-6 shadow-xl">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-200 flex items-center gap-2">
-              <Sparkles className="h-4 w-4 text-amber-400" />
-              AI Personalized Recommendations
-            </h3>
-            <span className="text-xs text-slate-400">Based on recent performance</span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {recommendations.map((rec, index) => (
-              <div
-                key={index}
-                className="rounded-xl border border-slate-800/90 bg-slate-950/60 p-4 flex flex-col justify-between hover:border-slate-700 transition-all duration-200"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-blue-400">
-                      {rec.category}
-                    </span>
-                    <Badge variant={rec.type === 'danger' ? 'danger' : rec.type === 'warning' ? 'warning' : 'primary'} size="xs">
-                      {rec.type === 'danger' ? 'Priority' : 'Recommended'}
-                    </Badge>
-                  </div>
-                  <h4 className="text-sm font-bold text-white mb-1.5">{rec.title}</h4>
-                  <p className="text-xs text-slate-400 leading-relaxed">{rec.description}</p>
-                </div>
-
-                {rec.action_label && (
-                  <button
-                    onClick={() => navigate(rec.action_link)}
-                    className="mt-4 inline-flex items-center justify-between w-full px-3 py-2 rounded-lg bg-blue-600/10 hover:bg-blue-600/20 text-blue-400 text-xs font-semibold border border-blue-500/20 transition-colors cursor-pointer"
-                  >
-                    <span>{rec.action_label}</span>
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </button>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
       {/* Weak & Strong Areas */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="rounded-2xl border border-slate-800 bg-slate-900/90 p-5 shadow-lg">
-          <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-2 mb-3">
-            <CheckCircle className="h-4 w-4 text-emerald-400" />
+          <h3 className="area-title-strong text-sm font-bold text-emerald-400 flex items-center gap-2 mb-3">
+            <CheckCircle className="h-4 w-4" />
             Your Strong Areas
-          </h4>
-          <div className="flex flex-wrap gap-2">
-            {strong_areas.map((area, i) => (
-              <span
-                key={i}
-                className="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/25 text-emerald-300 text-xs font-medium"
-              >
-                ✓ {area}
-              </span>
-            ))}
-          </div>
+            <span className="area-count-strong ml-auto rounded-full px-2 py-0.5 text-xs font-semibold bg-emerald-500/15 text-emerald-300">
+              {strong_areas.length}
+            </span>
+          </h3>
+          {strong_areas.length === 0 ? (
+            <p className="text-xs text-slate-400">Abhi koi strong area nahi hai. Tests dete raho.</p>
+          ) : (
+            <div className="flex flex-wrap gap-2">
+              {strong_areas.map((area, i) => (
+                <span
+                  key={i}
+                  className="area-chip-strong px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/25 text-emerald-300 text-xs font-medium"
+                >
+                  {area}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="rounded-2xl border border-slate-800 bg-slate-900/90 p-5 shadow-lg">
-          <h4 className="text-xs font-bold uppercase tracking-wider text-rose-400 flex items-center gap-2 mb-3">
-            <AlertTriangle className="h-4 w-4 text-rose-400" />
+          <h3 className="area-title-weak text-sm font-bold text-rose-400 flex items-center gap-2 mb-3">
+            <AlertTriangle className="h-4 w-4" />
             Areas For Improvement
-          </h4>
-          <div className="flex flex-wrap gap-2">
-            {weak_areas.map((area, i) => (
-              <span
-                key={i}
-                className="px-3 py-1.5 rounded-lg bg-rose-500/10 border border-rose-500/25 text-rose-300 text-xs font-medium"
-              >
-                ⚠ {area}
-              </span>
-            ))}
-          </div>
+            <span className="area-count-weak ml-auto rounded-full px-2 py-0.5 text-xs font-semibold bg-rose-500/15 text-rose-300">
+              {weak_areas.length}
+            </span>
+          </h3>
+          {weak_areas.length === 0 ? (
+            <p className="text-xs text-slate-400">Koi weak area nahi. Badhiya.</p>
+          ) : (
+            <>
+              <div className="flex flex-wrap gap-2">
+                {weak_areas.slice(0, 5).map((area, i) => (
+                  <span
+                    key={i}
+                    className="area-chip-weak px-3 py-1.5 rounded-lg bg-rose-500/10 border border-rose-500/25 text-rose-300 text-xs font-medium"
+                  >
+                    {area}
+                  </span>
+                ))}
+              </div>
+              {weak_areas.length > 5 && (
+                <details className="mt-3 group">
+                  <summary className="cursor-pointer text-xs font-semibold text-blue-400 hover:text-blue-300 select-none">
+                    <span className="group-open:hidden">Aur {weak_areas.length - 5} dikhao</span>
+                    <span className="hidden group-open:inline">Kam dikhao</span>
+                  </summary>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {weak_areas.slice(5).map((area, i) => (
+                      <span
+                        key={i}
+                        className="area-chip-weak px-3 py-1.5 rounded-lg bg-rose-500/10 border border-rose-500/25 text-rose-300 text-xs font-medium"
+                      >
+                        {area}
+                      </span>
+                    ))}
+                  </div>
+                </details>
+              )}
+            </>
+          )}
         </div>
       </div>
 
@@ -267,9 +255,9 @@ const Dashboard = () => {
         <div className="rounded-2xl border border-slate-800 bg-slate-900/90 p-6 shadow-xl">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 className="text-sm font-bold uppercase tracking-wider text-white">
+              <h2 className="text-sm font-bold text-white">
                 Progress Trend (Last 7 Sessions)
-              </h3>
+              </h2>
               <p className="text-xs text-slate-400 mt-0.5">Aptitude vs Interview vs Readiness Score</p>
             </div>
             <TrendingUp className="h-4 w-4 text-blue-400" />
@@ -298,12 +286,12 @@ const Dashboard = () => {
         <div className="rounded-2xl border border-slate-800 bg-slate-900/90 p-6 shadow-xl">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 className="text-sm font-bold uppercase tracking-wider text-white">
+              <h2 className="text-sm font-bold text-white">
                 Preparation Balance Radar
-              </h3>
+              </h2>
               <p className="text-xs text-slate-400 mt-0.5">Multi-competency readiness overview</p>
             </div>
-            <Activity className="h-4 w-4 text-purple-400" />
+            <Activity className="h-4 w-4 text-blue-400" />
           </div>
 
           <div className="h-64 w-full">
@@ -331,10 +319,10 @@ const Dashboard = () => {
       <div className="rounded-2xl border border-slate-800 bg-slate-900/90 p-6 shadow-xl">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white flex items-center gap-2">
+            <h2 className="text-sm font-bold text-white flex items-center gap-2">
               <Activity className="h-4 w-4 text-blue-400" />
               Recent Practice Activity
-            </h3>
+            </h2>
           </div>
           <span className="text-xs text-slate-400">Click any activity to review details</span>
         </div>
@@ -372,12 +360,12 @@ const Dashboard = () => {
                     <div
                       className={`p-2.5 rounded-xl transition-all group-hover:scale-105 ${
                         act.type === 'aptitude'
-                          ? 'bg-indigo-500/10 text-indigo-400 border border-indigo-500/20'
+                          ? 'bg-indigo-500/10 text-blue-400 border border-indigo-500/20'
                           : act.type === 'coding'
                           ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
                           : act.type === 'resume'
                           ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                          : 'bg-purple-500/10 text-purple-400 border border-purple-500/20'
+                          : 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
                       }`}
                     >
                       {act.type === 'aptitude' && <Calculator className="h-4 w-4" />}
@@ -386,10 +374,10 @@ const Dashboard = () => {
                       {act.type === 'interview' && <MessageSquare className="h-4 w-4" />}
                     </div>
                     <div>
-                      <h5 className="text-xs font-bold text-white group-hover:text-blue-400 transition-colors">
+                      <h3 className="text-xs font-bold text-white group-hover:text-blue-400 transition-colors">
                         {act.title}
-                      </h5>
-                      <p className="text-[11px] text-slate-400">{act.detail}</p>
+                      </h3>
+                      <p className="text-xs text-slate-400">{act.detail}</p>
                     </div>
                   </div>
 
@@ -403,7 +391,7 @@ const Dashboard = () => {
                         e.stopPropagation();
                         navigate(link);
                       }}
-                      className="px-2.5 py-1 rounded-lg bg-blue-600/20 border border-blue-500/30 text-blue-300 hover:bg-blue-600 hover:text-white text-xs font-bold transition-all flex items-center gap-1 cursor-pointer"
+                      className="px-2.5 py-1 rounded-lg bg-blue-600/20 border border-blue-500/30 text-blue-400 hover:bg-blue-600 hover:text-white text-xs font-bold transition-all flex items-center gap-1 cursor-pointer"
                     >
                       <span>Review</span>
                       <ArrowRight className="h-3 w-3" />

@@ -285,7 +285,7 @@ const ResumeAnalyzer = () => {
               <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 mt-6 pt-6 border-t border-slate-800">
                 {Object.entries(analysisData.category_scores).map(([category, score]) => (
                   <div key={category} className="rounded-xl bg-slate-950/70 border border-slate-800/80 p-3 text-center">
-                    <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 truncate">
+                    <p className="text-xs font-medium capitalize text-slate-400">
                       {category.replace('_', ' ')}
                     </p>
                     <p className="text-base font-extrabold text-white mt-1">{score}</p>
@@ -298,8 +298,8 @@ const ResumeAnalyzer = () => {
           {/* Strengths, Weaknesses, Suggestions 3-Column Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Strengths */}
-            <div className="rounded-2xl border border-emerald-500/30 bg-emerald-950/10 p-5 shadow-lg space-y-3">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-2">
+            <div className="rounded-2xl border border-emerald-500/30 bg-emerald-950/10 resume-card-ok p-5 shadow-lg space-y-3">
+              <h4 className="text-sm font-bold text-emerald-400 flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-emerald-400" />
                 Key Strengths ({analysisData.strengths?.length || 0})
               </h4>
@@ -314,8 +314,8 @@ const ResumeAnalyzer = () => {
             </div>
 
             {/* Weaknesses */}
-            <div className="rounded-2xl border border-rose-500/30 bg-rose-950/10 p-5 shadow-lg space-y-3">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-rose-400 flex items-center gap-2">
+            <div className="rounded-2xl border border-rose-500/30 bg-rose-950/10 resume-card-bad p-5 shadow-lg space-y-3">
+              <h4 className="text-sm font-bold text-rose-400 flex items-center gap-2">
                 <AlertTriangle className="h-4 w-4 text-rose-400" />
                 Identified Weaknesses ({analysisData.weaknesses?.length || 0})
               </h4>
@@ -330,8 +330,8 @@ const ResumeAnalyzer = () => {
             </div>
 
             {/* Suggestions */}
-            <div className="rounded-2xl border border-amber-500/30 bg-amber-950/10 p-5 shadow-lg space-y-3">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-2">
+            <div className="rounded-2xl border border-amber-500/30 bg-amber-950/10 resume-card-warn p-5 shadow-lg space-y-3">
+              <h4 className="text-sm font-bold text-amber-400 flex items-center gap-2">
                 <Lightbulb className="h-4 w-4 text-amber-400" />
                 Actionable Improvements ({analysisData.suggestions?.length || 0})
               </h4>

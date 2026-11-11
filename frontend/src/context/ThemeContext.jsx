@@ -1,13 +1,14 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 
-const STORAGE_KEY = 'ppp-theme';
-const ThemeContext = createContext({ theme: 'night', toggleTheme: () => {} });
+// New key so earlier saved "night" choices do not hide the Day redesign.
+const STORAGE_KEY = 'ppp-theme-v2';
+const ThemeContext = createContext({ theme: 'day', toggleTheme: () => {} });
 
 const readTheme = () => {
   try {
-    return localStorage.getItem(STORAGE_KEY) === 'day' ? 'day' : 'night';
+    return localStorage.getItem(STORAGE_KEY) === 'night' ? 'night' : 'day';
   } catch {
-    return 'night';
+    return 'day';
   }
 };
 
