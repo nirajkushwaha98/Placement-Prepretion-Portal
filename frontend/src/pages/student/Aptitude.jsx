@@ -221,7 +221,7 @@ const Aptitude = () => {
                     : 'bg-slate-900/90 text-slate-300 border border-slate-800 hover:border-slate-700 hover:text-white'
                   }`}
               >
-                {comp.icon && <span>{comp.icon}</span>}
+                <Building2 className="h-3.5 w-3.5" />
                 <span>{comp.name}</span>
               </button>
             );

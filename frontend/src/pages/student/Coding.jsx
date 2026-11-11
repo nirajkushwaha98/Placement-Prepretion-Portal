@@ -187,7 +187,7 @@ const Coding = () => {
             ) : (
               <Sparkles className="h-4 w-4 text-amber-400" />
             )}
-            <span>⚡ Generate Custom Challenge</span>
+            <span>Generate Custom Challenge</span>
           </button>
 
           <div className="flex items-center gap-3 px-4 py-2 rounded-xl border border-blue-500/30 bg-blue-500/10 text-blue-300">
@@ -229,7 +229,7 @@ const Coding = () => {
           }`}
         >
           <Play className="h-4 w-4 fill-current text-emerald-400" />
-          <span>⚡ Universal Multi-Language Code Runner</span>
+          <span>Universal Multi-Language Code Runner</span>
           <span className="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-mono">
             20+ Langs
           </span>
@@ -261,7 +261,7 @@ const Coding = () => {
                         : 'bg-slate-900/90 text-slate-300 border border-slate-800 hover:border-slate-700 hover:text-white'
                     }`}
                   >
-                    <span>{topic.icon}</span>
+                    <Layers className="h-3.5 w-3.5" />
                     <span>{topic.label}</span>
                   </button>
                 );

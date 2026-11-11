@@ -1,16 +1,19 @@
 import React from 'react';
 import Badge from './Badge';
+import { useTheme, getChartColors } from '../context/ThemeContext';
 
 const ReadinessGauge = ({ score = 0, tier = 'Beginner', moduleScores = {}, size = 'md' }) => {
+  const { theme } = useTheme();
+  const cc = getChartColors(theme);
   const clampedScore = Math.min(100, Math.max(0, Math.round(score)));
 
   // Color calculation based on tier / score
   const getTierColor = () => {
-    if (clampedScore >= 91) return { stroke: '#10b981', text: 'text-emerald-400', badge: 'success' };
-    if (clampedScore >= 76) return { stroke: '#3b82f6', text: 'text-blue-400', badge: 'primary' };
-    if (clampedScore >= 61) return { stroke: '#8b5cf6', text: 'text-purple-400', badge: 'purple' };
-    if (clampedScore >= 41) return { stroke: '#f59e0b', text: 'text-amber-400', badge: 'warning' };
-    return { stroke: '#f43f5e', text: 'text-rose-400', badge: 'danger' };
+    if (clampedScore >= 91) return { stroke: cc.gauge[0], text: 'text-emerald-400', badge: 'success' };
+    if (clampedScore >= 76) return { stroke: cc.gauge[1], text: 'text-blue-400', badge: 'primary' };
+    if (clampedScore >= 61) return { stroke: cc.gauge[2], text: 'text-purple-400', badge: 'purple' };
+    if (clampedScore >= 41) return { stroke: cc.gauge[3], text: 'text-amber-400', badge: 'warning' };
+    return { stroke: cc.gauge[4], text: 'text-rose-400', badge: 'danger' };
   };
 
   const colors = getTierColor();
@@ -29,7 +32,7 @@ const ReadinessGauge = ({ score = 0, tier = 'Beginner', moduleScores = {}, size 
             cx="80"
             cy="80"
             r={radius}
-            stroke="#1e293b"
+            stroke={cc.track}
             strokeWidth="12"
             fill="transparent"
           />

@@ -16,9 +16,12 @@ import {
   Tooltip, CartesianGrid, BarChart, Bar, RadarChart,
   PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar
 } from 'recharts';
+import { useTheme, getChartColors } from '../../context/ThemeContext';
 
 const Dashboard = () => {
   const { user } = useAuth();
+  const { theme } = useTheme();
+  const cc = getChartColors(theme);
   const navigate = useNavigate();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -276,15 +279,15 @@ const Dashboard = () => {
             {progress_charts?.line_chart_data && (
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={progress_charts.line_chart_data}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
-                  <XAxis dataKey="date" stroke="#64748b" fontSize={11} />
-                  <YAxis domain={[0, 100]} stroke="#64748b" fontSize={11} />
+                  <CartesianGrid strokeDasharray="3 3" stroke={cc.grid} />
+                  <XAxis dataKey="date" stroke={cc.axis} fontSize={11} />
+                  <YAxis domain={[0, 100]} stroke={cc.axis} fontSize={11} />
                   <Tooltip
-                    contentStyle={{ backgroundColor: '#0f172a', borderColor: '#334155', borderRadius: '8px', fontSize: '12px' }}
+                    contentStyle={{ backgroundColor: cc.tooltipBg, borderColor: cc.tooltipBorder, color: cc.tooltipText, borderRadius: '8px', fontSize: '12px' }}
                   />
-                  <Line type="monotone" dataKey="readiness" stroke="#3b82f6" strokeWidth={2.5} name="Readiness Index" />
-                  <Line type="monotone" dataKey="aptitude" stroke="#8b5cf6" strokeWidth={2} strokeDasharray="4 4" name="Aptitude %" />
-                  <Line type="monotone" dataKey="interview" stroke="#10b981" strokeWidth={2} strokeDasharray="2 2" name="Interview Score" />
+                  <Line type="monotone" dataKey="readiness" stroke={cc.primary} strokeWidth={2.5} name="Readiness Index" />
+                  <Line type="monotone" dataKey="aptitude" stroke={cc.secondary} strokeWidth={2} strokeDasharray="4 4" name="Aptitude %" />
+                  <Line type="monotone" dataKey="interview" stroke={cc.tertiary} strokeWidth={2} strokeDasharray="2 2" name="Interview Score" />
                 </LineChart>
               </ResponsiveContainer>
             )}
@@ -307,14 +310,14 @@ const Dashboard = () => {
             {progress_charts?.radar_chart_data && (
               <ResponsiveContainer width="100%" height="100%">
                 <RadarChart data={progress_charts.radar_chart_data}>
-                  <PolarGrid stroke="#334155" />
-                  <PolarAngleAxis dataKey="subject" stroke="#94a3b8" fontSize={10} />
-                  <PolarRadiusAxis domain={[0, 100]} stroke="#475569" fontSize={9} />
+                  <PolarGrid stroke={cc.polar} />
+                  <PolarAngleAxis dataKey="subject" stroke={cc.axis} fontSize={10} />
+                  <PolarRadiusAxis domain={[0, 100]} stroke={cc.radiusAxis} fontSize={9} />
                   <Radar
                     name="Student Score"
                     dataKey="score"
-                    stroke="#8b5cf6"
-                    fill="#8b5cf6"
+                    stroke={cc.primary}
+                    fill={cc.primary}
                     fillOpacity={0.35}
                   />
                 </RadarChart>

@@ -13,9 +13,12 @@ import {
   ResponsiveContainer, BarChart, Bar, XAxis, YAxis,
   Tooltip, CartesianGrid, Cell
 } from 'recharts';
+import { useTheme, getChartColors } from '../../context/ThemeContext';
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
+  const { theme } = useTheme();
+  const cc = getChartColors(theme);
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -42,11 +45,11 @@ const AdminDashboard = () => {
   const { metrics = {}, averages = {}, readiness_distribution = [] } = data || {};
 
   const tierColors = {
-    Beginner: '#f43f5e',
-    Developing: '#f59e0b',
-    Good: '#8b5cf6',
-    'Placement Ready': '#3b82f6',
-    Excellent: '#10b981',
+    Beginner: cc.tiers[0],
+    Developing: cc.tiers[1],
+    Good: cc.tiers[2],
+    'Placement Ready': cc.tiers[3],
+    Excellent: cc.tiers[4],
   };
 
   return (
@@ -193,13 +196,13 @@ const AdminDashboard = () => {
           <div className="h-60 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={readiness_distribution}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
-                <XAxis dataKey="tier" stroke="#94a3b8" fontSize={10} />
-                <YAxis stroke="#94a3b8" fontSize={10} allowDecimals={false} />
-                <Tooltip contentStyle={{ backgroundColor: '#0f172a', borderColor: '#334155', borderRadius: '8px', fontSize: '12px' }} />
+                <CartesianGrid strokeDasharray="3 3" stroke={cc.grid} />
+                <XAxis dataKey="tier" stroke={cc.axis} fontSize={10} />
+                <YAxis stroke={cc.axis} fontSize={10} allowDecimals={false} />
+                <Tooltip contentStyle={{ backgroundColor: cc.tooltipBg, borderColor: cc.tooltipBorder, color: cc.tooltipText, borderRadius: '8px', fontSize: '12px' }} />
                 <Bar dataKey="count" radius={[6, 6, 0, 0]} name="Students">
                   {readiness_distribution.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={tierColors[entry.tier] || '#3b82f6'} />
+                    <Cell key={`cell-${index}`} fill={tierColors[entry.tier] || cc.primary} />
                   ))}
                 </Bar>
               </BarChart>

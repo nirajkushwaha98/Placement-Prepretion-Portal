@@ -1,11 +1,13 @@
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
-import { Menu, Bell, Search, Flame } from 'lucide-react';
+import { Menu, Flame, Sun, Moon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useTheme } from '../context/ThemeContext';
 
 const Navbar = ({ onMobileMenuClick }) => {
   const { user, isStudent, isAdmin } = useAuth();
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <header className="sticky top-0 z-30 flex h-16 w-full items-center justify-between border-b border-slate-800 bg-slate-900/80 px-4 sm:px-6 backdrop-blur-md">
@@ -33,6 +35,15 @@ const Navbar = ({ onMobileMenuClick }) => {
             <span>Daily Streak Active</span>
           </div>
         )}
+
+        <button
+          onClick={toggleTheme}
+          aria-label={theme === 'day' ? 'Switch to night mode' : 'Switch to day mode'}
+          title={theme === 'day' ? 'Night mode' : 'Day mode'}
+          className="rounded-lg p-2 text-slate-400 hover:bg-slate-800 hover:text-white transition-colors cursor-pointer"
+        >
+          {theme === 'day' ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+        </button>
 
         <button
           onClick={() => navigate(isAdmin ? '/admin/profile' : '/profile')}

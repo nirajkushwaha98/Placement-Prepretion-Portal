@@ -53,7 +53,7 @@ const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
       )}
 
       <aside
-        className={`fixed top-0 bottom-0 left-0 z-40 flex w-64 flex-col border-r border-slate-800 bg-slate-900/95 backdrop-blur-md transition-transform duration-300 lg:translate-x-0 ${
+        className={`app-sidebar fixed top-0 bottom-0 left-0 z-40 flex w-64 flex-col border-r border-slate-800 bg-slate-900/95 backdrop-blur-md transition-transform duration-300 lg:translate-x-0 ${
           isMobileOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
