@@ -15,9 +15,7 @@ import Aptitude from './pages/student/Aptitude';
 import AptitudeRunner from './pages/student/AptitudeRunner';
 import Coding from './pages/student/Coding';
 import CodingWorkspace from './pages/student/CodingWorkspace';
-import DSASheet from './pages/student/DSASheet';
 import ResumeAnalyzer from './pages/student/ResumeAnalyzer';
-import JobMatcher from './pages/student/JobMatcher';
 import InterviewPrep from './pages/student/InterviewPrep';
 import MockInterview from './pages/student/MockInterview';
 import Progress from './pages/student/Progress';
@@ -56,12 +54,8 @@ function App() {
                   <Route path="/aptitude/review/:attemptId" element={<AptitudeRunner isReviewMode={true} />} />
                   <Route path="/coding" element={<Coding />} />
                   <Route path="/coding/:problemId" element={<CodingWorkspace />} />
-                  <Route path="/dsa-sheet" element={<DSASheet />} />
                   <Route path="/resume" element={<ResumeAnalyzer />} />
-                  <Route path="/job-match" element={<JobMatcher />} />
-                  <Route path="/job-matcher" element={<Navigate to="/job-match" replace />} />
                   <Route path="/resume-analyzer" element={<Navigate to="/resume" replace />} />
-                  <Route path="/dsa" element={<Navigate to="/dsa-sheet" replace />} />
                   <Route path="/interviews" element={<Navigate to="/interview" replace />} />
                   <Route path="/interview" element={<InterviewPrep />} />
                   <Route path="/interview/practice/:questionId" element={<MockInterview />} />
